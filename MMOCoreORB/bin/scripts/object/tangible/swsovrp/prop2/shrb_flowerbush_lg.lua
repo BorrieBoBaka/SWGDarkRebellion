@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_shrb_flowerbush_lg = object_tangible_swsovrp_prop2_shared_shrb_flowerbush_lg:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_shrb_flowerbush_lg, "object/tangible/swsovrp/prop2/shrb_flowerbush_lg.iff")

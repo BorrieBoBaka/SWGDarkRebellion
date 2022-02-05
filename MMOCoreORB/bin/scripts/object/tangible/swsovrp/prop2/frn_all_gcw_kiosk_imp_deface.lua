@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_frn_all_gcw_kiosk_imp_deface = object_tangible_swsovrp_prop2_shared_frn_all_gcw_kiosk_imp_deface:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_frn_all_gcw_kiosk_imp_deface, "object/tangible/swsovrp/prop2/frn_all_gcw_kiosk_imp_deface.iff")

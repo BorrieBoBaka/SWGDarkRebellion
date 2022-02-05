@@ -1,0 +1,4 @@
+object_tangible_swsovrp_custom_frn_all_rp_spotlight = object_tangible_swsovrp_custom_shared_frn_all_rp_spotlight:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_custom_frn_all_rp_spotlight, "object/tangible/swsovrp/custom/frn_all_rp_spotlight.iff")

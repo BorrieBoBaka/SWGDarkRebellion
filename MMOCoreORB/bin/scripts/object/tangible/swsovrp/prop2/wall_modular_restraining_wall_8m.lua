@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_wall_modular_restraining_wall_8m = object_tangible_swsovrp_prop2_shared_wall_modular_restraining_wall_8m:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_wall_modular_restraining_wall_8m, "object/tangible/swsovrp/prop2/wall_modular_restraining_wall_8m.iff")

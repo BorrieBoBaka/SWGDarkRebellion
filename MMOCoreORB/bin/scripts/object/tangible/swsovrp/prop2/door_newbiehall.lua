@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_door_newbiehall = object_tangible_swsovrp_prop2_shared_door_newbiehall:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_door_newbiehall, "object/tangible/swsovrp/prop2/door_newbiehall.iff")

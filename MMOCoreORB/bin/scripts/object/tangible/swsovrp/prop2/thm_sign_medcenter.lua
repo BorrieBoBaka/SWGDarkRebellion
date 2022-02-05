@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_thm_sign_medcenter = object_tangible_swsovrp_prop2_shared_thm_sign_medcenter:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_thm_sign_medcenter, "object/tangible/swsovrp/prop2/thm_sign_medcenter.iff")

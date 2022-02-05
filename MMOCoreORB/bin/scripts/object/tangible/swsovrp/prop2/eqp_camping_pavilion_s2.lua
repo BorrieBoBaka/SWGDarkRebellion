@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_eqp_camping_pavilion_s2 = object_tangible_swsovrp_prop2_shared_eqp_camping_pavilion_s2:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_eqp_camping_pavilion_s2, "object/tangible/swsovrp/prop2/eqp_camping_pavilion_s2.iff")

@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_flow_iceplantflowers_s02 = object_tangible_swsovrp_prop2_shared_flow_iceplantflowers_s02:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_flow_iceplantflowers_s02, "object/tangible/swsovrp/prop2/flow_iceplantflowers_s02.iff")

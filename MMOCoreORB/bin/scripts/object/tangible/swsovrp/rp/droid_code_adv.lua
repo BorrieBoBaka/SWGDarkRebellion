@@ -1,0 +1,4 @@
+object_tangible_swsovrp_rp_droid_code_adv = object_tangible_swsovrp_rp_shared_droid_code_adv:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_rp_droid_code_adv, "object/tangible/swsovrp/rp/droid_code_adv.iff")

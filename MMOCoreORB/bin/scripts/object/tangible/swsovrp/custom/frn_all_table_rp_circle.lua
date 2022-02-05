@@ -1,0 +1,4 @@
+object_tangible_swsovrp_custom_frn_all_table_rp_circle = object_tangible_swsovrp_custom_shared_frn_all_table_rp_circle:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_custom_frn_all_table_rp_circle, "object/tangible/swsovrp/custom/frn_all_table_rp_circle.iff")

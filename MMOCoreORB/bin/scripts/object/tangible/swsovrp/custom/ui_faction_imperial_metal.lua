@@ -1,0 +1,4 @@
+object_tangible_swsovrp_custom_ui_faction_imperial_metal = object_tangible_swsovrp_custom_shared_ui_faction_imperial_metal:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_custom_ui_faction_imperial_metal, "object/tangible/swsovrp/custom/ui_faction_imperial_metal.iff")

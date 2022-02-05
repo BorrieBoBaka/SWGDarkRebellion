@@ -1,0 +1,5 @@
+object_tangible_swsovrp_banner_banner_galliance = object_tangible_swsovrp_banner_shared_banner_galliance:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_banner_banner_galliance, "object/tangible/swsovrp/banner/banner_galliance.iff")

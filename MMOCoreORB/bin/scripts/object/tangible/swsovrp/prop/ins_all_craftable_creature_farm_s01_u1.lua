@@ -1,0 +1,5 @@
+object_tangible_swsovrp_prop_ins_all_craftable_creature_farm_s01_u1 = object_tangible_swsovrp_prop_shared_ins_all_craftable_creature_farm_s01_u1:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop_ins_all_craftable_creature_farm_s01_u1, "object/tangible/swsovrp/prop/ins_all_craftable_creature_farm_s01_u1.iff")

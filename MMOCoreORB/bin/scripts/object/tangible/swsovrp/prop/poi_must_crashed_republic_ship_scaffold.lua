@@ -1,0 +1,5 @@
+object_tangible_swsovrp_prop_poi_must_crashed_republic_ship_scaffold = object_tangible_swsovrp_prop_shared_poi_must_crashed_republic_ship_scaffold:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop_poi_must_crashed_republic_ship_scaffold, "object/tangible/swsovrp/prop/poi_must_crashed_republic_ship_scaffold.iff")

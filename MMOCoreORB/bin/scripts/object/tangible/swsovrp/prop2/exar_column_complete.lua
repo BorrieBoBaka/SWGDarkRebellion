@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_exar_column_complete = object_tangible_swsovrp_prop2_shared_exar_column_complete:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_exar_column_complete, "object/tangible/swsovrp/prop2/exar_column_complete.iff")

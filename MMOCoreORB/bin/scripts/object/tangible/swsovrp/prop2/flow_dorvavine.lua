@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_flow_dorvavine = object_tangible_swsovrp_prop2_shared_flow_dorvavine:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_flow_dorvavine, "object/tangible/swsovrp/prop2/flow_dorvavine.iff")

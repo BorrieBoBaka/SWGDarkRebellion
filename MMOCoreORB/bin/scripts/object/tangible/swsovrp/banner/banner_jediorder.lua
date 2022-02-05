@@ -1,0 +1,5 @@
+object_tangible_swsovrp_banner_banner_jediorder = object_tangible_swsovrp_banner_shared_banner_jediorder:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_banner_banner_jediorder, "object/tangible/swsovrp/banner/banner_jediorder.iff")

@@ -1,0 +1,4 @@
+object_tangible_swsovrp_custom_ui_ace_logo = object_tangible_swsovrp_custom_shared_ui_ace_logo:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_custom_ui_ace_logo, "object/tangible/swsovrp/custom/ui_ace_logo.iff")

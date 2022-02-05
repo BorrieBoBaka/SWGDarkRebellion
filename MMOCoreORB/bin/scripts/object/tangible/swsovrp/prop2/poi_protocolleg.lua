@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_poi_protocolleg = object_tangible_swsovrp_prop2_shared_poi_protocolleg:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_poi_protocolleg, "object/tangible/swsovrp/prop2/poi_protocolleg.iff")

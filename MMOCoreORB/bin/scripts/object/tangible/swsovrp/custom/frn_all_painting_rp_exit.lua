@@ -1,0 +1,4 @@
+object_tangible_swsovrp_custom_frn_all_painting_rp_exit = object_tangible_swsovrp_custom_shared_frn_all_painting_rp_exit:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_custom_frn_all_painting_rp_exit, "object/tangible/swsovrp/custom/frn_all_painting_rp_exit.iff")

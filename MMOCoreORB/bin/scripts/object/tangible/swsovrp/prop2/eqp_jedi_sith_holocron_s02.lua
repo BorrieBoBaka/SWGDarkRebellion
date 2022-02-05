@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_eqp_jedi_sith_holocron_s02 = object_tangible_swsovrp_prop2_shared_eqp_jedi_sith_holocron_s02:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_eqp_jedi_sith_holocron_s02, "object/tangible/swsovrp/prop2/eqp_jedi_sith_holocron_s02.iff")

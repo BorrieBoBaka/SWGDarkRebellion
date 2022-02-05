@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_corellian_corvette_radar_s01 = object_tangible_swsovrp_prop2_shared_corellian_corvette_radar_s01:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_corellian_corvette_radar_s01, "object/tangible/swsovrp/prop2/corellian_corvette_radar_s01.iff")

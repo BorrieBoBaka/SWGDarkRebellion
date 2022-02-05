@@ -1,0 +1,4 @@
+object_tangible_swsovrp_custom_frn_all_painting_rp_welcome = object_tangible_swsovrp_custom_shared_frn_all_painting_rp_welcome:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_custom_frn_all_painting_rp_welcome, "object/tangible/swsovrp/custom/frn_all_painting_rp_welcome.iff")

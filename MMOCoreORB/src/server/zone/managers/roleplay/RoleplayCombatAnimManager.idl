@@ -1,0 +1,25 @@
+/*
+				Copyright <SWGEmu>
+		See file COPYING for copying conditions.
+        
+        Written by Borrie BoBaka*/
+
+package server.zone.managers.roleplay;
+
+import engine.core.ManagedService;
+import engine.log.Logger;
+import server.zone.ZoneServer;
+
+class RoleplayCombatAnimManager extends ManagedService implements Logger {
+	private transient ZoneServer zoneServer;
+
+    public RoleplayCombatAnimManager(ZoneServer zserv) {
+		Logger.setLoggingName("ReactionManager");
+		Logger.setLogging(true);
+
+		zoneServer = zserv;
+	}
+
+    public native void loadLuaConfig();
+
+}

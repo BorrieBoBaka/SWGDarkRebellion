@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_speeder_bike_destroyed = object_tangible_swsovrp_prop2_shared_speeder_bike_destroyed:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_speeder_bike_destroyed, "object/tangible/swsovrp/prop2/speeder_bike_destroyed.iff")

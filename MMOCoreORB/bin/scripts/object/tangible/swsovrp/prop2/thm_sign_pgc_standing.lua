@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_thm_sign_pgc_standing = object_tangible_swsovrp_prop2_shared_thm_sign_pgc_standing:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_thm_sign_pgc_standing, "object/tangible/swsovrp/prop2/thm_sign_pgc_standing.iff")

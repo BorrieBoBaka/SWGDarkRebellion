@@ -1,0 +1,4 @@
+object_building_general_bunker_imperial_deep_chasm = object_building_general_shared_bunker_imperial_deep_chasm:new {
+
+}
+ObjectTemplates:addTemplate(object_building_general_bunker_imperial_deep_chasm, "object/building/general/bunker_imperial_deep_chasm.iff")

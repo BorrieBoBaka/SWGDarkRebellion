@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_eqp_schematic_motivator = object_tangible_swsovrp_prop2_shared_eqp_schematic_motivator:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_eqp_schematic_motivator, "object/tangible/swsovrp/prop2/eqp_schematic_motivator.iff")

@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_jabba_windchime = object_tangible_swsovrp_prop2_shared_jabba_windchime:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_jabba_windchime, "object/tangible/swsovrp/prop2/jabba_windchime.iff")

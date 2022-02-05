@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_shrb_giantlickbush_blue = object_tangible_swsovrp_prop2_shared_shrb_giantlickbush_blue:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_shrb_giantlickbush_blue, "object/tangible/swsovrp/prop2/shrb_giantlickbush_blue.iff")

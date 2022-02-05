@@ -1,0 +1,4 @@
+object_building_player_sp_player_house_jabbas_sail_barge = object_building_player_sp_shared_player_house_jabbas_sail_barge:new {
+
+}
+ObjectTemplates:addTemplate(object_building_player_sp_player_house_jabbas_sail_barge, "object/building/player_sp/player_house_jabbas_sail_barge.iff")

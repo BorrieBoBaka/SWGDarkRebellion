@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_cargo_freighter_crate_s03 = object_tangible_swsovrp_prop2_shared_cargo_freighter_crate_s03:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_cargo_freighter_crate_s03, "object/tangible/swsovrp/prop2/cargo_freighter_crate_s03.iff")

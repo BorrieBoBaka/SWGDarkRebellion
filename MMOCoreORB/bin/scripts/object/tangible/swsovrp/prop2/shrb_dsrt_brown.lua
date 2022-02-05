@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_shrb_dsrt_brown = object_tangible_swsovrp_prop2_shared_shrb_dsrt_brown:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_shrb_dsrt_brown, "object/tangible/swsovrp/prop2/shrb_dsrt_brown.iff")

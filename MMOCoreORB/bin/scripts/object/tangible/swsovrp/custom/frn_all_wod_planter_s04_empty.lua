@@ -1,0 +1,4 @@
+object_tangible_swsovrp_custom_frn_all_wod_planter_s04_empty = object_tangible_swsovrp_custom_frn_all_wod_planter_s04_empty:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_custom_frn_all_wod_planter_s04_empty, "object/tangible/swsovrp/custom/frn_all_wod_planter_s04_empty.iff")

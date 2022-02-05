@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_baby_colo_claw_fish = object_tangible_swsovrp_prop2_shared_baby_colo_claw_fish:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_baby_colo_claw_fish, "object/tangible/swsovrp/prop2/baby_colo_claw_fish.iff")

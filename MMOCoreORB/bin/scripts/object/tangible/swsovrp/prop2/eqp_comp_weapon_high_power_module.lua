@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_eqp_comp_weapon_high_power_module = object_tangible_swsovrp_prop2_shared_eqp_comp_weapon_high_power_module:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_eqp_comp_weapon_high_power_module, "object/tangible/swsovrp/prop2/eqp_comp_weapon_high_power_module.iff")

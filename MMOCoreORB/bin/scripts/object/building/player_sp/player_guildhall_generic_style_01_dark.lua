@@ -1,0 +1,4 @@
+object_building_player_sp_player_guildhall_generic_style_01_dark = object_building_player_sp_shared_player_guildhall_generic_style_01_dark:new {
+
+}
+ObjectTemplates:addTemplate(object_building_player_sp_player_guildhall_generic_style_01_dark, "object/building/player_sp/player_guildhall_generic_style_01_dark.iff")

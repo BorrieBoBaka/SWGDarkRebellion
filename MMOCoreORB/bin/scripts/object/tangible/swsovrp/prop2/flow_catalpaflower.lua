@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_flow_catalpaflower = object_tangible_swsovrp_prop2_shared_flow_catalpaflower:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_flow_catalpaflower, "object/tangible/swsovrp/prop2/flow_catalpaflower.iff")

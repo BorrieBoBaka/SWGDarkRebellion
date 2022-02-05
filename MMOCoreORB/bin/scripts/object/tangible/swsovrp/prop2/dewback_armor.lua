@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_dewback_armor = object_tangible_swsovrp_prop2_shared_dewback_armor:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_dewback_armor, "object/tangible/swsovrp/prop2/dewback_armor.iff")

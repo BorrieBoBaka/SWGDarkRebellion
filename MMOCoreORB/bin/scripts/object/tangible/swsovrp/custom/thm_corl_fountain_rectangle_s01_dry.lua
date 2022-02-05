@@ -1,0 +1,4 @@
+object_tangible_swsovrp_custom_thm_corl_fountain_rectangle_s01_dry = object_tangible_swsovrp_custom_shared_thm_corl_fountain_rectangle_s01_dry:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_custom_thm_corl_fountain_rectangle_s01_dry, "object/tangible/swsovrp/custom/thm_corl_fountain_rectangle_s01_dry.iff")

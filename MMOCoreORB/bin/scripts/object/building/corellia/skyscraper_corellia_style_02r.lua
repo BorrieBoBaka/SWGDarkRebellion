@@ -1,0 +1,4 @@
+object_building_corellia_skyscraper_corellia_style_02r = object_building_corellia_shared_skyscraper_corellia_style_02r:new {
+
+}
+ObjectTemplates:addTemplate(object_building_corellia_skyscraper_corellia_style_02r, "object/building/corellia/skyscraper_corellia_style_02r.iff")

@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_eqp_bomb_ch10 = object_tangible_swsovrp_prop2_shared_eqp_bomb_ch10:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_eqp_bomb_ch10, "object/tangible/swsovrp/prop2/eqp_bomb_ch10.iff")

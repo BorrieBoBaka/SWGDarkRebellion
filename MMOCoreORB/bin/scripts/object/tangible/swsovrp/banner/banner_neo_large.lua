@@ -1,0 +1,5 @@
+object_tangible_swsovrp_banner_banner_neo_large = object_tangible_swsovrp_banner_shared_banner_neo_large:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_banner_banner_neo_large, "object/tangible/swsovrp/banner/banner_neo_large.iff")

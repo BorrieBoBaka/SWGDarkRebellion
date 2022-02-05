@@ -1,0 +1,1 @@
+object_building_mustafar_structures_must_crashed_republic_ship_empty = object_building_mustafar_structures_shared_must_crashed_republic_ship_empty:new {}ObjectTemplates:addTemplate(object_building_mustafar_structures_must_crashed_republic_ship_empty, "object/building/mustafar/structures/must_crashed_republic_ship_empty.iff")

@@ -1,0 +1,4 @@
+object_tangible_swsovrp_custom_dianoga_dumpster_empty = object_tangible_swsovrp_custom_shared_dianoga_dumpster_empty:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_custom_dianoga_dumpster_empty, "object/tangible/swsovrp/custom/dianoga_dumpster_empty.iff")

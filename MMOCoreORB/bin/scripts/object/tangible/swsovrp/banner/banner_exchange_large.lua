@@ -1,0 +1,5 @@
+object_tangible_swsovrp_banner_banner_exchange_large = object_tangible_swsovrp_banner_shared_banner_exchange_large:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_banner_banner_exchange_large, "object/tangible/swsovrp/banner/banner_exchange_large.iff")

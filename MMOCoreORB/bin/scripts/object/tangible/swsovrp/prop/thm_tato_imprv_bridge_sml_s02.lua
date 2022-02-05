@@ -1,0 +1,5 @@
+object_tangible_swsovrp_prop_thm_tato_imprv_bridge_sml_s02 = object_tangible_swsovrp_prop_shared_thm_tato_imprv_bridge_sml_s02:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop_thm_tato_imprv_bridge_sml_s02, "object/tangible/swsovrp/prop/thm_tato_imprv_bridge_sml_s02.iff")

@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_poi_r4_head = object_tangible_swsovrp_prop2_shared_poi_r4_head:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_poi_r4_head, "object/tangible/swsovrp/prop2/poi_r4_head.iff")

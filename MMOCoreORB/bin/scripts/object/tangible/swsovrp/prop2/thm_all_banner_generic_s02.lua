@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_thm_all_banner_generic_s02 = object_tangible_swsovrp_prop2_shared_thm_all_banner_generic_s02:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_thm_all_banner_generic_s02, "object/tangible/swsovrp/prop2/thm_all_banner_generic_s02.iff")

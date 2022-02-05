@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_thm_all_cave_hangingmoss_a1 = object_tangible_swsovrp_prop2_shared_thm_all_cave_hangingmoss_a1:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_thm_all_cave_hangingmoss_a1, "object/tangible/swsovrp/prop2/thm_all_cave_hangingmoss_a1.iff")

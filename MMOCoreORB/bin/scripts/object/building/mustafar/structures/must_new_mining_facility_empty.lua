@@ -1,0 +1,1 @@
+object_building_mustafar_structures_must_new_mining_facility_empty = object_building_mustafar_structures_shared_must_new_mining_facility_empty:new {}ObjectTemplates:addTemplate(object_building_mustafar_structures_must_new_mining_facility_empty, "object/building/mustafar/structures/must_new_mining_facility_empty.iff")

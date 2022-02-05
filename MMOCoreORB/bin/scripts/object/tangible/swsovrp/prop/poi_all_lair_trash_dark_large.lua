@@ -1,0 +1,5 @@
+object_tangible_swsovrp_prop_poi_all_lair_trash_dark_large = object_tangible_swsovrp_prop_shared_poi_all_lair_trash_dark_large:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop_poi_all_lair_trash_dark_large, "object/tangible/swsovrp/prop/poi_all_lair_trash_dark_large.iff")

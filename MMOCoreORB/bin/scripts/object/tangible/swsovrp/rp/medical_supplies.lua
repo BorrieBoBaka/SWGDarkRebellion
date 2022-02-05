@@ -1,0 +1,4 @@
+object_tangible_swsovrp_rp_medical_supplies = object_tangible_swsovrp_rp_shared_medical_supplies:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_rp_medical_supplies, "object/tangible/swsovrp/rp/medical_supplies.iff")

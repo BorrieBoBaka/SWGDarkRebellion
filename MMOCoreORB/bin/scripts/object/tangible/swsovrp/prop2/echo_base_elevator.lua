@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_echo_base_elevator = object_tangible_swsovrp_prop2_shared_echo_base_elevator:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_echo_base_elevator, "object/tangible/swsovrp/prop2/echo_base_elevator.iff")

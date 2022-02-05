@@ -1,0 +1,4 @@
+object_tangible_swsovrp_rp_droid_motor_elegant = object_tangible_swsovrp_rp_shared_droid_motor_elegant:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_rp_droid_motor_elegant, "object/tangible/swsovrp/rp/droid_motor_elegant.iff")

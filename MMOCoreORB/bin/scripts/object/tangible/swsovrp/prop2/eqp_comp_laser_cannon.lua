@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_eqp_comp_laser_cannon = object_tangible_swsovrp_prop2_shared_eqp_comp_laser_cannon:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_eqp_comp_laser_cannon, "object/tangible/swsovrp/prop2/eqp_comp_laser_cannon.iff")

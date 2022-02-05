@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_frn_must_table_mining_s01 = object_tangible_swsovrp_prop2_shared_frn_must_table_mining_s01:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_frn_must_table_mining_s01, "object/tangible/swsovrp/prop2/frn_must_table_mining_s01.iff")

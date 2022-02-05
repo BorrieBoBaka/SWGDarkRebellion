@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_thm_spc_asteroid_bunker_energy_door_frame = object_tangible_swsovrp_prop2_shared_thm_spc_asteroid_bunker_energy_door_frame:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_thm_spc_asteroid_bunker_energy_door_frame, "object/tangible/swsovrp/prop2/thm_spc_asteroid_bunker_energy_door_frame.iff")

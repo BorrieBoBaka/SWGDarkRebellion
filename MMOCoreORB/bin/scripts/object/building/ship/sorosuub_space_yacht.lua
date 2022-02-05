@@ -1,0 +1,4 @@
+object_building_ship_sorosuub_space_yacht = object_building_ship_shared_sorosuub_space_yacht:new {
+
+}
+ObjectTemplates:addTemplate(object_building_ship_sorosuub_space_yacht, "object/building/ship/sorosuub_space_yacht.iff")

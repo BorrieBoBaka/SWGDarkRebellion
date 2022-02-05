@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_mutated_cat = object_tangible_swsovrp_prop2_shared_mutated_cat:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_mutated_cat, "object/tangible/swsovrp/prop2/mutated_cat.iff")

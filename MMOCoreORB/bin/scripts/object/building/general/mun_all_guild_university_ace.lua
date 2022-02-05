@@ -1,0 +1,4 @@
+object_building_general_mun_all_guild_university_ace = object_building_general_shared_mun_all_guild_university_ace:new {
+
+}
+ObjectTemplates:addTemplate(object_building_general_mun_all_guild_university_ace, "object/building/general/mun_all_guild_university_ace.iff")

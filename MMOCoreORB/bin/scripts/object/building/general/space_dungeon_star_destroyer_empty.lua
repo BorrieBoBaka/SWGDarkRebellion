@@ -1,0 +1,4 @@
+object_building_general_space_dungeon_star_destroyer_empty = object_building_general_shared_space_dungeon_star_destroyer_empty:new {
+
+}
+ObjectTemplates:addTemplate(object_building_general_space_dungeon_star_destroyer_empty, "object/building/general/space_dungeon_star_destroyer_empty.iff")

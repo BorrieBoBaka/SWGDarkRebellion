@@ -1,0 +1,5 @@
+object_tangible_swsovrp_prop_lambda_shuttle_static_destroyed = object_tangible_swsovrp_prop_shared_lambda_shuttle_static_destroyed:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop_lambda_shuttle_static_destroyed, "object/tangible/swsovrp/prop/lambda_shuttle_static_destroyed.iff")

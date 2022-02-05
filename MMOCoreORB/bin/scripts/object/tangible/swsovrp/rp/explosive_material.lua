@@ -1,0 +1,4 @@
+object_tangible_swsovrp_rp_explosive_material = object_tangible_swsovrp_rp_shared_explosive_material:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_rp_explosive_material, "object/tangible/swsovrp/rp/explosive_material.iff")

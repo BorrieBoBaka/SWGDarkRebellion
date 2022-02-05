@@ -1,0 +1,5 @@
+object_tangible_swsovrp_prop_poi_all_construction_metal_pile = object_tangible_swsovrp_prop_shared_poi_all_construction_metal_pile:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop_poi_all_construction_metal_pile, "object/tangible/swsovrp/prop/poi_all_construction_metal_pile.iff")

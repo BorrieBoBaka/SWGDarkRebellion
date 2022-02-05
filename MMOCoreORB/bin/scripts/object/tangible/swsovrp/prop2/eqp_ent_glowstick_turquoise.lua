@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_eqp_ent_glowstick_turquoise = object_tangible_swsovrp_prop2_shared_eqp_ent_glowstick_turquoise:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_eqp_ent_glowstick_turquoise, "object/tangible/swsovrp/prop2/eqp_ent_glowstick_turquoise.iff")

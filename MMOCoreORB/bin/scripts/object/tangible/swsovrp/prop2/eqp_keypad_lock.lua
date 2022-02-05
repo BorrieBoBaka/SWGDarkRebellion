@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_eqp_keypad_lock = object_tangible_swsovrp_prop2_shared_eqp_keypad_lock:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_eqp_keypad_lock, "object/tangible/swsovrp/prop2/eqp_keypad_lock.iff")

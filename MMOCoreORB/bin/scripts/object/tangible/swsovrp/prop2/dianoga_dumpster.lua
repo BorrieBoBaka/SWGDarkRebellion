@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_dianoga_dumpster = object_tangible_swsovrp_prop2_shared_dianoga_dumpster:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_dianoga_dumpster, "object/tangible/swsovrp/prop2/dianoga_dumpster.iff")

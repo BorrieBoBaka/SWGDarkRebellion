@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_echo_base_metal_beam = object_tangible_swsovrp_prop2_shared_echo_base_metal_beam:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_echo_base_metal_beam, "object/tangible/swsovrp/prop2/echo_base_metal_beam.iff")

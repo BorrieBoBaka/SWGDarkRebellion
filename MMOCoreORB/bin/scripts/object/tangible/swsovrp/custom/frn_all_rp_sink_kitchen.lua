@@ -1,0 +1,4 @@
+object_tangible_swsovrp_custom_frn_all_rp_sink_kitchen = object_tangible_swsovrp_custom_shared_frn_all_rp_sink_kitchen:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_custom_frn_all_rp_sink_kitchen, "object/tangible/swsovrp/custom/frn_all_rp_sink_kitchen.iff")

@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_frn_all_palpatines_chair = object_tangible_swsovrp_prop2_shared_frn_all_palpatines_chair:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_frn_all_palpatines_chair, "object/tangible/swsovrp/prop2/frn_all_palpatines_chair.iff")

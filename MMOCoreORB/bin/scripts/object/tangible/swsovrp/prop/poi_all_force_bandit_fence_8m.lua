@@ -1,0 +1,5 @@
+object_tangible_swsovrp_prop_poi_all_force_bandit_fence_8m = object_tangible_swsovrp_prop_shared_poi_all_force_bandit_fence_8m:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop_poi_all_force_bandit_fence_8m, "object/tangible/swsovrp/prop/poi_all_force_bandit_fence_8m.iff")

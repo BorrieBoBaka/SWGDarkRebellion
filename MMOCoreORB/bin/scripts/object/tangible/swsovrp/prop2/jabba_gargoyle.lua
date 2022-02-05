@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_jabba_gargoyle = object_tangible_swsovrp_prop2_shared_jabba_gargoyle:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_jabba_gargoyle, "object/tangible/swsovrp/prop2/jabba_gargoyle.iff")

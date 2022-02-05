@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_flow_endr_scrubwort = object_tangible_swsovrp_prop2_shared_flow_endr_scrubwort:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_flow_endr_scrubwort, "object/tangible/swsovrp/prop2/flow_endr_scrubwort.iff")

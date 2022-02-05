@@ -1,0 +1,5 @@
+object_tangible_swsovrp_banner_banner_sith_empire_tor = object_tangible_swsovrp_banner_shared_banner_sith_empire_tor:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_banner_banner_sith_empire_tor, "object/tangible/swsovrp/banner/banner_sith_empire_tor.iff")

@@ -1,0 +1,5 @@
+object_tangible_swsovrp_prop_golan_laser_battery_destroyed = object_tangible_swsovrp_prop_shared_golan_laser_battery_destroyed:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop_golan_laser_battery_destroyed, "object/tangible/swsovrp/prop/golan_laser_battery_destroyed.iff")

@@ -1,0 +1,5 @@
+object_tangible_swsovrp_banner_banner_blacksun = object_tangible_swsovrp_banner_shared_banner_blacksun:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_swsovrp_banner_banner_blacksun, "object/tangible/swsovrp/banner/banner_blacksun.iff")

@@ -1,0 +1,4 @@
+object_tangible_swsovrp_custom_frn_all_rp_oven = object_tangible_swsovrp_custom_shared_frn_all_rp_oven:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_custom_frn_all_rp_oven, "object/tangible/swsovrp/custom/frn_all_rp_oven.iff")

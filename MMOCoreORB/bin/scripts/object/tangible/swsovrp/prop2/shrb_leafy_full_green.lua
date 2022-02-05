@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_shrb_leafy_full_green = object_tangible_swsovrp_prop2_shared_shrb_leafy_full_green:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_shrb_leafy_full_green, "object/tangible/swsovrp/prop2/shrb_leafy_full_green.iff")

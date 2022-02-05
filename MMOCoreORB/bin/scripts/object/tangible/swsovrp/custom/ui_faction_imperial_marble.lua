@@ -1,0 +1,4 @@
+object_tangible_swsovrp_custom_ui_faction_imperial_marble = object_tangible_swsovrp_custom_shared_ui_faction_imperial_marble:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_custom_ui_faction_imperial_marble, "object/tangible/swsovrp/custom/ui_faction_imperial_marble.iff")

@@ -1,0 +1,4 @@
+object_building_ship_imperial_gunboat_player = object_building_ship_shared_imperial_gunboat_player:new {
+
+}
+ObjectTemplates:addTemplate(object_building_ship_imperial_gunboat_player, "object/building/ship/imperial_gunboat_player.iff")

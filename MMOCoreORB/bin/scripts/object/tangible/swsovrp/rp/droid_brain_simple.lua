@@ -1,0 +1,4 @@
+object_tangible_swsovrp_rp_droid_brain_simple = object_tangible_swsovrp_rp_shared_droid_brain_simple:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_rp_droid_brain_simple, "object/tangible/swsovrp/rp/droid_brain_simple.iff")

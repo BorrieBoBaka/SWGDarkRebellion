@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_poi_repairdroidtorso = object_tangible_swsovrp_prop2_shared_poi_repairdroidtorso:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_poi_repairdroidtorso, "object/tangible/swsovrp/prop2/poi_repairdroidtorso.iff")

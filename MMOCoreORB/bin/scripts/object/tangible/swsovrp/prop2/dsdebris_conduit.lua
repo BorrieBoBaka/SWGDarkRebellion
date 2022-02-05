@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_dsdebris_conduit = object_tangible_swsovrp_prop2_shared_dsdebris_conduit:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_dsdebris_conduit, "object/tangible/swsovrp/prop2/dsdebris_conduit.iff")

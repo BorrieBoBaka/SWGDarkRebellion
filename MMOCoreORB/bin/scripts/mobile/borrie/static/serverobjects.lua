@@ -1,0 +1,1 @@
+includeFile("borrie/static/vendors/serverobjects.lua")

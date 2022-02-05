@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_flow_poppies_lg = object_tangible_swsovrp_prop2_shared_flow_poppies_lg:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_flow_poppies_lg, "object/tangible/swsovrp/prop2/flow_poppies_lg.iff")

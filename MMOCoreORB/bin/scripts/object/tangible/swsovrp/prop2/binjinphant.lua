@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_binjinphant = object_tangible_swsovrp_prop2_shared_binjinphant:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_binjinphant, "object/tangible/swsovrp/prop2/binjinphant.iff")

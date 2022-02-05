@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_col_fish_tank_panel = object_tangible_swsovrp_prop2_shared_col_fish_tank_panel:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_col_fish_tank_panel, "object/tangible/swsovrp/prop2/col_fish_tank_panel.iff")

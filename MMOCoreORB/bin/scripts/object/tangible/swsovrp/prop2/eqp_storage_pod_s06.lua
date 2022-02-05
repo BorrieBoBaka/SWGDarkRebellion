@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_eqp_storage_pod_s06 = object_tangible_swsovrp_prop2_shared_eqp_storage_pod_s06:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_eqp_storage_pod_s06, "object/tangible/swsovrp/prop2/eqp_storage_pod_s06.iff")

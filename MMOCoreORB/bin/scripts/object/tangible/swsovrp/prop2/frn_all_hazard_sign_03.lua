@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_frn_all_hazard_sign_03 = object_tangible_swsovrp_prop2_shared_frn_all_hazard_sign_03:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_frn_all_hazard_sign_03, "object/tangible/swsovrp/prop2/frn_all_hazard_sign_03.iff")

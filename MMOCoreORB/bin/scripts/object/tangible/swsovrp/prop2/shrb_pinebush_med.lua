@@ -1,0 +1,4 @@
+object_tangible_swsovrp_prop2_shrb_pinebush_med = object_tangible_swsovrp_prop2_shared_shrb_pinebush_med:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_swsovrp_prop2_shrb_pinebush_med, "object/tangible/swsovrp/prop2/shrb_pinebush_med.iff")
