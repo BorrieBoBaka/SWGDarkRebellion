@@ -1,12 +1,14 @@
-# SWGEmu Core3
+#Dark Rebellion RP:  SWGEmu Core3
 
 ## What is SWGEmu?
-
-Borrie BoBaka
 
 Star Wars Galaxies was a massively multi-player online role playing game introduced by Sony Online Entertainment in the year 2003 and shut down in 2011.
 It is this game the SWGEmu project focuses to recreate at a specific milestone referred to as Pre-CU, or Pre-Combat Upgrade. The Combat Upgrade was a set of game changes which radically changed the game-play, to the dislike of thousands of players. These changes led to the founding of this project, in an attempt to "recreate" the game as it was during the Pre-CU era.
 At SWGEmu, Emulator refers to the software the SWGEmu team is building. This Emulator is meant to imitate Sony Online Entertainment's server-side software, which hosted the galaxies of Star Wars Galaxies during the Pre-CU era.
+
+## What is Dark Rebellion?
+
+Dark Rebellion is a branch of Core3 originally created by Borrie BoBaka that totally converts the game into a D20-based roleplaying platform, that offers table-top-like gameplay to the already immense sandbox that SWG offers. 
 
 ## How to Build
 
