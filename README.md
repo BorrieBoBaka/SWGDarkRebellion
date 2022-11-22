@@ -1,4 +1,4 @@
-#Dark Rebellion RP:  SWGEmu Core3
+#Dark Rebellion RP SWGEmu Core3
 
 ## What is SWGEmu?
 
