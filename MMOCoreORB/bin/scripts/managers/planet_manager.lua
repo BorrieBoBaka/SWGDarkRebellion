@@ -741,6 +741,267 @@ rp_space = {
 	gcwEnabled = 0,
 }
 
+rp_sulon = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
 
+rp_abregado_rae = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
 
+rp_aeten2 = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
 
+rp_alzoc3 = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_anaxes = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_azterri = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_bespin = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_bestine = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_bonadan = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_bothawui = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_carida = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_chandrila = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_corellia = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_corulag = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_coruscant = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_dac = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_dantooine = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_dathomir = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_dynamic1 = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_dynamic2 = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_dynamic3 = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_dynamic4 = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_eriadu = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_fondor = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_fresia = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_geonosis = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_hoth = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_illum = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_jabiim = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_kashyyyk = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_kessel = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_korriban = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_kuat = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_lok = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_manaan = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_mustafar = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_naboo = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_nal_hutta = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_nar_shaddaa = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_polus = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_ryloth = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_shola = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_sullust = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_talus = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_taris = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_tatooine = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_thyferra = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_wayland = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_yavin4 = {
+	weatherEnabled = 1,
+	gcwEnabled = 0,
+}
+
+rp_ship_a = {
+	weatherEnabled = 0,
+	gcwEnabled = 0
+}
+
+rp_ship_b = {
+	weatherEnabled = 0,
+	gcwEnabled = 0
+}
+
+rp_ship_c = {
+	weatherEnabled = 0,
+	gcwEnabled = 0
+}
+
+rp_ship_d = {
+	weatherEnabled = 0,
+	gcwEnabled = 0
+}

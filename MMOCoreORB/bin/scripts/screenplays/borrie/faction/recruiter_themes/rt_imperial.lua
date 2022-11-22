@@ -1,0 +1,25 @@
+recruiter_theme = {
+	greeting = "Greetings, citizen. You seem to be lost, or are you looking to further yourself and the galaxy? Our applications are open, and we are eager to invite you into our ranks.",
+	member_greeting = "Salutations. All systems are currently online. Is there something you needed today?",
+	inquire = "We represent the might of the galaxy. The bulwark of order against the rising tide of chaotic and criminal forces. We bring peace to the galaxy, time and time again. Stand with us, and you'll stand tall. Through us, you'll become the best version of yourself that can exist.",
+	join = "Joining us today will be the best decision in your life. I guarantee this. Being part of the whole in the effort to bring peace and order is the only noble effort in the Galaxy.",
+	join_double_agent = "To foul yourself in the ranks of the enemy for the sake of victory is something to be commendated. Welcome back, hero.",
+	leave = "For many, this is a commitment for life. You would forsake the prosperity of the galaxy for your own selfish means?",
+	return_menu = "Is there anything else I can attend to for you?",
+	enemy_greeting = "You've wandered into a restricted area. I don't trust you. Vacate immediately or face arrest.",
+	ally_greeting = "Ah, you're with one of our other divisions. Welcome, guest. What can we do for you?",
+	traitor1_greeting = "Records show that you've turned against us, and have been fraternizing with the enemy. What do you have to say for yourself, traitor?",
+	traitor2_greeting = "Reporting into command. Enemy Citizen has been spotted in our vicinity. Tracking their position now. You'd best run, or better yet; turn yourself in, traitor.",	
+	requisition_options = "You can request a new uniform or a new loadout. Which do you want?",
+	get_req_uniform = "Here is your uniform appropriate for your current rank.",
+	get_req_loadout = "Here is the weapons you've been assigned.",
+	get_req_id = "I've issued you a new ID Badge. Try not to lose this one.",
+	report = "Good work. I'll submit your report to your designated authorities. Thank you for your service.",
+	promotion = "Based on your current standing with us, this is what you have available in terms of potential advancement.",
+	training = "Our training is the finest in the galaxy. Which particular school of training would you like to focus on?",
+	orders = "Here are your orders for your rank and station. Follow them well.",
+	status = "You wish to know our progress? Here is the latest report from the higher ups.",
+	training_grant = "Good. Shall we begin?",
+}
+
+BorFactionManager:addRecruiterTheme("rt_imperial", recruiter_theme)

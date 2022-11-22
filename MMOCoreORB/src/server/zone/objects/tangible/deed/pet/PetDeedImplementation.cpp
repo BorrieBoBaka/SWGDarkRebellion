@@ -43,6 +43,7 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 
 void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
 	DeedImplementation::fillAttributeList(alm, object);
+	/*
 	alm->insertAttribute("challenge_level", level);
 	alm->insertAttribute("creature_health", health);
 	alm->insertAttribute("creature_action", action);
@@ -121,6 +122,8 @@ void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 	} else
 		alm->insertAttribute("spec_atk_2", "---");
 
+	*/
+
 	CreatureTemplateManager* creatureTemplateManager = CreatureTemplateManager::instance();
 	Reference<CreatureTemplate*> petTemplate =  creatureTemplateManager->getTemplate( mobileTemplate.hashCode() );
 	bool allowRanged = false;
@@ -129,6 +132,13 @@ void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 			allowRanged = true;
 		}
 	}
+
+	if(getStoredInt("mount") == 1) {
+		alm->insertAttribute("mount", "Yes");
+	} else {
+		alm->insertAttribute("mount", "No");
+	}
+
 	if(ranged && allowRanged)
 		alm->insertAttribute("dna_comp_ranged_attack", "Yes");
 	else
@@ -403,7 +413,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 				if ((spawnedLevel + cLevel) > maxLevelofPets) {
 					player->sendSystemMessage("Taming this pet would exceed your control level ability.");
 					return 1;
-				}
+				} 
 			}
 		}
 
@@ -498,6 +508,11 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			return 1;
 		}
 
+		if(getStoredInt("mount") == 1) {
+			controlDevice->growPet(player,true,true);
+			controlDevice->trainAsMount(player);
+		}
+
 		datapad->broadcastObject(controlDevice, true);
 		controlDevice->growPet(player,true);
 		controlDevice->callObject(player);
@@ -511,6 +526,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 
 		generated = true;
 		player->sendSystemMessage("@pet/pet_menu:device_added"); // "A control device has been added to your datapad."
+
 		return 0;
 	}
 

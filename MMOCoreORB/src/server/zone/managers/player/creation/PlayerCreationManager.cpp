@@ -399,8 +399,8 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	UnicodeString bio;
 	callback->getBiography(bio);
 
-	bool doTutorial = callback->getTutorialFlag();
-	//bool doTutorial = false;
+	//bool doTutorial = callback->getTutorialFlag();
+	bool doTutorial = false;
 
 	ManagedReference<CreatureObject*> playerCreature =
 			zoneServer.get()->createObject(
@@ -585,12 +585,21 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	//Join auction chat room
 	ghost->addChatRoom(chatManager->getAuctionRoom()->getRoomID());
 
+	ChatRoom* oocRoom = chatManager->getChatRoomByFullPath("SWG.Dark Rebellion.Chat.ooc");
+	if(oocRoom != nullptr) {
+		ghost->addChatRoom(oocRoom->getRoomID());
+	}	
+
 	ManagedReference<SuiMessageBox*> box = new SuiMessageBox(playerCreature, SuiWindowType::NONE);
 	box->setPromptTitle("PLEASE NOTE");
-	box->setPromptText("You are limited to creating one character per five minutes. Attempting to create another character or deleting your character before the 5 minute timer expires will reset the timer.");
+	box->setPromptText("You are given 30 free attribute skill boxes, and 10 free skill boxes. Use /train to assign these free points to build your initial character. Plan carefully, as these free points cannot be refunded.");
 
 	ghost->addSuiBox(box);
 	playerCreature->sendMessage(box->generateMessage());
+
+	//Apply free points for roleplay.
+	playerCreature->setStoredInt("starter_attr_points", 30);
+	playerCreature->setStoredInt("starter_skill_points", 10);
 
 	return true;
 }
@@ -801,6 +810,7 @@ void PlayerCreationManager::addHair(CreatureObject* creature,
 		return;
 	}
 
+	/*
 	if (hairAssetData->getServerPlayerTemplate()
 			!= creature->getObjectTemplate()->getFullTemplateString()) {
 		error(
@@ -808,7 +818,7 @@ void PlayerCreationManager::addHair(CreatureObject* creature,
 						+ " is not compatible with this creature player "
 						+ creature->getObjectTemplate()->getFullTemplateString());
 		return;
-	}
+	} */
 
 	if (!hairAssetData->isAvailableAtCreation()) {
 		error("hair " + hairTemplate + " not available at creation");
@@ -1097,7 +1107,7 @@ void PlayerCreationManager::addRacialMods(CreatureObject* creature,
 	SkillManager::instance()->awardSkill("rp_constitution_novice", creature, false, true, true);
 	SkillManager::instance()->awardSkill("rp_mindfulness_novice", creature, false, true, true);
 
-
+	SkillManager::instance()->awardSkill("rp_bg_roleplayer", creature, false, true, true);
 
 	// Get inventory.
 	if (!equipmentOnly) {

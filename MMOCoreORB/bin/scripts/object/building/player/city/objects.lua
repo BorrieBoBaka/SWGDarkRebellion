@@ -4623,3 +4623,90 @@ object_building_player_city_shared_garden_rebel_01 = SharedInstallationObjectTem
 	clientTemplateFileName = "object/building/player/city/shared_garden_rebel_01.iff"
 }
 ObjectTemplates:addClientTemplate(object_building_player_city_shared_garden_rebel_01, "object/building/player/city/shared_garden_rebel_01.iff")
+
+object_building_player_city_shared_cantina_corellia_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cantina_corellia_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cantina_corellia_dark, "object/building/player/city/shared_cantina_corellia_dark.iff")
+--************************************************************************************************************************************************************
+object_building_player_city_shared_cantina_naboo_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cantina_naboo_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cantina_naboo_dark, "object/building/player/city/shared_cantina_naboo_dark.iff")
+--******************************************************************************************************************************************************
+object_building_player_city_shared_cantina_tatooine_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cantina_tatooine_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cantina_tatooine_dark, "object/building/player/city/shared_cantina_tatooine_dark.iff")
+--************************************************************************************************************************************************************
+object_building_player_city_shared_cityhall_corellia_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cityhall_corellia_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cityhall_corellia_dark, "object/building/player/city/shared_cityhall_corellia_dark.iff")
+--**************************************************************************************************************************************************************
+object_building_player_city_shared_cityhall_naboo_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cityhall_naboo_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cityhall_naboo_dark, "object/building/player/city/shared_cityhall_naboo_dark.iff")
+--********************************************************************************************************************************************************
+object_building_player_city_shared_cityhall_tatooine_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cityhall_tatooine_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cityhall_tatooine_dark, "object/building/player/city/shared_cityhall_tatooine_dark.iff")
+--**************************************************************************************************************************************************************
+object_building_player_city_shared_cloning_corellia_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cloning_corellia_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cloning_corellia_dark, "object/building/player/city/shared_cloning_corellia_dark.iff")
+--************************************************************************************************************************************************************
+object_building_player_city_shared_cloning_naboo_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cloning_naboo_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cloning_naboo_dark, "object/building/player/city/shared_cloning_naboo_dark.iff")
+--******************************************************************************************************************************************************
+object_building_player_city_shared_cloning_tatooine_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cloning_tatooine_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cloning_tatooine_dark, "object/building/player/city/shared_cloning_tatooine_dark.iff")
+--************************************************************************************************************************************************************
+object_building_player_city_shared_hospital_corellia_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_hospital_corellia_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_hospital_corellia_dark, "object/building/player/city/shared_hospital_corellia_dark.iff")
+--**************************************************************************************************************************************************************
+object_building_player_city_shared_hospital_naboo_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_hospital_naboo_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_hospital_naboo_dark, "object/building/player/city/shared_hospital_naboo_dark.iff")
+--********************************************************************************************************************************************************
+object_building_player_city_shared_hospital_tatooine_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_hospital_tatooine_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_hospital_tatooine_dark, "object/building/player/city/shared_hospital_tatooine_dark.iff")
+--**************************************************************************************************************************************************************
+
+object_building_player_city_shared_cantina_naboo_b = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cantina_naboo_b.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cantina_naboo_b, "object/building/player/city/shared_cantina_naboo_b.iff")
+--************************************************************************************************************************************************
+object_building_player_city_shared_cantina_naboo_c = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cantina_naboo_c.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cantina_naboo_c, "object/building/player/city/shared_cantina_naboo_c.iff")
+--************************************************************************************************************************************************
+object_building_player_city_shared_cityhall_naboo_b = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cityhall_naboo_b.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cityhall_naboo_b, "object/building/player/city/shared_cityhall_naboo_b.iff")
+--**************************************************************************************************************************************************
+object_building_player_city_shared_cloning_naboo_b = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_cloning_naboo_b.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_cloning_naboo_b, "object/building/player/city/shared_cloning_naboo_b.iff")
+--************************************************************************************************************************************************
+object_building_player_city_shared_hospital_naboo_b = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_hospital_naboo_b.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_hospital_naboo_b, "object/building/player/city/shared_hospital_naboo_b.iff")
+--**************************************************************************************************************************************************

@@ -18,6 +18,8 @@ void SharedWeaponObjectTemplate::parseVariableData(const String& varName, LuaObj
 		attackType = Lua::getIntParameter(state);
 	} else if (varName == "weaponType") {
 		weaponType = Lua::getIntParameter(state);
+	} else if(varName == "rpSkillLevel") {
+		rpSkillLevel = Lua::getIntParameter(state);
 	} else
 		templateData->pop();
 }
@@ -29,6 +31,8 @@ void SharedWeaponObjectTemplate::parseVariableData(const String& varName, Chunk*
 		weaponEffectIndex.parse(data);
 	} else if (varName == "attackType") {
 		attackType.parse(data);
+	} else if(varName == "rpSkillLevel") {
+		//rpSkillLevel.parse(data);
 	}
 }
 

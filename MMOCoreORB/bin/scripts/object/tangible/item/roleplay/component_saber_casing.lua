@@ -1,0 +1,4 @@
+object_tangible_item_roleplay_component_saber_casing = object_tangible_item_roleplay_shared_component_saber_casing:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_item_roleplay_component_saber_casing, "object/tangible/item/roleplay/component_saber_casing.iff")

@@ -37,7 +37,7 @@ public:
 		ManagedReference<CreatureObject*> targetCreature; // The Target Object as a Creature
 
 		// If we're admin, perform the animation on the target.
-		if (target != 0) {
+		if (target != 0 && adminLevelCheck > 0) {
 			object = server->getZoneServer()->getObject(target, false);
 			if (object->isCreatureObject())
 				targetCreature = object->asCreatureObject();
@@ -53,7 +53,7 @@ public:
 		if (args.hasMoreTokens()) {
 			args.getStringToken(command);
 			command = command.toLowerCase();
-			BorEffect::PlayAnim(creature, object, adminLevelCheck > 0, command);
+			BorEffect::PlayAnim(creature, targetCreature, adminLevelCheck > 0, command);
 		} else {
 			// If no arguments, pull up a list of all anims, with custom option at the top
 		}

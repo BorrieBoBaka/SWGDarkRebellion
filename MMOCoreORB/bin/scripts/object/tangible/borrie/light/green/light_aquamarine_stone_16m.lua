@@ -1,0 +1,4 @@
+object_tangible_borrie_light_green_light_aquamarine_stone_16m = object_tangible_borrie_light_green_shared_light_aquamarine_stone_16m:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrie_light_green_light_aquamarine_stone_16m, "object/tangible/borrie/light/green/light_aquamarine_stone_16m.iff")

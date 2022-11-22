@@ -208,6 +208,7 @@ public:
 	const static int DROIDDEED = 0x800004;
 	const static int VEHICLEDEED = 0x800005;
 	const static int RESOURCEDEED = 0x800006;
+	const static int RPSHIPDEED = 0x800090;
 
 	const static int CLOTHING = 0x1000000;
 	const static int BANDOLIER = 0x1000001;

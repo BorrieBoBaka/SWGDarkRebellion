@@ -107,6 +107,8 @@ public:
 
 	int getForceSensitiveSkillCount(CreatureObject* creature, bool includeNoviceMasterBoxes);
 
+	int getTrainingSkillCount(CreatureObject* creature);
+
 	void updateXpLimits(PlayerObject* ghost);
 
 	Skill* getSkill(const String& skillName) const {

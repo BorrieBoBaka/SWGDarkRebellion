@@ -1,0 +1,4 @@
+object_tangible_borrie_light_orange_light_construction_cone_orange_16m = object_tangible_borrie_light_orange_shared_light_construction_cone_orange_16m:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrie_light_orange_light_construction_cone_orange_16m, "object/tangible/borrie/light/orange/light_construction_cone_orange_16m.iff")

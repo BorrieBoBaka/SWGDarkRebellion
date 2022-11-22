@@ -82,6 +82,12 @@ Luna<LuaPlayerObject>::RegType LuaPlayerObject::Register[] = {
 		{ "startSlicingSession", &LuaPlayerObject::startSlicingSession },
 		{ "setVisibility", &LuaPlayerObject::setVisibility },
 		{ "getPlayedTimeString", &LuaPlayerObject::getPlayedTimeString },
+		{ "getFoodFilling", &LuaPlayerObject::getFoodFilling },
+		{ "getFoodFillingMax", &LuaPlayerObject::getFoodFillingMax },
+		{ "setFoodFilling", &LuaPlayerObject::setFoodFilling },
+		{ "getDrinkFilling", &LuaPlayerObject::getDrinkFilling },
+		{ "getDrinkFillingMax", &LuaPlayerObject::getDrinkFillingMax },
+		{ "setDrinkFilling", &LuaPlayerObject::setDrinkFilling },
 		{ 0, 0 }
 };
 
@@ -748,5 +754,51 @@ int LuaPlayerObject::getPlayedTimeString(lua_State* L) {
 
 	lua_pushstring(L, realObject->getPlayedTimeString(verbose).toCharArray());
 
+	return 1;
+}
+
+int LuaPlayerObject::getFoodFilling(lua_State* L) {
+	Locker locker(realObject);
+
+	lua_pushinteger(L, realObject->getFoodFilling());
+
+	return 1;
+}
+
+int LuaPlayerObject::getFoodFillingMax(lua_State* L) {
+	Locker locker(realObject);
+
+	lua_pushinteger(L, realObject->getFoodFillingMax());
+
+	return 1;
+}
+
+int LuaPlayerObject::setFoodFilling(lua_State* L) {
+	int value = lua_tointeger(L, -1);
+	Locker locker(realObject);
+	realObject->setFoodFilling(value, true);
+	return 1;
+}
+
+int LuaPlayerObject::getDrinkFilling(lua_State* L) {
+	Locker locker(realObject);
+
+	lua_pushinteger(L, realObject->getDrinkFilling());
+
+	return 1;
+}
+
+int LuaPlayerObject::getDrinkFillingMax(lua_State* L) {
+	Locker locker(realObject);
+
+	lua_pushinteger(L, realObject->getDrinkFillingMax());
+
+	return 1;
+}
+
+int LuaPlayerObject::setDrinkFilling(lua_State* L) {
+	int value = lua_tointeger(L, -1);
+	Locker locker(realObject);
+	realObject->setDrinkFilling(value, true);
 	return 1;
 }

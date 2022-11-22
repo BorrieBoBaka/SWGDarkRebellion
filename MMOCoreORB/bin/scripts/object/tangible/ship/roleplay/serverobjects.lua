@@ -1,0 +1,5 @@
+includeFile("tangible/ship/roleplay/ship_caller.lua")
+includeFile("tangible/ship/roleplay/terminal_navicomputer.lua")
+includeFile("tangible/ship/roleplay/terminal_ship_computer.lua")
+includeFile("tangible/ship/roleplay/terminal_ship_exit.lua")
+includeFile("tangible/ship/roleplay/terminal_ship_summoner.lua")

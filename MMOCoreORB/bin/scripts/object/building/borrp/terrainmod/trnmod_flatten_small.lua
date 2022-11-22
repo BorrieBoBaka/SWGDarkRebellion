@@ -1,0 +1,4 @@
+object_building_borrp_terrainmod_trnmod_flatten_small = object_building_borrp_terrainmod_shared_trnmod_flatten_small:new {
+
+}
+ObjectTemplates:addTemplate(object_building_borrp_terrainmod_trnmod_flatten_small, "object/building/borrp/terrainmod/trnmod_flatten_small.iff")

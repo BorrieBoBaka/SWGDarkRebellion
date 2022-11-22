@@ -46,6 +46,7 @@
 #include "server/zone/managers/creature/PetManager.h"
 #include "server/zone/objects/installation/harvester/HarvesterObject.h"
 #include "server/zone/objects/transaction/TransactionLog.h"
+#include "server/zone/Zone.h"
 
 namespace StorageManagerNamespace {
 	 int indexCallback(DB *secondary, const DBT *key, const DBT *data, DBT *result) {
@@ -281,10 +282,11 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 			dynamic_cast<SharedStructureObjectTemplate*>(templateManager->getTemplate(serverTemplatePath.hashCode()));
 
 	//Check to see if this zone allows this structure.
+	/*
 	if (serverTemplate == nullptr || !serverTemplate->isAllowedZone(zone->getZoneName())) {
 		creature->sendSystemMessage("@player_structure:wrong_planet"); //That deed cannot be used on this planet.
 		return 1;
-	}
+	} */
 
 	if (!planetManager->isBuildingPermittedAt(x, y, creature)) {
 		creature->sendSystemMessage("@player_structure:not_permitted"); //Building is not permitted here.
@@ -451,10 +453,12 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 	return 0;
 }
 
-StructureObject* StructureManager::placeStructure(CreatureObject* creature,
-		const String& structureTemplatePath, float x, float y, int angle, int persistenceLevel) {
+StructureObject* StructureManager::placeStructure(CreatureObject* creature, const String& structureTemplatePath, float x, float y, int angle, int persistenceLevel) {
 	ManagedReference<Zone*> zone = creature->getZone();
+	return placeStructure(creature, zone, structureTemplatePath, x, y, angle, persistenceLevel);
+}
 
+StructureObject* StructureManager::placeStructure(CreatureObject* creature, Zone* zone, const String& structureTemplatePath, float x, float y, int angle, int persistenceLevel) {
 	if (zone == nullptr)
 		return nullptr;
 

@@ -75,14 +75,14 @@ void StimPackImplementation::fillAttributeList(AttributeListMessage* msg, Creatu
 			msg->insertAttribute("healing_ability", medicineUseRequired);
 		} */
 		StringBuffer dmg;
-		dmg << dieType << "d" << dieCount;
+		dmg << dieCount << "d" << dieType;
 		msg->insertAttribute("medrp.die", dmg);
 		msg->insertAttribute("medrp.meddc", dieCheck);
 
 	} else if (isDroidRepairKit()) {
 		//msg->insertAttribute("examine_repair_energy", Math::getPrecision(effectiveness, 0));
 		StringBuffer dmg;
-		dmg << dieType << "d" << dieCount;
+		dmg << dieCount << "d" << dieType;
 		msg->insertAttribute("drdrp.die", dmg);
 		msg->insertAttribute("drdrp.drddc", dieCheck);
 	}

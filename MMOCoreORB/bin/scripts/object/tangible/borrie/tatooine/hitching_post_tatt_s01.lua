@@ -1,0 +1,4 @@
+object_tangible_borrie_tatooine_hitching_post_tatt_s01 = object_tangible_borrie_tatooine_shared_hitching_post_tatt_s01:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrie_tatooine_hitching_post_tatt_s01, "object/tangible/borrie/tatooine/hitching_post_tatt_s01.iff")

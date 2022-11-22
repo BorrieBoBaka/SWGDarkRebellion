@@ -76,6 +76,8 @@ public:
 					} else if (command == "return") {
 						// Drop follow, return home.
 						BorNPC::SetCreatureStay(targetCreature, creature);
+					} else if(command == "walk") { 
+						BorNPC::ToggleAIWalks(targetObject->asCreatureObject(), creature);					
 					}
 				} else {
 					BorNPC::SetCreatureFollow(targetCreature, creature);

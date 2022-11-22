@@ -48,6 +48,11 @@ protected:
 
 	int junkDealerNeeded;
 	int junkValue;
+	int price;
+
+	bool trainingDevice;
+	String rpTrainingSkill;
+	int rpTrainingLevel;
 
 	VectorMap<String, int> skillMods;
 
@@ -114,6 +119,18 @@ public:
 		return invisible;
 	}
 
+	inline bool isTrainingDevice() const {
+		return trainingDevice;
+	}
+
+	inline String getTrainingSkill() const {
+		return rpTrainingSkill;
+	}
+
+	inline int getTrainingLevel() const {
+		return rpTrainingLevel;
+	}
+
 	inline int getUseCount() const {
 		return useCount;
 	}
@@ -132,6 +149,10 @@ public:
 
 	inline int getJunkValue() const {
 		return junkValue;
+	}
+
+	inline int getPrice() const {
+		return price;
 	}
 
 	inline const StructureFootprint* getStructureFootprint() const {

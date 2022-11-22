@@ -184,6 +184,11 @@ object_building_heroic_shared_hoth_rebel_transport = SharedBuildingObjectTemplat
 }
 ObjectTemplates:addClientTemplate(object_building_heroic_shared_hoth_rebel_transport, "object/building/heroic/shared_hoth_rebel_transport.iff")
 --**********************************************************************************************************************************
+object_building_heroic_shared_hoth_rebel_transport_rusted = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/heroic/shared_hoth_rebel_transport_rusted.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_heroic_shared_hoth_rebel_transport_rusted, "object/building/heroic/shared_hoth_rebel_transport_rusted.iff")
+--**********************************************************************************************************************************
 object_building_heroic_shared_ig88_factory_arena = SharedBuildingObjectTemplate:new {
 	clientTemplateFileName = "object/building/heroic/shared_ig88_factory_arena.iff"
 }
@@ -280,3 +285,19 @@ object_building_heroic_shared_ig88_factory_arena_empty = SharedBuildingObjectTem
 }
 ObjectTemplates:addClientTemplate(object_building_heroic_shared_ig88_factory_arena_empty, "object/building/heroic/shared_ig88_factory_arena_empty.iff")
 --**********************************************************************************************************************************************************
+
+object_building_heroic_shared_axkva_min_lair_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/heroic/shared_axkva_min_lair_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_heroic_shared_axkva_min_lair_dark, "object/building/heroic/shared_axkva_min_lair_dark.iff")
+--**********************************************************************************************************************************************
+object_building_heroic_shared_exar_kun_tomb_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/heroic/shared_exar_kun_tomb_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_heroic_shared_exar_kun_tomb_dark, "object/building/heroic/shared_exar_kun_tomb_dark.iff")
+--********************************************************************************************************************************************
+object_building_heroic_shared_ig88_factory_arena_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/heroic/shared_ig88_factory_arena_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_heroic_shared_ig88_factory_arena_dark, "object/building/heroic/shared_ig88_factory_arena_dark.iff")
+--******************************************************************************************************************************************************

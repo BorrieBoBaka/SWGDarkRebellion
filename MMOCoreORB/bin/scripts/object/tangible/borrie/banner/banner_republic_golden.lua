@@ -1,0 +1,4 @@
+object_tangible_borrie_banner_banner_republic_golden = object_tangible_borrie_banner_shared_banner_republic_golden:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrie_banner_banner_republic_golden, "object/tangible/borrie/banner/banner_republic_golden.iff")

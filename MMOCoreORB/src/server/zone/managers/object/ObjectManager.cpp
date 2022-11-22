@@ -225,6 +225,7 @@ void ObjectManager::registerObjectTypes() {
 	objectFactory.registerObject<Terminal>(SceneObjectType::CLONING);
 	objectFactory.registerObject<Deed>(SceneObjectType::DEED);
 	objectFactory.registerObject<VehicleDeed>(SceneObjectType::VEHICLEDEED);
+	objectFactory.registerObject<RpShipDeed>(SceneObjectType::RPSHIPDEED);
 	objectFactory.registerObject<PetDeed>(SceneObjectType::PETDEED);
 	objectFactory.registerObject<DroidDeed>(SceneObjectType::DROIDDEED);
 	objectFactory.registerObject<StructureDeed>(SceneObjectType::BUILDINGDEED);
@@ -274,6 +275,7 @@ void ObjectManager::registerObjectTypes() {
 	objectFactory.registerObject<TangibleObject>(SceneObjectType::CAMOKIT);
 	objectFactory.registerObject<TangibleObject>(SceneObjectType::LIVESAMPLE);
 	objectFactory.registerObject<VehicleControlDevice>(SceneObjectType::VEHICLECONTROLDEVICE);
+	objectFactory.registerObject<RpShipControlDevice>(SceneObjectType::RPSHIPCONTROLDEVICE);
 	objectFactory.registerObject<PetControlDevice>(SceneObjectType::PETCONTROLDEVICE);
 	objectFactory.registerObject<PetControlDevice>(SceneObjectType::DROIDCONTROLDEVICE);
 	objectFactory.registerObject<ShipControlDevice>(SceneObjectType::SHIPCONTROLDEVICE);

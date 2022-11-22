@@ -1,0 +1,8 @@
+includeFile("weapon/roleplay/melee/unarmed/black_sun_razor.lua")
+includeFile("weapon/roleplay/melee/unarmed/blaster_fist.lua")
+includeFile("weapon/roleplay/melee/unarmed/ceremonial_knuckler.lua")
+includeFile("weapon/roleplay/melee/unarmed/massassi_knuckler.lua")
+includeFile("weapon/roleplay/melee/unarmed/metal_fan.lua")
+includeFile("weapon/roleplay/melee/unarmed/punch_dagger.lua")
+includeFile("weapon/roleplay/melee/unarmed/vibroknuckler.lua")
+includeFile("weapon/roleplay/melee/unarmed/wookiee_knuckler.lua")

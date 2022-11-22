@@ -63,17 +63,26 @@ public:
 				if (command == "help") {
 					HelpDisplay(creature);
 				} else if (BorSkill::GetStringIsSkill(command)) {
-					BorrieRPG::BroadcastRoll(creature, BorDice::RollSkill(creature, command));
+					if(adminLevelCheck > 0) {
+						BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, command));
+					} else {
+						BorrieRPG::BroadcastRoll(creature, targetCreature, BorDice::RollSkill(targetCreature, command));
+					}
+					
 				} else if (BorDice::GetCommandIsDie(command)) {
 					if (args.hasMoreTokens()) {
 						args.getStringToken(secondCommand);
-						Result = BorDice::RollRPDie(creature, command, Integer::valueOf(secondCommand));
+						Result = BorDice::RollRPDie(targetCreature, command, Integer::valueOf(secondCommand));
 					} else
-						Result = BorDice::RollRPDie(creature, command);
+						Result = BorDice::RollRPDie(targetCreature, command);
 					if (Result == "fail") {
 						creature->sendSystemMessage("ERROR: Attempted to roll die for " + command + " and failed.");
 					} else
-						BorrieRPG::BroadcastRoll(creature, Result);
+						if(adminLevelCheck > 0) {
+							BorrieRPG::BroadcastRoll(targetCreature, Result);
+						} else {
+							BorrieRPG::BroadcastRoll(creature, targetCreature, Result);
+						}						
 				} else {
 					throw Exception();
 				}
@@ -82,7 +91,7 @@ public:
 				ManagedReference<SuiListBox*> box = new SuiListBox(creature, SuiWindowType::JUKEBOX_SELECTION);
 				box->setCallback(new D20CommandSuiCallback(creature->getZoneServer(), target, 1, adminLevelCheck));
 				if (adminLevelCheck > 0)
-					box->setPromptTitle("D20 Dicebag Menu, Target: " + targetCreature->getFirstName());
+					box->setPromptTitle("D20 Dicebag Menu, Target: " + targetCreature->getDisplayedName());
 				else {
 					box->setPromptTitle("D20 Dicebag Menu");
 				}

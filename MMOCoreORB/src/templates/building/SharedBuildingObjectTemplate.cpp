@@ -84,7 +84,14 @@ void SharedBuildingObjectTemplate::parseVariableData(const String& varName, LuaO
 
 		luaItemList.pop();
 
-	} else {
+	} else if (varName == "entrancePoint") {
+		LuaObject entPoint(state);
+		entrancePoint.setX(entPoint.getFloatAt(1));
+		entrancePoint.setY(entPoint.getFloatAt(2));
+		entPoint.pop();
+	} else if (varName == "entranceCell") {
+		entranceCell = Lua::getIntParameter(state);
+	}else {
 
 		templateData->pop();
 	}	

@@ -1,0 +1,5 @@
+includeFile("tangible/wearables/armor/roleplay/zam/armor_zam_wesell_boots.lua")
+includeFile("tangible/wearables/armor/roleplay/zam/armor_zam_wesell_chest_plate.lua")
+includeFile("tangible/wearables/armor/roleplay/zam/armor_zam_wesell_gloves.lua")
+includeFile("tangible/wearables/armor/roleplay/zam/armor_zam_wesell_helmet.lua")
+includeFile("tangible/wearables/armor/roleplay/zam/armor_zam_wesell_pants.lua")

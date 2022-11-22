@@ -1,0 +1,1 @@
+includeFile("multipass_vehicles/passenger_flash_speeder.lua")

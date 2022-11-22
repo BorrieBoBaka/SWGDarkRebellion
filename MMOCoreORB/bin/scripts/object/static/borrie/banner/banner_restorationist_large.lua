@@ -1,0 +1,4 @@
+object_static_borrie_banner_banner_restorationist_large = object_static_borrie_banner_shared_banner_restorationist_large:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_banner_banner_restorationist_large, "object/static/borrie/banner/banner_restorationist_large.iff")

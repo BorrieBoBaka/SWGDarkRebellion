@@ -1,0 +1,4 @@
+object_building_naboo_filler_building_naboo_style_2_b = object_building_naboo_shared_filler_building_naboo_style_2_b:new {
+
+}
+ObjectTemplates:addTemplate(object_building_naboo_filler_building_naboo_style_2_b, "object/building/naboo/filler_building_naboo_style_2_b.iff")

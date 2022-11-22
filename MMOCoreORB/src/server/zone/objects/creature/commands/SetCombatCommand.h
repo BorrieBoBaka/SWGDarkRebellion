@@ -47,7 +47,8 @@ public:
 						if(targetCreature->isInCombat()) {
 							BorEffect::StopCombat(targetCreature);
 						} else {
-							BorEffect::ToggleForceAICombat(targetCreature, creature);
+							BorEffect::ForceAICombat(targetCreature, creature);
+							BorEffect::ForceIntoCombat(targetCreature);
 						}	
 					}
 				} else {

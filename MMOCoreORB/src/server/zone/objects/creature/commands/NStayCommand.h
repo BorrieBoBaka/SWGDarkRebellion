@@ -63,6 +63,7 @@ public:
 
 			if (hasOwnership) {
 				// Execute Command
+				//BorNPC::FaceCreature(targetCreature, creature); //Face the direction I'll be walking.
 				BorNPC::SendCreatureToPosition(creature, targetCreature);
 
 			} else {

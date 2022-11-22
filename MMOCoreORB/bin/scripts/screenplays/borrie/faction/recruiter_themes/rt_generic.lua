@@ -1,0 +1,25 @@
+recruiter_theme = {
+	greeting = "Hello there.",
+	member_greeting = "Hello comrade.",
+	inquire = "You should join us, it would bring you glory.",
+	join = "You would be wise to join us.",
+	join_double_agent = "We knew we could count on you. We're happy to welcome you back.",
+	leave = "You would turn your back on us?",
+	return_menu = "What else can I assist you with?",
+	enemy_greeting = "This is a restricted area. Vacate the premises immediately.",
+	ally_greeting = "Hello friend. Come to visit our establishment?",
+	traitor1_greeting = "You double crossing no good scum! I should have the guards arrest you on the spot!",
+	traitor2_greeting = "You've betrayed us for the last time! You will never be welcome back! Get lost, before we kill you!",	
+	requisition_options = "You can request a new uniform or a new loadout. Which do you want?",
+	get_req_uniform = "Here is your uniform appropriate for your current rank.",
+	get_req_loadout = "Here is the weapons you've been assigned.",
+	get_req_id = "I've issued you a new ID Badge. Try not to lose this one.",
+	report = "Thank you for reporting in. I'll let our superiors know.",
+	promotion = "Here is your current available promotion information.",
+	training = "We have these avaialble training regimens. Which would you be interested in?",
+	orders = "Here are your orders for your rank and station. Follow them well.",
+	status = "You wish to know our progress? Here is the latest report from the higher ups.",
+	training_grant = "Good. Shall we begin?",
+}
+
+BorFactionManager:addRecruiterTheme("rt_generic", recruiter_theme)

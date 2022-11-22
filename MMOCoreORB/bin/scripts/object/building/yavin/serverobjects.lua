@@ -54,3 +54,11 @@ includeFile("building/yavin/temple_woolamander.lua")
 
 includeFile("building/yavin/dark_enclave_empty.lua")
 includeFile("building/yavin/light_enclave_empty.lua")
+
+includeFile("building/yavin/dark_enclave_dark.lua")
+includeFile("building/yavin/light_enclave_dark.lua")
+includeFile("building/yavin/temple_blueleaf_dark.lua")
+includeFile("building/yavin/temple_exar_kun_dark.lua")
+includeFile("building/yavin/temple_massassi_dark.lua")
+includeFile("building/yavin/temple_woolamander_dark.lua")
+

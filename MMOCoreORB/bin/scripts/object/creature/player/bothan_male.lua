@@ -42,7 +42,7 @@
 
 
 object_creature_player_bothan_male = object_creature_player_shared_bothan_male:new {
-	baseHAM = { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+	baseHAM = { 0, 0, 0, 300, 300, 100, 100, 100, 0 },
 	gameObjectType = 1033,
 	zoneComponent = "PlayerZoneComponent",
 	objectMenuComponent = "PlayerObjectMenuComponent",
@@ -59,7 +59,7 @@ object_creature_player_bothan_male = object_creature_player_shared_bothan_male:n
 	},
 	defaultLanguage = 1,
 	startingItems = { },
-	startingSkills = {"social_language_basic_comprehend", "social_language_basic_speak" , "social_language_bothan_comprehend", "social_language_bothan_speak" }
+	startingSkills = { "species_bothan", "social_language_basic_comprehend", "social_language_basic_speak" , "social_language_bothan_comprehend", "social_language_bothan_speak" }
 }
 
 ObjectTemplates:addTemplate(object_creature_player_bothan_male, "object/creature/player/bothan_male.iff")

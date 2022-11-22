@@ -1,0 +1,4 @@
+object_static_borrie_tree_nboo_decd_cambylictustree_a1 = object_static_borrie_tree_shared_nboo_decd_cambylictustree_a1:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_tree_nboo_decd_cambylictustree_a1, "object/static/borrie/tree/nboo_decd_cambylictustree_a1.iff")

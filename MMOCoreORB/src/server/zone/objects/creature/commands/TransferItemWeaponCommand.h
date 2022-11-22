@@ -1,6 +1,12 @@
 /*
 				Copyright <SWGEmu>
-		See file COPYING for copying conditions.*/
+		See file COPYING for copying conditions.
+		
+		Adapts code from Empire in Flames
+		https://www.empireinflames.com/
+
+		https://gitlab.com/Halyn/EiF-Public/-/blob/unstable/MMOCoreORB/src/server/zone/objects/creature/commands/TransferItemWeaponCommand.h
+		*/
 
 #ifndef TRANSFERITEMWEAPONCOMMAND_H_
 #define TRANSFERITEMWEAPONCOMMAND_H_
@@ -17,6 +23,10 @@ public:
 	TransferItemWeaponCommand(const String& name, ZoneProcessServer* server)
 		: QueueCommand(name, server) {
 
+	}
+
+	float getCommandDuration(CreatureObject* object, const UnicodeString& arguments) const {
+		return 1.5;
 	}
 
 	int doQueueCommand(CreatureObject* creature, const uint64& target, const UnicodeString& arguments) const {
@@ -67,7 +77,7 @@ public:
 		if (!objectsParent->checkContainerPermission(creature, ContainerPermissions::MOVEOUT))
 			return GENERALERROR;
 
-		if (!objectToTransfer->isWeaponObject() && !objectToTransfer->isInstrument() && !objectToTransfer->isFishingPoleObject()) {
+		if (!objectToTransfer->isWeaponObject() && !objectToTransfer->isInstrument() && !objectToTransfer->isFishingPoleObject() && !objectToTransfer->isUtilityObject()) {
 			creature->error("objectToTransfer is neither a weapon object nor an instrument/fishing pole in transferItemWeapon");
 			return GENERALERROR;
 		}
@@ -87,7 +97,10 @@ public:
 			return GENERALERROR;
 		}
 
-		if (transferType == 4) {
+		if(transferType == 6)
+			transferType = 4;
+
+		if (transferType == 4 || transferType == 5) {
 			ManagedReference<SceneObject*> parent = objectToTransfer->getParent().get();
 
 			if (parent == nullptr) {
@@ -105,15 +118,31 @@ public:
 				int arrangementSize = objectToTransfer->getArrangementDescriptorSize();
 
 				if (arrangementSize > 0) {
+					/*
 					const String& childArrangement = objectToTransfer->getArrangementDescriptor(0)->get(0);
 
 					ManagedReference<SceneObject*> objectToRemove = destinationObject->getSlottedObject(childArrangement);
 
 					if (!objectController->transferObject(objectToRemove, parent, -1, true, true))
 						return GENERALERROR;
+					*/
 
-					if (!objectController->transferObject(objectToTransfer, destinationObject, transferType, true)) {
-						objectController->transferObject(objectToRemove, destinationObject, transferType, true);
+					const Vector<String>* descriptors = objectToTransfer->getArrangementDescriptor(0);
+					for (int k = 0; k < descriptors->size(); ++k) {
+						const String& descriptorName = descriptors->get(k);
+						ManagedReference<SceneObject*> objectToRemove = destinationObject->getSlottedObject(descriptorName);
+						if (objectToRemove != nullptr) {
+							if (!objectController->transferObject(objectToRemove, parent, -1, true, true))
+								return GENERALERROR;
+
+							if (objectToRemove->isWeaponObject()) {
+								WeaponObject* weaponObject = cast<WeaponObject*>( objectToRemove.get());
+							}
+						}
+					}
+
+					if (!objectController->transferObject(objectToTransfer, destinationObject, transferType, true, true)) {
+						//objectController->transferObject(objectToRemove, destinationObject, transferType, true);
 						return GENERALERROR;
 					}
 				}
@@ -123,7 +152,7 @@ public:
 
 				return GENERALERROR;
 			} else {
-				if (!objectController->transferObject(objectToTransfer, destinationObject, transferType, true))
+				if (!objectController->transferObject(objectToTransfer, destinationObject, transferType, true, true))
 					return GENERALERROR;
 			}
 
@@ -161,7 +190,7 @@ public:
 			}
 
 		} else {
-			creature->error("unknown transferType in transferItemWeapon command");
+			creature->error("unknown transferType in transferItemWeapon command: " + String::valueOf(transferType));
 		}
 
 		return SUCCESS;

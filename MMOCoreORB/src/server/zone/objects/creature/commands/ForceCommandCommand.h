@@ -5,7 +5,17 @@
 #ifndef FORCECOMMANDCOMMAND_H_
 #define FORCECOMMANDCOMMAND_H_
 
+
+#include "engine/engine.h"
+#include "server/zone/objects/tangible/TangibleObject.h"
 #include "server/zone/borrie/BorDev.h"
+#include "server/zone/Zone.h"
+#include "server/zone/packets/tangible/TangibleObjectMessage3.h"
+#include "server/zone/packets/tangible/TangibleObjectMessage6.h"
+#include "server/zone/packets/tangible/TangibleObjectMessage7.h"
+#include "server/zone/packets/tangible/TangibleObjectDeltaMessage3.h"
+#include "server/zone/packets/tangible/TangibleObjectDeltaMessage6.h"
+#include "server/zone/borrie/BorUtil.h"
 
 class ForceCommandCommand : public QueueCommand {
 public:
@@ -21,6 +31,10 @@ public:
 		ManagedReference<SceneObject*> object;
 		ManagedReference<CreatureObject*> creo;
 		StringTokenizer args(arguments.toString());
+
+		int adminLevelCheck = ghost->getAdminLevel();
+
+		if(adminLevelCheck < 1) return GENERALERROR;
 
 		if (target != 0) {
 			object = server->getZoneServer()->getObject(target, false);
@@ -68,7 +82,21 @@ public:
 			if (object->isCreatureObject()) {
 				BorDev::ToggleForceAICombat(object->asCreatureObject(), creature);
 			}
-		} else if (command == "client") {
+		} else if(command =="fsc") {
+			if (object->isCreatureObject()) {
+				Locker lcork (object->asCreatureObject());
+				object->asCreatureObject()->clearState(CreatureState::PEACE);
+				object->asCreatureObject()->setState(CreatureState::COMBAT);
+				object->asCreatureObject()->setState(CreatureState::COMBATATTITUDEAGGRESSIVE);
+				//object->asCreatureObject()->setDefender(object->asCreatureObject());
+				TangibleObjectDeltaMessage6* dtano6 = new TangibleObjectDeltaMessage6(object->asTangibleObject());
+				dtano6->startUpdate(0x01);
+				dtano6->close();
+
+				object->asCreatureObject()->broadcastMessage(dtano6, true);
+
+			}			
+		}else if (command == "client") {
 			BorDev::SetCreatureClient(creature, target);
 		} else if (command == "peace") {
 			if (object != nullptr) {
@@ -139,6 +167,8 @@ public:
 				}
 			}
 			
+		} else if(command == "luafunction") {
+			BorUtil::CallScreenplayFunction(creature, "BorRpShip", "testFunction");
 		}
 
 		

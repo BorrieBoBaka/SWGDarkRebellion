@@ -1,0 +1,4 @@
+object_tangible_borrie_light_yellow_light_macaroni_and_cheese_8m = object_tangible_borrie_light_yellow_shared_light_macaroni_and_cheese_8m:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrie_light_yellow_light_macaroni_and_cheese_8m, "object/tangible/borrie/light/yellow/light_macaroni_and_cheese_8m.iff")

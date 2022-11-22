@@ -1,0 +1,4 @@
+object_static_borrie_tree_poi_kash_rryatt_lvl4_tree_root_a5 = object_static_borrie_tree_shared_poi_kash_rryatt_lvl4_tree_root_a5:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_tree_poi_kash_rryatt_lvl4_tree_root_a5, "object/static/borrie/tree/poi_kash_rryatt_lvl4_tree_root_a5.iff")

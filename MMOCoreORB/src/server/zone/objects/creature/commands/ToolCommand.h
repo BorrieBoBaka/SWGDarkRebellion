@@ -51,7 +51,7 @@ public:
 					creature->sendSystemMessage("/tool rotate <left right yaw pitch roll reset yxx pxx rxx> <value>");
 					creature->sendSystemMessage("/tool move <forward back up down> <value>");
 					creature->sendSystemMessage("/tool tjt <x> <y> <z> <rW> <rX> <rY> <rZ> (To be used with The Jawa Toolset)");
-					creature->sendSystemMessage("/tool face <n nw ne e s sw se w up down left right>");
+					creature->sendSystemMessage("/tool face <n nw ne e s sw se w up down left right me>");
 					creature->sendSystemMessage("/tool tp <x y z> <coordinate>");
 					creature->sendSystemMessage("/tool align");
 				} else if (command == "rotate") {
@@ -70,7 +70,12 @@ public:
 					if(args.hasMoreTokens()) {
 						String prefabName;
 						args.getStringToken(prefabName);
-						BorUtil::PlaceStructureFromTemplate(creature, prefabName);
+						String structureName = "";
+						
+						if(args.hasMoreTokens())
+							args.getStringToken(structureName);
+
+						BorUtil::PlaceStructureFromTemplate(creature, prefabName, structureName);
 					} else {
 						creature->sendSystemMessage("You need to specify a template to spawn.");
 					}
@@ -106,11 +111,117 @@ public:
 					} else {
 						creature->sendSystemMessage("You need to specify a name for the customization template to save as.");
 					}
-				}else if(command == "togglepublic" && adminLevelCheck > 0) {
+				} else if(command == "saverandomtemplate" && adminLevelCheck > 0) { 
+					if(args.hasMoreTokens()) {
+						String prefabName;
+						args.getStringToken(prefabName);
+						BorUtil::SaveRandomizationTemplate(creature, target, prefabName);
+					} else {
+						creature->sendSystemMessage("You need to specify a name for the raw randomization template to save as.");
+					}
+				} else if(command=="spoutmob" && adminLevelCheck > 0) {
+					if(args.hasMoreTokens()) {
+						if(object != nullptr) {
+							String fileName;
+							args.getStringToken(fileName);
+							BorUtil::ScreenplaySpoutCreature(creature, object, fileName);
+						} else {
+							creature->sendSystemMessage("ERROR: To use Spout Mob, you need to target a creature and specify a file name.");
+						}
+					} else {
+						creature->sendSystemMessage("ERROR: To use Spout Mob, you need to target a creature and specify a file name.");
+					}
+				} else if(command =="spoutrpmob" && adminLevelCheck > 0) { 
+					if(args.hasMoreTokens()) {
+						if(object != nullptr) {
+							String fileName;
+							args.getStringToken(fileName);
+							BorUtil::ScreenplaySpoutRoleplayMobile(creature, object, fileName);
+						} else {
+							creature->sendSystemMessage("ERROR: To use Spout Rp Mob, you need to target a creature and specify a file name.");
+						}
+					} else {
+						creature->sendSystemMessage("ERROR: To use Spout Rp Mob, you need to target a creature and specify a file name.");
+					}
+				} else if(command == "spoutciv" && adminLevelCheck > 0) {
+					if(args.hasMoreTokens()) {
+						String civTag;
+						args.getStringToken(civTag);
+						if(args.hasMoreTokens()) {
+							String fileName;
+							args.getStringToken(fileName);
+							BorUtil::ScreenplaySpoutCivPoint(creature, object, civTag, fileName);
+						} else {
+							creature->sendSystemMessage("ERROR: To use Spout Civ, you need to target a creature and specify a file name and a tag.");
+						}
+					} else {
+						creature->sendSystemMessage("ERROR: To use Spout Civ, you need to target a creature and specify a file name and a tag.");
+					}
+				} else if(command == "spoutcivwithdummy" && adminLevelCheck > 0) {
+					if(args.hasMoreTokens()) {
+						String civTag;
+						args.getStringToken(civTag);
+						if(args.hasMoreTokens()) {
+							String fileName;
+							args.getStringToken(fileName);
+							BorUtil::ScreenplaySpoutCivPointWithMarker(creature, civTag, fileName);
+						} else {
+							creature->sendSystemMessage("ERROR: To use Spout Civ With Dummy, you need to specify a file name and a tag.");
+						}
+					} else {
+						creature->sendSystemMessage("ERROR: To use Spout Civ With Dummy, you need to specify a file name and a tag.");
+					}
+				} else if(command == "spoutpatrolpoint" && adminLevelCheck > 0) { 
+					if(args.hasMoreTokens()) {
+						String fileName;
+						args.getStringToken(fileName);
+						if(args.hasMoreTokens()) {
+							String delayAnimGroup;
+							args.getStringToken(delayAnimGroup);
+							BorUtil::ScreenplaySpoutCivPatrolPoint(creature, true, delayAnimGroup, fileName);
+						} else {
+							BorUtil::ScreenplaySpoutCivPatrolPoint(creature, false, "none", fileName);
+						}
+					} else {
+						creature->sendSystemMessage("ERROR: To use Spout Patrol Point, you must do: /spoutpatrolpoint <filename> <animGroup>");
+					}
+				}else if(command=="spoutobj" && adminLevelCheck > 0) {
+					if(args.hasMoreTokens()) {
+						if(object != nullptr) {
+							String fileName;
+							args.getStringToken(fileName);
+							BorUtil::ScreenplaySpoutObject(creature, object, fileName);
+						} else {
+							creature->sendSystemMessage("ERROR: To use Spout Obj, you need to target an object and specify a file name.");
+						}
+					} else {
+						creature->sendSystemMessage("ERROR: To use Spout Obj, you need to target an object and specify a file name.");
+					}
+				} else if(command == "togglepublic" && adminLevelCheck > 0) {
 					BorUtil::TogglePublicContainer(creature, target);	
 				} else if(command == "toggledispenser" && adminLevelCheck > 0) {
 					BorUtil::ToggleDispenserContainer(creature, target);	
-				}else {
+				} else if(command =="discordusercheck") { 
+					BorrieRPG::ReportPlayerCountToDiscord(creature);
+				} else if(command == "populate"&& adminLevelCheck > 0) { 
+					if(args.hasMoreTokens()) {
+						String prefabName;
+						args.getStringToken(prefabName);
+						BorUtil::PopulateObjectContents(creature, object, prefabName);
+					} else {
+						creature->sendSystemMessage("You need to specify which content list you'd like to use to populate this item with.");
+					}
+				} else if(command == "savecontents"&& adminLevelCheck > 0) { 
+					if(args.hasMoreTokens()) {
+						String prefabName;
+						args.getStringToken(prefabName);
+						BorUtil::CreateContentListFromInventory(creature, object, prefabName);
+					} else {
+						creature->sendSystemMessage("You need to specify a file name to save this content list as.");
+					}
+				} else if(command == "dupe" || command == "duplication" || command == "duplicate") {
+					
+				} else {
 					throw Exception();
 					creature->sendSystemMessage("Invalid arguments for Tool command. Help: /tool help");
 				}
@@ -135,7 +246,7 @@ public:
 			playerMoveRotateRules(creature, object);
 		}
 
-		String possibleDirections = "n nw ne e s sw se w up down left right";
+		String possibleDirections = "n nw ne e s sw se w up down left right me";
 		String dir = "";
 
 		if (args->hasMoreTokens()) {
@@ -172,6 +283,8 @@ public:
 			object->setDirection(0.707, -0.707, 0.0, 0.0);
 		} else if (dir == "left") {
 			object->setDirection(0.707, 0.707, 0.0, 0.0);
+		} else if(dir == "me") {
+			object->faceObject(creature, true);
 		}
 
 		// Apply rotation

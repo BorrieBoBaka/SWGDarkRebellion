@@ -42,7 +42,7 @@
 
 
 object_creature_player_sullustan_female = object_creature_player_shared_sullustan_female:new {
-	baseHAM = { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+	baseHAM = { 150, 0, 0, 250, 50, 50, 200, 100, 100 },
 	gameObjectType = 1033,
 	zoneComponent = "PlayerZoneComponent",
 	objectMenuComponent = "PlayerObjectMenuComponent",
@@ -59,7 +59,7 @@ object_creature_player_sullustan_female = object_creature_player_shared_sullusta
 	},
 	defaultLanguage = 1,
 	startingItems = { },
-	startingSkills = {  "social_language_basic_comprehend", "social_language_basic_speak" , "social_language_sullustan_comprehend", "social_language_sullustan_speak" }
+	startingSkills = { "species_sullustan", "social_language_basic_comprehend", "social_language_basic_speak" , "social_language_sullustan_comprehend", "social_language_sullustan_speak" }
 }
 
 ObjectTemplates:addTemplate(object_creature_player_sullustan_female, "object/creature/player/sullustan_female.iff")

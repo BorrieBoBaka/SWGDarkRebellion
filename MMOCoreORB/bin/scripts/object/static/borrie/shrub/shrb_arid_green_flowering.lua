@@ -1,0 +1,4 @@
+object_static_borrie_shrub_shrb_arid_green_flowering = object_static_borrie_shrub_shared_shrb_arid_green_flowering:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_shrub_shrb_arid_green_flowering, "object/static/borrie/shrub/shrb_arid_green_flowering.iff")

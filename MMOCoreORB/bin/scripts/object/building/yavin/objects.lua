@@ -423,3 +423,34 @@ object_building_shared_light_enclave_empty = SharedBuildingObjectTemplate:new {
 }
 ObjectTemplates:addClientTemplate(object_building_shared_light_enclave_empty, "object/building/shared_light_enclave_empty.iff")
 --********************************************************************************************************************************
+
+object_building_yavin_shared_dark_enclave_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/yavin/shared_dark_enclave_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_yavin_shared_dark_enclave_dark, "object/building/yavin/shared_dark_enclave_dark.iff")
+--****************************************************************************************************************************************
+object_building_yavin_shared_light_enclave_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/yavin/shared_light_enclave_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_yavin_shared_light_enclave_dark, "object/building/yavin/shared_light_enclave_dark.iff")
+--******************************************************************************************************************************************
+object_building_yavin_shared_temple_blueleaf_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/yavin/shared_temple_blueleaf_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_yavin_shared_temple_blueleaf_dark, "object/building/yavin/shared_temple_blueleaf_dark.iff")
+--**********************************************************************************************************************************************
+object_building_yavin_shared_temple_exar_kun_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/yavin/shared_temple_exar_kun_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_yavin_shared_temple_exar_kun_dark, "object/building/yavin/shared_temple_exar_kun_dark.iff")
+--**********************************************************************************************************************************************
+object_building_yavin_shared_temple_massassi_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/yavin/shared_temple_massassi_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_yavin_shared_temple_massassi_dark, "object/building/yavin/shared_temple_massassi_dark.iff")
+--**********************************************************************************************************************************************
+object_building_yavin_shared_temple_woolamander_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/yavin/shared_temple_woolamander_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_yavin_shared_temple_woolamander_dark, "object/building/yavin/shared_temple_woolamander_dark.iff")
+--****************************************************************************************************************************************************

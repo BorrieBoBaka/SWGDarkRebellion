@@ -1,0 +1,4 @@
+object_static_borrie_rock_rock_tatt_jundland_boulder_a5 = object_static_borrie_rock_shared_rock_tatt_jundland_boulder_a5:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_rock_rock_tatt_jundland_boulder_a5, "object/static/borrie/rock/rock_tatt_jundland_boulder_a5.iff")

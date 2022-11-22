@@ -16,8 +16,10 @@
 #include "server/zone/objects/player/sui/inputbox/SuiInputBox.h"
 #include "server/zone/objects/player/sui/callbacks/ColorArmorSuiCallback.h"
 #include "server/zone/objects/player/sui/callbacks/SetDescriptionCallback.h"
+#include "server/zone/objects/player/sui/callbacks/SetNameCallback.h"
 #include "server/zone/ZoneServer.h"
 #include "templates/customization/AssetCustomizationManagerTemplate.h"
+#include "server/zone/borrie/BorrieRPG.h"
 
 void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, ObjectMenuResponse* menuResponse, CreatureObject* player) const {
 	ObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player);
@@ -54,15 +56,21 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 	ManagedReference<SceneObject*> inventory = player->getSlottedObject("inventory");
 
 	if (inventory->hasObjectInContainer(sceneObject->getObjectID())) {
-		menuResponse->addRadialMenuItem(81, 3, "Change Color");
-		menuResponse->addRadialMenuItemToRadialID(81, 82, 3, "Primary");
-		menuResponse->addRadialMenuItemToRadialID(81, 83, 3, "Secondary");
-		menuResponse->addRadialMenuItemToRadialID(81, 84, 3, "Tertiary");
+		if(!sceneObject->isWeaponObject() || player->getPlayerObject()->hasGodMode()) {
+			menuResponse->addRadialMenuItem(81, 3, "Change Color");
+			menuResponse->addRadialMenuItemToRadialID(81, 82, 3, "Primary");
+			menuResponse->addRadialMenuItemToRadialID(81, 83, 3, "Secondary");
+			menuResponse->addRadialMenuItemToRadialID(81, 84, 3, "Tertiary");
+		}	
 
 		if(player->getPlayerObject()->hasGodMode()) {
 			menuResponse->addRadialMenuItem(91, 3, "DM Options");
 			menuResponse->addRadialMenuItemToRadialID(91, 92, 3, "Set Description");
 			menuResponse->addRadialMenuItemToRadialID(91, 93, 3, "Set Writeable");
+			menuResponse->addRadialMenuItemToRadialID(91, 94, 3, "Copy Object");
+			menuResponse->addRadialMenuItemToRadialID(91, 95, 3, "Rename Object");
+			menuResponse->addRadialMenuItemToRadialID(91, 96, 3, "Give to Target");
+			menuResponse->addRadialMenuItemToRadialID(91, 97, 3, "Set as Mount");
 		}
 	}
 
@@ -204,6 +212,60 @@ int TangibleObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject
 		ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
 		ghost->addSuiBox(ibox);
 		player->sendMessage(ibox->generateMessage());
+	}
+
+	if(selectedID == 93) { //Set Writeable
+
+	} 
+
+	if(selectedID == 94) { //Copy Object
+		BorrieRPG::copyTarget(player, sceneObject, true);
+	} 
+
+	if(selectedID == 95) { //Rename Object
+		// The Sui Box.
+		ZoneServer* server = player->getZoneServer();
+		ManagedReference<SuiInputBox*> ibox = new SuiInputBox(player, SuiWindowType::CITY_RENAME);
+		ibox->setCallback(new SetNameCallback(server, sceneObject));
+		ibox->setUsingObject(sceneObject);
+		ibox->setMaxInputSize(99999);
+		ibox->setPromptTitle("Set New Name");
+		ibox->setPromptText("Set the name you'd like this object to have.");
+
+		// Add to player.
+		ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
+		ghost->addSuiBox(ibox);
+		player->sendMessage(ibox->generateMessage());
+	}
+
+	if(selectedID == 96) { //Give to Target
+		ManagedReference<SceneObject*> playerTarget = player->getZoneServer()->getObject(player->getTargetID());
+		if(playerTarget != nullptr) {
+			if(playerTarget->isCreatureObject()) {
+				CreatureObject* targetCreature = playerTarget->asCreatureObject();
+				ManagedReference<SceneObject*> inventory = playerTarget->getSlottedObject("inventory");
+				if (inventory == nullptr || inventory->isContainerFullRecursive()) {
+					player->sendSystemMessage("Target inventory is full, so the item could not be sent.");
+					return 0;
+				}
+
+				if (inventory->transferObject(sceneObject, -1, true)) {
+					inventory->broadcastObject(sceneObject, true);
+					player->sendSystemMessage("Gave " + targetCreature->getCustomObjectName() + " \"" + sceneObject->getCustomObjectName() + ".\"" );
+					targetCreature->sendSystemMessage("You recieved \"" + sceneObject->getCustomObjectName() + ".\"");
+				} else {
+					player->sendSystemMessage("Error transferring object to target.");
+				}
+			} else {
+				player->sendSystemMessage("Your target needs to be a player.");
+			}
+		} else {
+			player->sendSystemMessage("You need to have a target.");
+		}
+	}
+
+	if(selectedID == 97) { //Set as mount
+		sceneObject->setStoredInt("mount", 1);
 	}
 	
 	return ObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);

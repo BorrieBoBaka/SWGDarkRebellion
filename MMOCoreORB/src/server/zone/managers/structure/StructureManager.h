@@ -7,6 +7,7 @@
 
 #include "templates/manager/TemplateManager.h"
 #include "templates/tangible/SharedStructureObjectTemplate.h"
+#include "server/zone/Zone.h"
 
 namespace server {
 namespace zone {
@@ -60,7 +61,8 @@ public:
 	/**
 	 * Simply creates and places a structure at the provided coordinates.
 	 */
-	StructureObject* placeStructure(CreatureObject* creature, const String& structureTemplatePath, float x, float y, int angle, int persistenceLevel = 1);
+	 StructureObject* placeStructure(CreatureObject* creature, const String& structureTemplatePath, float x, float y, int angle, int persistenceLevel = 1);
+	StructureObject* placeStructure(CreatureObject* creature, Zone* zone, const String& structureTemplatePath, float x, float y, int angle, int persistenceLevel = 1);
 
 	/**
 	 * Destroys the structure after the confirmation of the player.

@@ -38,6 +38,8 @@ protected:
 	int maxDamage;
 	int bonusDamage;
 
+	int rpSkillLevel;
+
 	float woundsRatio;
 
 	int area;
@@ -149,6 +151,8 @@ public:
 		attackSpeed = 0;
 
 		weaponType = 0xFFFFFFFF;
+
+		rpSkillLevel = 1;
 	}
 
 	~SharedWeaponObjectTemplate() {
@@ -444,6 +448,45 @@ public:
 	bool isWeaponObjectTemplate() {
 		return true;
 	}
+
+	int getPrice() {
+		if(customCostValue)
+			return baseCost;
+		else {
+			float totalMaxDamage = (float)minDamage * (float)maxDamage;
+			float damageTypeMod = 1;
+
+			if(damageType == ENERGY)
+				damageTypeMod = 1;
+			else if(damageType == KINETIC)
+				damageTypeMod = 1.05;
+			else if(damageType == ELECTRICITY)
+				damageTypeMod = 1.5;
+			else if(damageType == STUN)
+				damageTypeMod = 1.8;
+			else if(damageType == BLAST)
+				damageTypeMod = 2;
+			else if(damageType == HEAT)
+				damageTypeMod = 1.3;
+			else if(damageType == COLD)
+				damageTypeMod = 1.2;
+			else if(damageType == ACID)
+				damageTypeMod = 3;
+			else if(damageType == LIGHTSABER)
+				damageTypeMod = 10;
+
+			float bonusDmg = (float)bonusDamage + 1;
+
+			float dmg = (totalMaxDamage * 10) * bonusDmg;
+
+			float skill = (float)rpSkillLevel + 1;
+
+			float mathResult = (dmg * skill) * damageTypeMod;
+
+			return ceil(mathResult);
+		}
+	}
+
 };
 
 #endif /* SHAREDWEAPONOBJECTTEMPLATE_H_ */

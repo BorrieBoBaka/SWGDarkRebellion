@@ -27,13 +27,14 @@ public:
 		uint32 templ = tempName.hashCode();
 		uint32 objTempl = objName.length() > 0 ? objName.hashCode() : 0;
 		target = creatureManager->spawnCreature(templ, objTempl, posX, posZ, posY, parID);
-		if (target != nullptr)
-			target->asAiAgent()->activateLoad("");
 		Locker clocker(target, creature);
-		target->setDefender(creature);
-		creature->setDefender(target);
-		target->getThreatMap()->addAggro(creature, 999, 0);
-		target->destroyObjectFromWorld(true);
+		if (target != nullptr) {
+			target->asAiAgent()->activateLoad("");
+			target->setDefender(creature);
+			creature->setDefender(target);
+			target->getThreatMap()->addAggro(creature, 999, 0);
+			target->destroyObjectFromWorld(true);
+		}
 	}
 
 	static void ToggleForceAICombat(CreatureObject* target, CreatureObject* commander) {
@@ -41,17 +42,31 @@ public:
 		Locker alock(agent);
 		if (agent->getCreatureBitmask() & CreatureFlag::FORCECOMBAT) {
 			agent->clearCreatureBit(CreatureFlag::FORCECOMBAT);
-			commander->sendSystemMessage("Target s no longer forced into combat.");
+			commander->sendSystemMessage("Target is no longer forced into combat.");
 		} else {
 			agent->setCreatureBit(CreatureFlag::FORCECOMBAT);
 			commander->sendSystemMessage("Target will now not peace out of combat.");
 		}	
 	}
 
+	static void ForceAICombat(CreatureObject* target, CreatureObject* commander) {
+		if(target->isAiAgent()) {
+			ManagedReference<AiAgent*> agent = target->asAiAgent();
+			Locker alock(agent);
+			agent->setCreatureBit(CreatureFlag::ALWAYSON);
+			agent->setCreatureBit(CreatureFlag::FORCECOMBAT);
+		}
+		
+	}
+
 	static void StopCombat(CreatureObject* creature) {
 		//creature->clearCombatState(true);
 		Locker lock(creature);
 		CombatManager::instance()->forcePeace(creature);
+		if(creature->isAiAgent()) {
+			creature->asAiAgent()->clearCreatureBit(CreatureFlag::FORCECOMBAT);
+			creature->asAiAgent()->clearCreatureBit(CreatureFlag::ALWAYSON);
+		}
 	}
 
 	static void PlayAnim(CreatureObject* creature, SceneObject* object, bool isAdmin, String animName) {
@@ -116,10 +131,10 @@ public:
 		}
 	}
 
-	static void PerformReactiveAnimation(CreatureObject* reactor, CreatureObject* reactee, String mode, bool success) {
+	static void PerformReactiveAnimation(CreatureObject* reactor, CreatureObject* reactee, String mode, uint8 hitLocation, bool success) {
 		ManagedReference<WeaponObject*> reacteeWeapon = reactee->getWeapon();
 		ManagedReference<WeaponObject*> reactorWeapon = reactor->getWeapon();
-		uint32 animCRC = GetDefaultAttackAnimation(reactee->asTangibleObject(), reacteeWeapon, 0, 0).hashCode();
+		uint32 animCRC = GetDefaultAttackAnimation(reactee->asTangibleObject(), reacteeWeapon, hitLocation, 0).hashCode();
 		// hitstatus: 0x0-MISS 0x1-HIT 0x2-BLOCK 0x3-DODGE 0x5-COUNTER 0x7-RICOCHET 0x8-REFLECT 0x9-REFLECT_TO_TARGET
 		int hitStatus = 0x01;
 		if (mode == "defend") {
@@ -138,6 +153,8 @@ public:
 				if (success)
 					hitStatus = 0x05;
 			}
+		} else if(mode == "miss") {
+			hitStatus = 0x0;
 		}
 		reactee->doCombatAnimation(reactor, animCRC, hitStatus, 0x00);
 	}

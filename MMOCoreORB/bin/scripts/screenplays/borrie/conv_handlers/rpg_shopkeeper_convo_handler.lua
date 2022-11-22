@@ -50,6 +50,7 @@ function rpg_shopkeeper_convo_handler:getNextConversationScreen(conversationTemp
 
                 SceneObject(conversingPlayer):setStoredInt("vendor:itemCost", results[3])
                 SceneObject(conversingPlayer):setStoredString("vendor:itemTemplate", results[4])
+				SceneObject(conversingPlayer):setStoredString("vendor:itemIsMount", results[5])
 				
 				suiManager:sendMessageBox(conversingPlayer, conversingPlayer, "Merchandise Info", itemDescription, "@confirm", "rpg_shopkeeper_convo_handler", "notifyPurchaseItem", NEWSNET_INFO)
 				
@@ -83,6 +84,7 @@ function rpg_shopkeeper_convo_handler:notifyPurchaseItem(pPlayer, pSui, eventInd
 
     local template =  SceneObject(pPlayer):getStoredString("vendor:itemTemplate")
     local cost =  SceneObject(pPlayer):getStoredInt("vendor:itemCost")
+	local isMount = SceneObject(pPlayer):getStoredString("vendor:itemIsMount")
     local itemName = getItemTemplateName(template)
 
     if (CreatureObject(pPlayer):getCashCredits() < cost) then
@@ -96,7 +98,14 @@ function rpg_shopkeeper_convo_handler:notifyPurchaseItem(pPlayer, pSui, eventInd
     CreatureObject(pPlayer):subtractCashCredits(cost)
 
 	local pItem = giveItem(pInventory, template, -1)
-    CreatureObject(pPlayer):sendSystemMessage("You purchased \"" .. itemName .. "\" for " .. cost .. " credits.")
+    --CreatureObject(pPlayer):sendSystemMessage("You purchased \"" .. itemName .. "\" for " .. cost .. " credits.")
+	--CreatureObject(pPlayer):sendSystemMessage(itemName .. " was purchased for " .. cost .. " credits.")
+	--CreatureObject(pPlayer):sendSystemMessageWithTO("You purchased %TO for " .. cost .. " credits.", itemName)
+	CreatureObject(pPlayer):sendSystemMessageWithTOAndDI("@rp_vendor:purchase_message", itemName, cost);
+	
+	if(isMount == "mount") then
+		SceneObject(pItem):setStoredInt("mount", 1)
+	end
 end
 
 function rpg_shopkeeper_convo_handler:runScreenHandlers(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen)
@@ -110,11 +119,12 @@ function rpg_shopkeeper_convo_handler:runScreenHandlers(conversationTemplate, co
 
 	--CreatureObject(conversingPlayer):sendSystemMessage("Screen: " .. screenID)
 	
+	
     --Customized Data
-    local vendorThemeID = "general" --getQuestStatus(CreatureObject(conversingNPC):getObjectID() .. ":vendorTheme")
-    local vendorTheme = rpgVendorThemeDirectory[vendorThemeID]
-    local vendorListID = "shop_general" --getQuestStatus(CreatureObject(conversingNPC):getObjectID() .. ":vendorList")
-    local vendorList = rpgVendorShopListDirectory[vendorListID]
+    local vendorThemeID = SceneObject(conversingNPC):getStoredString("vendor:theme") --"general" --getQuestStatus(CreatureObject(conversingNPC):getObjectID() .. ":vendorTheme")
+    local vendorTheme = RPGVendorThemes:getTheme(vendorThemeID)
+    local vendorListID = SceneObject(conversingNPC):getStoredString("vendor:shopList") --"shop_general" --getQuestStatus(CreatureObject(conversingNPC):getObjectID() .. ":vendorList")
+    local vendorList = RPGVendorShopLists:getShopList(vendorListID) --rpgVendorShopListDirectory[vendorListID]
 
     --Setting the initial greeting based on theme.
     if(screenID == "greeting") then
@@ -145,8 +155,20 @@ function rpg_shopkeeper_convo_handler:runScreenHandlers(conversationTemplate, co
         for i = 1, #vendorList.manifest[selectedCategory].items, 1 do
             local templateName = vendorList.manifest[selectedCategory].items[i].template
             local objectName = getItemTemplateName(templateName)
-            local price = vendorList.manifest[selectedCategory].items[i].cost
-            clonedConversation:addOptionWithData("$vnd:item:" .. price .. ":" .. templateName, objectName, "items")
+            local price = getObjectPrice(templateName)
+			
+			if(vendorList.manifest[selectedCategory].items[i].overridePrice == true) then
+				price = vendorList.manifest[selectedCategory].items[i].cost
+			end
+			
+			local isMount = "nomount"
+			if(vendorList.manifest[selectedCategory].items[i].isMount == true) then
+				isMount = "mount"
+			end
+			
+			if(objectName ~= "[Invalid Template]") then
+				clonedConversation:addOptionWithData("$vnd:item:" .. price .. ":" .. templateName .. ":" .. isMount, objectName .. " [" .. price .. " CR]" , "items")
+			end
         end
         clonedConversation:addOption("I'd rather look at something else.", "browse")		
     end

@@ -1,0 +1,4 @@
+object_tangible_borrie_tatooine_barrel_open_tatt_s01 = object_tangible_borrie_tatooine_shared_barrel_open_tatt_s01:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrie_tatooine_barrel_open_tatt_s01, "object/tangible/borrie/tatooine/barrel_open_tatt_s01.iff")

@@ -46,6 +46,7 @@ public:
 		if (playerObject->hasGodMode())
 			godMode = true;
 
+
 		ManagedReference<SceneObject*> targetObject = server->getZoneServer()->getObject(targetToTrade);
 
 		if (targetObject == nullptr || !targetObject->isPlayerCreature() || targetObject == player) {

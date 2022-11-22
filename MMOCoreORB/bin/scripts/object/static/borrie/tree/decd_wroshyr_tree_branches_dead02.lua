@@ -1,0 +1,4 @@
+object_static_borrie_tree_decd_wroshyr_tree_branches_dead02 = object_static_borrie_tree_shared_decd_wroshyr_tree_branches_dead02:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_tree_decd_wroshyr_tree_branches_dead02, "object/static/borrie/tree/decd_wroshyr_tree_branches_dead02.iff")

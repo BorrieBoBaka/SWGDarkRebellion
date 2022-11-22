@@ -24,6 +24,8 @@ public:
 		if (vehicle == nullptr)
 			return;
 
+		/*
+
 		Reference<VehicleObjectTemplate*> vehicleTemplate = cast<VehicleObjectTemplate*>(vehicle->getObjectTemplate());
 
 		if (vehicleTemplate == nullptr)
@@ -51,6 +53,7 @@ public:
 		}
 
 		vehicle->addPendingTask("decay", this, decayCycle * 1000);
+		*/
 	}
 };
 

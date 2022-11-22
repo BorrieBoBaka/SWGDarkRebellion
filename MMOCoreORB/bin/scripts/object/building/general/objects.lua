@@ -8516,3 +8516,239 @@ object_building_general_shared_space_dungeon_star_destroyer_empty = SharedBuildi
 }
 ObjectTemplates:addClientTemplate(object_building_general_shared_space_dungeon_star_destroyer_empty, "object/building/general/shared_space_dungeon_star_destroyer_empty.iff")
 --******************************************************************************************************************************************************************************
+
+object_building_general_shared_bunker_allum_mine_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_bunker_allum_mine_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_bunker_allum_mine_dark, "object/building/general/shared_bunker_allum_mine_dark.iff")
+--******************************************************************************************************************************************************
+object_building_general_shared_bunker_mad_bio_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_bunker_mad_bio_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_bunker_mad_bio_dark, "object/building/general/shared_bunker_mad_bio_dark.iff")
+--************************************************************************************************************************************************
+object_building_general_shared_bunker_rebel_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_bunker_rebel_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_bunker_rebel_01_dark, "object/building/general/shared_bunker_rebel_01_dark.iff")
+--**************************************************************************************************************************************************
+object_building_general_shared_bunker_rebel_deep_chasm_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_bunker_rebel_deep_chasm_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_bunker_rebel_deep_chasm_dark, "object/building/general/shared_bunker_rebel_deep_chasm_dark.iff")
+--******************************************************************************************************************************************************************
+object_building_general_shared_bunker_warren_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_bunker_warren_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_bunker_warren_01_dark, "object/building/general/shared_bunker_warren_01_dark.iff")
+--****************************************************************************************************************************************************
+object_building_general_shared_cave_01_damprock_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_01_damprock_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_01_damprock_dark, "object/building/general/shared_cave_01_damprock_dark.iff")
+--****************************************************************************************************************************************************
+object_building_general_shared_cave_01_damprock_mirror_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_01_damprock_mirror_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_01_damprock_mirror_dark, "object/building/general/shared_cave_01_damprock_mirror_dark.iff")
+--******************************************************************************************************************************************************************
+object_building_general_shared_cave_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_01_dark, "object/building/general/shared_cave_01_dark.iff")
+--**********************************************************************************************************************************
+object_building_general_shared_cave_01_ice_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_01_ice_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_01_ice_dark, "object/building/general/shared_cave_01_ice_dark.iff")
+--******************************************************************************************************************************************
+object_building_general_shared_cave_01_mirror_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_01_mirror_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_01_mirror_dark, "object/building/general/shared_cave_01_mirror_dark.iff")
+--************************************************************************************************************************************************
+object_building_general_shared_cave_02_damprock_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_02_damprock_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_02_damprock_dark, "object/building/general/shared_cave_02_damprock_dark.iff")
+--****************************************************************************************************************************************************
+object_building_general_shared_cave_02_damprock_mirror_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_02_damprock_mirror_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_02_damprock_mirror_dark, "object/building/general/shared_cave_02_damprock_mirror_dark.iff")
+--******************************************************************************************************************************************************************
+object_building_general_shared_cave_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_02_dark, "object/building/general/shared_cave_02_dark.iff")
+--**********************************************************************************************************************************
+object_building_general_shared_cave_02_ice_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_02_ice_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_02_ice_dark, "object/building/general/shared_cave_02_ice_dark.iff")
+--******************************************************************************************************************************************
+object_building_general_shared_cave_02_mirror_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_02_mirror_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_02_mirror_dark, "object/building/general/shared_cave_02_mirror_dark.iff")
+--************************************************************************************************************************************************
+object_building_general_shared_cave_03_damprock_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_03_damprock_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_03_damprock_dark, "object/building/general/shared_cave_03_damprock_dark.iff")
+--****************************************************************************************************************************************************
+object_building_general_shared_cave_03_damprock_mirror_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_03_damprock_mirror_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_03_damprock_mirror_dark, "object/building/general/shared_cave_03_damprock_mirror_dark.iff")
+--******************************************************************************************************************************************************************
+object_building_general_shared_cave_03_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_03_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_03_dark, "object/building/general/shared_cave_03_dark.iff")
+--**********************************************************************************************************************************
+object_building_general_shared_cave_03_ice_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_03_ice_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_03_ice_dark, "object/building/general/shared_cave_03_ice_dark.iff")
+--******************************************************************************************************************************************
+object_building_general_shared_cave_03_mirror_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_03_mirror_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_03_mirror_dark, "object/building/general/shared_cave_03_mirror_dark.iff")
+--************************************************************************************************************************************************
+object_building_general_shared_cave_04_ice_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_04_ice_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_04_ice_s01_dark, "object/building/general/shared_cave_04_ice_s01_dark.iff")
+--**************************************************************************************************************************************************
+object_building_general_shared_cave_05_ice_s02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_05_ice_s02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_05_ice_s02_dark, "object/building/general/shared_cave_05_ice_s02_dark.iff")
+--**************************************************************************************************************************************************
+object_building_general_shared_cave_06_flatland_s01_damprock_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_06_flatland_s01_damprock_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_06_flatland_s01_damprock_dark, "object/building/general/shared_cave_06_flatland_s01_damprock_dark.iff")
+--******************************************************************************************************************************************************************************
+object_building_general_shared_cave_06_flatland_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_06_flatland_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_06_flatland_s01_dark, "object/building/general/shared_cave_06_flatland_s01_dark.iff")
+--************************************************************************************************************************************************************
+object_building_general_shared_cave_06_flatland_s01_ice_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_06_flatland_s01_ice_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_06_flatland_s01_ice_dark, "object/building/general/shared_cave_06_flatland_s01_ice_dark.iff")
+--********************************************************************************************************************************************************************
+object_building_general_shared_cave_07_flatland_s02_damprock_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_07_flatland_s02_damprock_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_07_flatland_s02_damprock_dark, "object/building/general/shared_cave_07_flatland_s02_damprock_dark.iff")
+--******************************************************************************************************************************************************************************
+object_building_general_shared_cave_07_flatland_s02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_07_flatland_s02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_07_flatland_s02_dark, "object/building/general/shared_cave_07_flatland_s02_dark.iff")
+--************************************************************************************************************************************************************
+object_building_general_shared_cave_07_flatland_s02_ice_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_07_flatland_s02_ice_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_07_flatland_s02_ice_dark, "object/building/general/shared_cave_07_flatland_s02_ice_dark.iff")
+--********************************************************************************************************************************************************************
+object_building_general_shared_cave_08_flatland_s03_damprock_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_08_flatland_s03_damprock_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_08_flatland_s03_damprock_dark, "object/building/general/shared_cave_08_flatland_s03_damprock_dark.iff")
+--******************************************************************************************************************************************************************************
+object_building_general_shared_cave_08_flatland_s03_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_08_flatland_s03_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_08_flatland_s03_dark, "object/building/general/shared_cave_08_flatland_s03_dark.iff")
+--************************************************************************************************************************************************************
+object_building_general_shared_cave_08_flatland_s03_ice_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_cave_08_flatland_s03_ice_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_cave_08_flatland_s03_ice_dark, "object/building/general/shared_cave_08_flatland_s03_ice_dark.iff")
+--********************************************************************************************************************************************************************
+object_building_general_shared_mun_all_capitol_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_mun_all_capitol_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_mun_all_capitol_s01_dark, "object/building/general/shared_mun_all_capitol_s01_dark.iff")
+--**********************************************************************************************************************************************************
+object_building_general_shared_mun_all_cloning_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_mun_all_cloning_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_mun_all_cloning_s01_dark, "object/building/general/shared_mun_all_cloning_s01_dark.iff")
+--**********************************************************************************************************************************************************
+object_building_general_shared_mun_all_hospital_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_mun_all_hospital_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_mun_all_hospital_s01_dark, "object/building/general/shared_mun_all_hospital_s01_dark.iff")
+--************************************************************************************************************************************************************
+object_building_general_shared_mun_all_hospital_s02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_mun_all_hospital_s02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_mun_all_hospital_s02_dark, "object/building/general/shared_mun_all_hospital_s02_dark.iff")
+--************************************************************************************************************************************************************
+object_building_general_shared_mun_all_hotel_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_mun_all_hotel_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_mun_all_hotel_s01_dark, "object/building/general/shared_mun_all_hotel_s01_dark.iff")
+--******************************************************************************************************************************************************
+object_building_general_shared_mun_all_landing_pad_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_mun_all_landing_pad_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_mun_all_landing_pad_s01_dark, "object/building/general/shared_mun_all_landing_pad_s01_dark.iff")
+--******************************************************************************************************************************************************************
+object_building_general_shared_mun_all_starport_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_mun_all_starport_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_mun_all_starport_s01_dark, "object/building/general/shared_mun_all_starport_s01_dark.iff")
+--************************************************************************************************************************************************************
+object_building_general_shared_newbie_hall_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_newbie_hall_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_newbie_hall_dark, "object/building/general/shared_newbie_hall_dark.iff")
+--******************************************************************************************************************************************
+object_building_general_shared_newbie_hall_skipped_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_newbie_hall_skipped_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_newbie_hall_skipped_dark, "object/building/general/shared_newbie_hall_skipped_dark.iff")
+--**********************************************************************************************************************************************************
+object_building_general_shared_npe_hangar_1_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_npe_hangar_1_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_npe_hangar_1_dark, "object/building/general/shared_npe_hangar_1_dark.iff")
+--********************************************************************************************************************************************
+object_building_general_shared_npe_hangar_2_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_npe_hangar_2_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_npe_hangar_2_dark, "object/building/general/shared_npe_hangar_2_dark.iff")
+--********************************************************************************************************************************************
+object_building_general_shared_npe_space_station_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_npe_space_station_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_npe_space_station_dark, "object/building/general/shared_npe_space_station_dark.iff")
+--******************************************************************************************************************************************************
+object_building_general_shared_rori_hyperdrive_research_facility_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_rori_hyperdrive_research_facility_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_rori_hyperdrive_research_facility_dark, "object/building/general/shared_rori_hyperdrive_research_facility_dark.iff")
+--**************************************************************************************************************************************************************************************
+object_building_general_shared_space_dungeon_corellian_corvette_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_space_dungeon_corellian_corvette_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_space_dungeon_corellian_corvette_dark, "object/building/general/shared_space_dungeon_corellian_corvette_dark.iff")
+--************************************************************************************************************************************************************************************
+object_building_general_shared_space_dungeon_hutt_asteroid_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_space_dungeon_hutt_asteroid_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_space_dungeon_hutt_asteroid_dark, "object/building/general/shared_space_dungeon_hutt_asteroid_dark.iff")
+--**************************************************************************************************************************************************************************
+object_building_general_shared_space_dungeon_star_destroyer_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_space_dungeon_star_destroyer_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_space_dungeon_star_destroyer_dark, "object/building/general/shared_space_dungeon_star_destroyer_dark.iff")
+--****************************************************************************************************************************************************************************

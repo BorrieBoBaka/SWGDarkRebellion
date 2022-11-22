@@ -207,6 +207,17 @@ namespace server {
 		static int getItemTemplateInformation(lua_State* L);
 		static int getItemTemplateName(lua_State* L);
 		static int spawnTeleporterTerminal(lua_State* L);
+		static int spawnRoleplayMobile(lua_State* L);
+		static int setRandomCreatureName(lua_State* L);
+		static int getObjectPrice(lua_State* L);
+		static int getObjectResellValue(lua_State* L);
+		static int broadcastMessageToGalaxy(lua_State* L);
+		static int createTemplatedRoleplayNPC(lua_State* L);
+		static int createLootBox(lua_State* L);
+		static int getShipFromControlDevice(lua_State* L);
+		static int getStoredObject(lua_State* L);
+		static int setStoredObject(lua_State* L);
+		static int broadcastMessageToArea(lua_State* L);
 
 	private:
 		static void setupLuaPackagePath(Lua* luaEngine);

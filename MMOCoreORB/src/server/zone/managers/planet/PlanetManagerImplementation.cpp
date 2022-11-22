@@ -497,6 +497,10 @@ Reference<SceneObject*> PlanetManagerImplementation::loadSnapshotObject(WorldSna
 
 	object = zoneServer->createClientObject(serverTemplate.hashCode(), objectID);
 
+	if(object == nullptr) {
+		info("Could not load snapshot objectID " + String::valueOf(objectID) + " located at X: " + String::valueOf(position.getX()) + " Z: " + String::valueOf(position.getZ()) + " Y: " + String::valueOf(position.getY()), true);
+	}
+
 	Locker locker(object);
 
 	object->initializePosition(position.getX(), position.getZ(), position.getY());
@@ -546,6 +550,8 @@ void PlanetManagerImplementation::loadSnapshotObjects() {
 	if (iffStream == nullptr) {
 		info("Snapshot wasn't found.", true);
 		return;
+	} else {
+		info("Loading Snapshot...", true);
 	}
 
 	Reference<WorldSnapshotIff*> wsiff = new WorldSnapshotIff();
@@ -570,6 +576,8 @@ void PlanetManagerImplementation::loadSnapshotObjects() {
 				Locker locker(sceno);
 
 				sceno->createChildObjects();
+			} else {
+				//info("Could not create object with node object ID: " + String::valueOf(node->getObjectID()), true);
 			}
 		}, "LoadSnapshotObjectLambda");
 
@@ -578,6 +586,8 @@ void PlanetManagerImplementation::loadSnapshotObjects() {
 
 		if (sceno != nullptr) {
 			objects.emplace(sceno);
+		} else {
+			//info("Could not create object with node object ID: " + String::valueOf(node->getObjectID()), true);
 		}
 #endif
 	}
@@ -881,6 +891,8 @@ void PlanetManagerImplementation::loadClientRegions(LuaObject* outposts) {
 
 			region->setMunicipalZone(true);
 
+			/*
+
 			ManagedReference<SceneObject*> scenery = nullptr;
 
 			if (gcwManager != nullptr) {
@@ -900,6 +912,8 @@ void PlanetManagerImplementation::loadClientRegions(LuaObject* outposts) {
 			Locker slocker(scenery, region);
 			scenery->initializePosition(x, zone->getHeight(x, y) + 100, y);
 			region->attachScenery(scenery);
+
+			*/
 		}
 
 		ManagedReference<ActiveArea*> noBuild = zone->getZoneServer()->createObject(STRING_HASHCODE("object/active_area.iff"), 0).castTo<ActiveArea*>();

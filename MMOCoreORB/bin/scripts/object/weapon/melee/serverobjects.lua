@@ -52,5 +52,9 @@ includeFile("weapon/melee/polearm/serverobjects.lua")
 includeFile("weapon/melee/special/serverobjects.lua")
 includeFile("weapon/melee/sword/serverobjects.lua")
 includeFile("weapon/melee/unarmed/serverobjects.lua")
+includeFile("weapon/melee/plasma_saber/2h_sword/serverobjects.lua")
+includeFile("weapon/melee/plasma_saber/polearm/serverobjects.lua")
+includeFile("weapon/melee/plasma_saber/sword/serverobjects.lua")
+
 
 -- Server Objects

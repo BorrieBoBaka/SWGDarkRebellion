@@ -67,6 +67,8 @@ class TangibleObject extends SceneObject {
 
 	protected int junkDealerNeeded;
 	protected int junkValue;
+	protected int price;
+	protected int skillLevel;
 
 	protected string objectSerial;
 	protected string rpDescription;
@@ -111,10 +113,6 @@ class TangibleObject extends SceneObject {
 
 		jediRobe = false;
 
-		trainingDevice = false;
-		rpTrainingSkill = "";
-		rpTrainingLevel = 0;
-
 		luaStringData.setAllowOverwriteInsertPlan();
 	}
 
@@ -146,6 +144,12 @@ class TangibleObject extends SceneObject {
 		threatMap = null;
 		junkDealerNeeded = 0;
 		junkValue = 0;
+		price = 0;
+		skillLevel = 0;
+
+		trainingDevice = false;
+		rpTrainingSkill = "";
+		rpTrainingLevel = 0;
 	}
 
 	/**
@@ -749,6 +753,29 @@ class TangibleObject extends SceneObject {
 		return junkValue;
 	}
 
+	public void setPrice(int pValue) {
+		price = pValue;
+	}
+
+	@read
+	public abstract int getBasePrice() {
+		return price;
+	}
+
+	@read
+	public abstract int getPrice() {
+		return price;
+	}
+
+	public void setSkillLevel(int pValue) {
+		skillLevel = pValue;
+	}
+
+	@read
+	public abstract int getSkillLevel() {
+		return skillLevel;
+	}
+
 	public native void setSerialNumber(final string serial);
 
 	public abstract void setLevel(int lev, boolean randomHam = true) {
@@ -767,6 +794,21 @@ class TangibleObject extends SceneObject {
 	@dirty 
 	public abstract string getRpDescription() {
 		return rpDescription;
+	}
+
+	@dirty 
+	public abstract boolean getIsTrainingDevicec() {
+		return trainingDevice;
+	}
+
+	@dirty 
+	public abstract string getRpTrainingSkill() {
+		return rpTrainingSkill;
+	}
+
+	@dirty 
+	public abstract int getRpTrainingLevel() {
+		return rpTrainingLevel;
 	}
 
 	@local
@@ -976,4 +1018,9 @@ class TangibleObject extends SceneObject {
 
 	@dirty
 	public native boolean isInNavMesh();
+
+	public native void stowObject(CreatureObject player);
+
+	public native void unstowObject(CreatureObject player);
+
 }

@@ -131,4 +131,7 @@
 #include "server/zone/objects/area/SpawnArea.h"
 #include "server/zone/objects/tangible/misc/ContractCrate.h"
 
+#include "server/zone/objects/tangible/deed/rp_ship/RpShipDeed.h"
+#include "server/zone/objects/intangible/RpShipControlDevice.h"
+
 #endif /* OBJECTS_H_ */

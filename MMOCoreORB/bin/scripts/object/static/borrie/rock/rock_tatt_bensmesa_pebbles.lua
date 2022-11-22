@@ -1,0 +1,4 @@
+object_static_borrie_rock_rock_tatt_bensmesa_pebbles = object_static_borrie_rock_shared_rock_tatt_bensmesa_pebbles:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_rock_rock_tatt_bensmesa_pebbles, "object/static/borrie/rock/rock_tatt_bensmesa_pebbles.iff")

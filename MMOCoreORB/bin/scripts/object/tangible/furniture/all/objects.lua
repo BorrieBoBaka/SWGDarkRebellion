@@ -7061,3 +7061,594 @@ object_tangible_furniture_all_shared_frn_bench_generic = SharedTangibleObjectTem
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_bench_generic, "object/tangible/furniture/all/shared_frn_bench_generic.iff")
+
+object_tangible_furniture_all_shared_frn_all_fireless_torch = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_fireless_torch.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_fireless_torch, "object/tangible/furniture/all/shared_frn_all_fireless_torch.iff")
+--******************************************************************************************************************************************************************
+object_tangible_furniture_all_shared_frn_all_fireless_torch_blue = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_fireless_torch_blue.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_fireless_torch_blue, "object/tangible/furniture/all/shared_frn_all_fireless_torch_blue.iff")
+--****************************************************************************************************************************************************************************
+object_tangible_furniture_all_shared_frn_all_fireless_torch_cyan = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_fireless_torch_cyan.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_fireless_torch_cyan, "object/tangible/furniture/all/shared_frn_all_fireless_torch_cyan.iff")
+--****************************************************************************************************************************************************************************
+object_tangible_furniture_all_shared_frn_all_fireless_torch_green = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_fireless_torch_green.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_fireless_torch_green, "object/tangible/furniture/all/shared_frn_all_fireless_torch_green.iff")
+--******************************************************************************************************************************************************************************
+object_tangible_furniture_all_shared_frn_all_fireless_torch_purple = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_fireless_torch_purple.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_fireless_torch_purple, "object/tangible/furniture/all/shared_frn_all_fireless_torch_purple.iff")
+--********************************************************************************************************************************************************************************
+object_tangible_furniture_all_shared_frn_all_fireless_torch_red = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_fireless_torch_red.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_fireless_torch_red, "object/tangible/furniture/all/shared_frn_all_fireless_torch_red.iff")
+--**************************************************************************************************************************************************************************
+object_tangible_furniture_all_shared_frn_all_tiki_torch_blue = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_tiki_torch_blue.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_tiki_torch_blue, "object/tangible/furniture/all/shared_frn_all_tiki_torch_blue.iff")
+--********************************************************************************************************************************************************************
+object_tangible_furniture_all_shared_frn_all_tiki_torch_cyan = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_tiki_torch_cyan.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_tiki_torch_cyan, "object/tangible/furniture/all/shared_frn_all_tiki_torch_cyan.iff")
+--********************************************************************************************************************************************************************
+object_tangible_furniture_all_shared_frn_all_tiki_torch_green = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_tiki_torch_green.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_tiki_torch_green, "object/tangible/furniture/all/shared_frn_all_tiki_torch_green.iff")
+--**********************************************************************************************************************************************************************
+object_tangible_furniture_all_shared_frn_all_tiki_torch_purple = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_tiki_torch_purple.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_tiki_torch_purple, "object/tangible/furniture/all/shared_frn_all_tiki_torch_purple.iff")
+--************************************************************************************************************************************************************************
+object_tangible_furniture_all_shared_frn_all_tiki_torch_red = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_tiki_torch_red.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_tiki_torch_red, "object/tangible/furniture/all/shared_frn_all_tiki_torch_red.iff")
+--******************************************************************************************************************************************************************
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_desk_blue_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_blue_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_desk_blue_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_blue_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_desk_blue_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_blue_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_desk_blue_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_blue_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_desk_green_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_green_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_desk_green_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_green_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_desk_green_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_green_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_desk_green_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_green_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_desk_orange_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_orange_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_desk_orange_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_orange_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_desk_orange_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_orange_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_desk_orange_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_orange_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_desk_purple_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_purple_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_desk_purple_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_purple_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_desk_purple_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_purple_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_desk_purple_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_purple_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_desk_red_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_red_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_desk_red_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_red_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_desk_red_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_red_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_desk_red_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_red_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_desk_yellow_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_yellow_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_desk_yellow_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_yellow_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_desk_yellow_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_yellow_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_desk_yellow_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_desk_yellow_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_blue_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_blue_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_blue_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_blue_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_blue_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_blue_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_blue_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_blue_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_blue_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_blue_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_blue_s03, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_blue_s03.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_blue_s04 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_blue_s04.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_blue_s04, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_blue_s04.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_green_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_green_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_green_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_green_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_green_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_green_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_green_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_green_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_green_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_green_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_green_s03, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_green_s03.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_green_s04 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_green_s04.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_green_s04, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_green_s04.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_orange_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_orange_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_orange_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_orange_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_orange_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_orange_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_orange_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_orange_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_orange_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_orange_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_orange_s03, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_orange_s03.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_orange_s04 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_orange_s04.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_orange_s04, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_orange_s04.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_purple_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_purple_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_purple_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_purple_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_purple_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_purple_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_purple_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_purple_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_purple_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_purple_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_purple_s03, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_purple_s03.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_purple_s04 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_purple_s04.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_purple_s04, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_purple_s04.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_red_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_red_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_red_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_red_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_red_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_red_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_red_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_red_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_red_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_red_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_red_s03, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_red_s03.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_red_s04 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_red_s04.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_red_s04, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_red_s04.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_yellow_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_yellow_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_yellow_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_yellow_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_yellow_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_yellow_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_yellow_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_yellow_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_yellow_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_yellow_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_yellow_s03, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_yellow_s03.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_free_yellow_s04 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_free_yellow_s04.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_free_yellow_s04, "object/tangible/furniture/all/shared_frn_all_light_lamp_free_yellow_s04.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_puck = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_puck.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_puck, "object/tangible/furniture/all/shared_frn_all_light_lamp_puck.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_puck_blue = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_puck_blue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_puck_blue, "object/tangible/furniture/all/shared_frn_all_light_lamp_puck_blue.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_puck_green = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_puck_green.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_puck_green, "object/tangible/furniture/all/shared_frn_all_light_lamp_puck_green.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_puck_orange = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_puck_orange.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_puck_orange, "object/tangible/furniture/all/shared_frn_all_light_lamp_puck_orange.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_puck_purple = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_puck_purple.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_puck_purple, "object/tangible/furniture/all/shared_frn_all_light_lamp_puck_purple.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_puck_red = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_puck_red.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_puck_red, "object/tangible/furniture/all/shared_frn_all_light_lamp_puck_red.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_puck_yellow = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_puck_yellow.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_puck_yellow, "object/tangible/furniture/all/shared_frn_all_light_lamp_puck_yellow.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_blue_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_blue_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_blue_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_blue_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_blue_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_blue_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_blue_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_blue_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_blue_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_blue_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_blue_s03, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_blue_s03.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_green_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_green_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_green_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_green_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_green_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_green_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_green_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_green_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_green_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_green_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_green_s03, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_green_s03.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_orange_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_orange_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_orange_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_orange_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_orange_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_orange_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_orange_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_orange_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_orange_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_orange_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_orange_s03, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_orange_s03.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_purple_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_purple_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_purple_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_purple_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_purple_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_purple_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_purple_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_purple_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_purple_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_purple_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_purple_s03, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_purple_s03.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_red_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_red_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_red_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_red_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_red_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_red_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_red_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_red_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_red_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_red_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_red_s03, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_red_s03.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_yellow_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_yellow_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_yellow_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_yellow_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_yellow_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_yellow_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_yellow_s02, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_yellow_s02.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_table_yellow_s03 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_table_yellow_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_table_yellow_s03, "object/tangible/furniture/all/shared_frn_all_light_lamp_table_yellow_s03.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_tatt_blue_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_tatt_blue_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_tatt_blue_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_tatt_blue_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_tatt_green_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_tatt_green_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_tatt_green_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_tatt_green_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_tatt_orange_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_tatt_orange_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_tatt_orange_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_tatt_orange_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_tatt_purple_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_tatt_purple_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_tatt_purple_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_tatt_purple_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_tatt_red_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_tatt_red_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_tatt_red_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_tatt_red_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+object_tangible_furniture_all_shared_frn_all_light_lamp_tatt_yellow_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/all/shared_frn_all_light_lamp_tatt_yellow_s01.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_furniture_all_shared_frn_all_light_lamp_tatt_yellow_s01, "object/tangible/furniture/all/shared_frn_all_light_lamp_tatt_yellow_s01.iff")
+------------------------------------------------------------------------------------------------------------------------------------

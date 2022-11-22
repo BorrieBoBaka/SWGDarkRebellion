@@ -136,6 +136,7 @@ namespace ai {
 		int setCreatureBit(lua_State* L);
 		int isInRangeOfHome(lua_State* L);
 		int getPatrolPointsSize(lua_State* L);
+		int emoteChat(lua_State* L);
 	private:
 		AiAgent* realObject;
 	};

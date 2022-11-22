@@ -18,6 +18,7 @@ class StimPackTemplate : public SharedTangibleObjectTemplate {
 	int dieType;
 	int dieCount;
 	int dieCheck;
+	bool roleplayStim;
 
 
 public:
@@ -34,6 +35,7 @@ public:
 		dieType = 0;
 		dieCount = 1;
 		dieCheck = 0;
+		roleplayStim = false;
 	}
 
 	~StimPackTemplate() {
@@ -46,6 +48,8 @@ public:
 		medicineUse = templateData->getIntField("medicineUse");
 		effectiveness = templateData->getFloatField("effectiveness");
 		medicineClass = templateData->getIntField("medicineClass");
+
+		roleplayStim = templateData->getBooleanField("roleplayStim");
 
 		dieType = templateData->getIntField("dieType");
 		dieCount = templateData->getIntField("dieCount");
@@ -80,6 +84,10 @@ public:
 
 	inline int getDieCheck() {
 		return dieCheck;
+	}
+
+	inline bool isRoleplayStimpack() {
+		return roleplayStim;
 	}
 
 	bool isStimPackTemplate() {

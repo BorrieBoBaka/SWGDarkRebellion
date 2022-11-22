@@ -39,8 +39,18 @@ string/en/error_message.stf	122	sys_eject_fail_move	The ejection attempt failed 
 		 */
 
 		if (creature->getParent() != nullptr) {
-			creature->sendSystemMessage("@error_message:sys_eject_fail_contained"); //The ejection attempt failed because you are inside a building.
-			return GENERALERROR;
+			//if building is ship
+			ManagedReference<SceneObject*> shipParent = creature->getParent();
+			bool isShip = shipParent->getStoredInt("ship_id") != 0;
+			if(isShip) {
+				//Send to Eisley. 
+				creature->sendSystemMessage("Ejecting you to a safe location");
+				creature->switchZone("rp_tatooine", 1110, 0, -63, 0);
+				return SUCCESS;
+			} else {
+				creature->sendSystemMessage("@error_message:sys_eject_fail_contained"); //The ejection attempt failed because you are inside a building.
+				return GENERALERROR;
+			}			
 		}
 
 		ManagedReference<Zone*> zone = creature->getZone();

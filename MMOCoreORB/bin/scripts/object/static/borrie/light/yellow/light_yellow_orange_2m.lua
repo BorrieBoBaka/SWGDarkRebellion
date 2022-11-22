@@ -1,0 +1,4 @@
+object_static_borrie_light_yellow_light_yellow_orange_2m = object_static_borrie_light_yellow_shared_light_yellow_orange_2m:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_light_yellow_light_yellow_orange_2m, "object/static/borrie/light/yellow/light_yellow_orange_2m.iff")

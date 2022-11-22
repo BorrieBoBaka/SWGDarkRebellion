@@ -1,3 +1,5 @@
+local themeTag = "general"
+
 rpg_vt_general = {
 	dialog = {
 		greeting = "Hello. Would you like to browse my inventory?", --1
@@ -7,3 +9,5 @@ rpg_vt_general = {
 		abort = "Come back any time!", --4
 	}
 }
+
+RPGVendorThemes:addTheme(themeTag, rpg_vt_general)

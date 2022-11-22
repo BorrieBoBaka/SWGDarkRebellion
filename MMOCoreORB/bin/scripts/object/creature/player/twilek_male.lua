@@ -42,7 +42,7 @@
 
 
 object_creature_player_twilek_male = object_creature_player_shared_twilek_male:new {
-	baseHAM = { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+	baseHAM = { 0, 0, 250, 250, 300, 0, 100, 0, 0 },
 	gameObjectType = 1033,
 	zoneComponent = "PlayerZoneComponent",
 	objectMenuComponent = "PlayerObjectMenuComponent",
@@ -59,7 +59,7 @@ object_creature_player_twilek_male = object_creature_player_shared_twilek_male:n
 	},
 	defaultLanguage = 1,
 	startingItems = { },
-	startingSkills = {  "social_language_basic_comprehend", "social_language_basic_speak" , "social_language_twilek_comprehend", "social_language_twilek_speak", "social_language_lekku_comprehend", "social_language_lekku_speak" }
+	startingSkills = { "species_twilek", "social_language_basic_comprehend", "social_language_basic_speak" , "social_language_twilek_comprehend", "social_language_twilek_speak", "social_language_lekku_comprehend", "social_language_lekku_speak" }
 }
 
 ObjectTemplates:addTemplate(object_creature_player_twilek_male, "object/creature/player/twilek_male.iff")

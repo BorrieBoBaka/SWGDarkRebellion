@@ -58,3 +58,7 @@ includeFile("custom_content/building/dathomir/dathomir_quarantine_zone_starport.
 includeFile("custom_content/building/dathomir/imperial_blackwing_facility.lua")
 includeFile("custom_content/building/dathomir/imperial_blackwing_facility_administrative_building.lua")
 
+includeFile("building/dathomir/mtn_clan_stronghold_dark.lua")
+includeFile("building/dathomir/night_sister_stronghold_dark.lua")
+
+

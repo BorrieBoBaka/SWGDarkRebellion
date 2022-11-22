@@ -1,0 +1,4 @@
+object_tangible_ship_roleplay_terminal_ship_computer = object_tangible_ship_roleplay_shared_terminal_ship_computer:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_ship_roleplay_terminal_ship_computer, "object/tangible/ship/roleplay/terminal_ship_computer.iff")

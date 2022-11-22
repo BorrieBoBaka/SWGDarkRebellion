@@ -27,6 +27,7 @@ Luna<LuaCreatureObject>::RegType LuaCreatureObject::Register[] = {
 		{ "sendSystemMessage", &LuaCreatureObject::sendSystemMessage },
 		{ "sendSystemMessageWithDI", &LuaCreatureObject::sendSystemMessageWithDI },
 		{ "sendSystemMessageWithTO", &LuaCreatureObject::sendSystemMessageWithTO },
+		{ "sendSystemMessageWithTOAndDI", &LuaCreatureObject::sendSystemMessageWithTOAndDI },
 		{ "sendGroupMessage", &LuaCreatureObject::sendGroupMessage },
 		{ "playMusicMessage", &LuaCreatureObject::playMusicMessage },
 		{ "sendNewbieTutorialRequest", &LuaCreatureObject::sendNewbieTutorialRequest },
@@ -132,6 +133,7 @@ Luna<LuaCreatureObject>::RegType LuaCreatureObject::Register[] = {
 		{ "setWounds", &LuaCreatureObject::setWounds },
 		{ "setShockWounds", &LuaCreatureObject::setShockWounds },
 		{ "getForceSensitiveSkillCount", &LuaCreatureObject::getForceSensitiveSkillCount },
+		{ "getTrainingSkillCount", &LuaCreatureObject::getTrainingSkillCount },
 		{ "villageKnightPrereqsMet", &LuaCreatureObject::villageKnightPrereqsMet },
 		{ "isOnLeave", &LuaTangibleObject::isOnLeave },
 		{ "isOvert", &LuaTangibleObject::isOvert },
@@ -320,6 +322,20 @@ int LuaCreatureObject::sendSystemMessageWithTO(lua_State* L) {
 
 	StringIdChatParameter param(text);
 	param.setTO(value);
+
+	realObject->sendSystemMessage(param);
+
+	return 0;
+}
+
+int LuaCreatureObject::sendSystemMessageWithTOAndDI(lua_State* L) {
+	String text = lua_tostring(L, -3);
+	String value = lua_tostring(L, -2);
+	uint32 value2 = (uint32) lua_tonumber(L, -1);
+
+	StringIdChatParameter param(text);
+	param.setTO(value);
+	param.setDI(value2);
 
 	realObject->sendSystemMessage(param);
 
@@ -1039,6 +1055,14 @@ int LuaCreatureObject::getForceSensitiveSkillCount(lua_State* L) {
 	bool includeNoviceMasterBoxes = lua_toboolean(L, -1);
 
 	int result = SkillManager::instance()->getForceSensitiveSkillCount(realObject, includeNoviceMasterBoxes);
+
+	lua_pushnumber(L, result);
+
+	return 1;
+}
+
+int LuaCreatureObject::getTrainingSkillCount(lua_State* L) {
+	int result = SkillManager::instance()->getTrainingSkillCount(realObject);
 
 	lua_pushnumber(L, result);
 

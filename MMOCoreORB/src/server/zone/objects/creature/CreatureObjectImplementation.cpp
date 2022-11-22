@@ -2187,6 +2187,37 @@ void CreatureObjectImplementation::notifyInsert(QuadTreeEntry* obj) {
 
 		if (obj->getCloseObjects() != nullptr)
 			obj->addInRangeObject(linkedCreature);
+
+		//EiF multipassenger - make sure COV gets updated for passengers - Thanks guys, with love, from Borrie BoBaka
+		float x = linkedCreature->getWorldPositionX();
+		float y = linkedCreature->getWorldPositionY();
+		float z = linkedCreature->getWorldPositionZ();
+		for (int i = 1; i < 8; ++i) {
+			String text = "rider";
+			text += String::valueOf(i);
+			CreatureObject* seat = getSlottedObject(text).castTo<CreatureObject*>();
+			if (seat != nullptr) {
+				seat->setPosition(x, z, y);
+				CreatureObject* rider = seat->getSlottedObject("rider").castTo<CreatureObject*>();
+				if (rider != nullptr) {
+					rider->setPosition(x, z, y);
+					if (rider->getCloseObjects() != nullptr)
+						rider->addInRangeObject(obj);
+					if (obj->getCloseObjects() != nullptr)
+						obj->addInRangeObject(rider);
+				}
+			}
+		}
+	}
+
+	if (hasRidingCreature()) {
+		CreatureObject* rider = getSlottedObject("rider").castTo<CreatureObject*>();
+		if (rider != nullptr){
+			rider->addInRangeObject(obj);
+			if (obj->getCloseObjects() != nullptr)
+				obj->addInRangeObject(rider);
+		}
+		
 	}
 
 	TangibleObjectImplementation::notifyInsert(obj);
@@ -2204,6 +2235,36 @@ void CreatureObjectImplementation::notifyDissapear(QuadTreeEntry* obj) {
 
 		if (obj->getCloseObjects() != nullptr)
 			obj->removeInRangeObject(linkedCreature);
+
+		//EiF multipassenger - COV updates - Thanks guys, with love, from Borrie BoBaka
+		float x = linkedCreature->getWorldPositionX();
+		float y = linkedCreature->getWorldPositionY();
+		float z = linkedCreature->getWorldPositionZ();
+		for (int i = 1; i < 8; ++i) {
+			String text = "rider";
+			text += String::valueOf(i);
+			CreatureObject* seat = getSlottedObject(text).castTo<CreatureObject*>();
+			if (seat != nullptr) {
+				seat->setPosition(x, z, y);
+				CreatureObject* rider = seat->getSlottedObject("rider").castTo<CreatureObject*>();
+				if (rider != nullptr) {
+					rider->setPosition(x, z, y);
+					if (rider->getCloseObjects() != nullptr)
+						rider->removeInRangeObject(obj);
+					if (obj->getCloseObjects() != nullptr)
+						obj->removeInRangeObject(rider);
+				}
+			}
+		}
+	}
+
+	if (hasRidingCreature()) {
+		CreatureObject* rider = getSlottedObject("rider").castTo<CreatureObject*>();
+		if (rider != nullptr) {
+			rider->removeInRangeObject(obj);
+			if (obj->getCloseObjects() != nullptr)
+				obj->removeInRangeObject(rider);
+		}
 	}
 
 	TangibleObjectImplementation::notifyDissapear(obj);
@@ -3409,8 +3470,8 @@ float CreatureObjectImplementation::calculateCostAdjustment(uint8 stat, float ba
 	return cost;
 }
 
-Reference<WeaponObject*> CreatureObjectImplementation::getWeapon() {
-	if (weapon == nullptr) {
+Reference<WeaponObject*> CreatureObjectImplementation::getWeapon(bool returnDefaultIfNull) {
+	if (weapon == nullptr && returnDefaultIfNull) {
 		return TangibleObjectImplementation::getSlottedObject("default_weapon").castTo<WeaponObject*>();
 	} else
 		return weapon;
@@ -3978,4 +4039,9 @@ void CreatureObjectImplementation::setHue(int hueIndex) {
 
 void CreatureObjectImplementation::setClient(ZoneClientSession* cli) {
 	owner = cli;
+}
+
+//https://www.empireinflames.com/
+Reference<WeaponObject*> CreatureObjectImplementation::getHolsteredWeapon(const String& slotName) {
+	return TangibleObjectImplementation::getSlottedObject(slotName).castTo<WeaponObject*>();
 }

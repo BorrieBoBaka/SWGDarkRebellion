@@ -54,12 +54,12 @@ public:
 			ManagedReference<CreatureObject*> targetCreature =
 					server->getZoneServer()->getObject(target).castTo<CreatureObject*>();
 
-			if (targetCreature == nullptr || !targetCreature->isCreature()) {
+			if (targetCreature == nullptr) {
 				creature->sendSystemMessage("@trap/trap:sys_creatures_only");
 				return GENERALERROR;
 			}
 
-			if (!targetCreature->isAttackableBy(creature) || targetCreature->isPet()) {
+			if (!targetCreature->isAttackableBy(creature)) {
 				creature->sendSystemMessage("@trap/trap:sys_no_pets");
 				return GENERALERROR;
 			}
@@ -136,6 +136,9 @@ public:
 			ManagedReference<Buff*> buff = nullptr;
 			int damage = 0;
 
+			String startSpam = trapData->getStartSpam();
+			String stopSpam = trapData->getStopSpam();
+
 			if (hit) {
 
 				message.setStringId("trap/trap" , trapData->getSuccessMessage());
@@ -151,12 +154,10 @@ public:
 				for(int i = 0; i < skillMods->size(); ++i) {
 					buff->setSkillModifier(skillMods->elementAt(i).getKey(), skillMods->get(i));
 				}
-
-				String startSpam = trapData->getStartSpam();
+				
 				if(!startSpam.isEmpty())
 					buff->setStartFlyText("trap/trap", startSpam,  0, 0xFF, 0);
-
-				String stopSpam = trapData->getStopSpam();
+				
 				if(!stopSpam.isEmpty())
 					buff->setEndFlyText("trap/trap", stopSpam,  0xFF, 0, 0);
 
@@ -170,8 +171,7 @@ public:
 
 			message.setTT(targetCreature->getDisplayedName());
 
-
-			Reference<ThrowTrapTask*> trapTask = new ThrowTrapTask(creature, targetCreature, buff, message, trapData->getPoolToDamage(), damage, hit);
+			Reference<ThrowTrapTask*> trapTask = new ThrowTrapTask(creature, targetCreature, buff, message, trapData->getPoolToDamage(), damage, hit, trapData);
 			creature->addPendingTask("throwtrap", trapTask, 2300);
 
 			//Reduce cost based upon player's strength, quickness, and focus if any are over 300

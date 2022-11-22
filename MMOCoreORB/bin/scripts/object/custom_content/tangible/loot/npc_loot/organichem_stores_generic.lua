@@ -2,4 +2,4 @@ object_tangible_loot_npc_loot_organichem_stores_generic = object_tangible_loot_n
 
 }
 
-ObjectTemplates:addTemplate(object_tangible_loot_npc_loot_organichem_stores_generic, "object/tangible/loot/npc/loot/organichem_stores_generic.iff")
+ObjectTemplates:addTemplate(object_tangible_loot_npc_loot_organichem_stores_generic, "object/tangible/loot/npc_loot/organichem_stores_generic.iff")

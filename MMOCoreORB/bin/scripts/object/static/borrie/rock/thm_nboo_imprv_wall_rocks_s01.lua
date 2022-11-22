@@ -1,0 +1,4 @@
+object_static_borrie_rock_thm_nboo_imprv_wall_rocks_s01 = object_static_borrie_rock_shared_thm_nboo_imprv_wall_rocks_s01:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_rock_thm_nboo_imprv_wall_rocks_s01, "object/static/borrie/rock/thm_nboo_imprv_wall_rocks_s01.iff")

@@ -1,0 +1,4 @@
+object_tangible_item_roleplay_force_force_scroll_light_s01 = object_tangible_item_roleplay_force_shared_force_scroll_light_s01:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_item_roleplay_force_force_scroll_light_s01, "object/tangible/item/roleplay/force/force_scroll_light_s01.iff")

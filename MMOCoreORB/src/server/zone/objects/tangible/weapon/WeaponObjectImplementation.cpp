@@ -18,6 +18,7 @@
 #include "server/zone/objects/tangible/component/lightsaber/LightsaberCrystalComponent.h"
 #include "server/zone/packets/object/WeaponRanges.h"
 #include "server/zone/ZoneProcessServer.h"
+#include "server/zone/managers/objectcontroller/ObjectController.h"
 
 
 void WeaponObjectImplementation::initializeTransientMembers() {
@@ -80,6 +81,7 @@ void WeaponObjectImplementation::loadTemplateData(SharedObjectTemplate* template
 
 	minDamage = weaponTemplate->getMinDamage();
 	maxDamage = weaponTemplate->getMaxDamage();
+	bonusDamage = weaponTemplate->getBonusDamage();
 
 	woundsRatio = weaponTemplate->getWoundsRatio();
 
@@ -208,6 +210,30 @@ String WeaponObjectImplementation::getWeaponType() const {
 	if (isJediPolearmWeapon()) weaponType = "polearmlightsaber";
 
 	return weaponType;
+}
+
+float WeaponObjectImplementation::getDamageTypePriceMod() const {
+	if(damageType == SharedWeaponObjectTemplate::KINETIC) {
+		return 1.05;
+	} else if(damageType == SharedWeaponObjectTemplate::ENERGY) {
+		return 1;
+	} else if(damageType == SharedWeaponObjectTemplate::ELECTRICITY) {
+		return 1.5;
+	} else if(damageType == SharedWeaponObjectTemplate::STUN) {
+		return 1.8;
+	} else if(damageType == SharedWeaponObjectTemplate::BLAST) {
+		return 2;
+	} else if(damageType == SharedWeaponObjectTemplate::HEAT) {
+		return 1.3;
+	} else if(damageType == SharedWeaponObjectTemplate::COLD) {
+		return 1.2;
+	} else if(damageType == SharedWeaponObjectTemplate::ACID) {
+		return 3;
+	} else if(damageType == SharedWeaponObjectTemplate::LIGHTSABER) {
+		return 10;
+	} else {
+		return 1;
+	}
 }
 
 void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
@@ -838,4 +864,70 @@ Reference<PowerupObject*> WeaponObjectImplementation::removePowerup() {
 	removeMagicBit(true);
 
 	return pup;
+}
+
+//https://www.empireinflames.com/
+
+void WeaponObjectImplementation::holsterWeapon(CreatureObject* player) {
+	String errorDescription;
+	if (player->canAddObject(_this.castTo<WeaponObject*>(), 6, errorDescription) != 0) {
+		return;
+	}
+
+	StringBuffer args;
+	args << player->getObjectID() << " 7 0 0 0";
+	String stringArgs = args.toString();
+
+	player->executeObjectControllerAction(STRING_HASHCODE("transferitemmisc"), this->getObjectID(), stringArgs);
+}
+
+void WeaponObjectImplementation::unholsterWeapon(CreatureObject* player) {
+
+	ManagedReference<SceneObject*> heldWeapon = player->getSlottedObject("hold_r");
+
+	if (heldWeapon != nullptr) {
+		SceneObject* playerInventory = player->getSlottedObject("inventory");
+		StringBuffer args;
+		args << playerInventory->getObjectID() << " -1 0 0 0";
+		String stringArgs = args.toString();
+		player->executeObjectControllerAction(STRING_HASHCODE("transferitemmisc"), heldWeapon->getObjectID(), stringArgs);
+	}
+
+	heldWeapon = player->getSlottedObject("hold_l");
+
+	if (heldWeapon != nullptr) {
+		SceneObject* playerInventory = player->getSlottedObject("inventory");
+		StringBuffer args;
+		args << playerInventory->getObjectID() << " -1 0 0 0";
+		String stringArgs = args.toString();
+		player->executeObjectControllerAction(STRING_HASHCODE("transferitemmisc"), heldWeapon->getObjectID(), stringArgs);
+	}
+	
+	String errorDescription;
+	if (player->canAddObject(_this.castTo<WeaponObject*>(), 4, errorDescription) != 0)
+		return;
+
+	StringBuffer args;
+	args << player->getObjectID() << " 4 0 0 0";
+	String stringArgs = args.toString();
+
+	player->executeObjectControllerAction(STRING_HASHCODE("transferitemweapon"), this->getObjectID(), stringArgs);
+
+}
+
+
+void WeaponObjectImplementation::npcHolsterWeapon(CreatureObject* npc) {
+	String errorDescription;
+	if (npc->canAddObject(_this.castTo<WeaponObject*>(), 6, errorDescription) != 0) {
+		return;
+	}
+
+	ZoneServer* zoneServer = getZoneServer();
+
+	if (zoneServer == nullptr)
+		return;
+
+	ObjectController* objectController = zoneServer->getObjectController();
+
+	objectController->transferObject(_this.castTo<WeaponObject*>(), npc, 6, true, true);
 }

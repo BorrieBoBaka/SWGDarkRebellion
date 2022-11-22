@@ -1,0 +1,4 @@
+object_static_borrie_rock_poi_all_lair_rock_shelter_large = object_static_borrie_rock_shared_poi_all_lair_rock_shelter_large:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_rock_poi_all_lair_rock_shelter_large, "object/static/borrie/rock/poi_all_lair_rock_shelter_large.iff")

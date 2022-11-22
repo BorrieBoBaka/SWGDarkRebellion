@@ -92,6 +92,9 @@
 #include "templates/tangible/ArmorObjectTemplate.h"
 #include "templates/tangible/StimPackTemplate.h"
 
+#include "server/zone/borrie/BorEffect.h"
+#include "server/zone/borrie/BorUtil.h"
+
 int DirectorManager::DEBUG_MODE = 0;
 int DirectorManager::ERROR_CODE = NO_ERROR;
 
@@ -445,6 +448,17 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	luaEngine->registerFunction("getItemTemplateInformation", getItemTemplateInformation);
 	luaEngine->registerFunction("getItemTemplateName", getItemTemplateName);
 	luaEngine->registerFunction("spawnTeleporterTerminal", spawnTeleporterTerminal);
+	luaEngine->registerFunction("spawnRoleplayMobile", spawnRoleplayMobile);
+	luaEngine->registerFunction("setRandomCreatureName", setRandomCreatureName);
+	luaEngine->registerFunction("getObjectPrice", getObjectPrice);
+	luaEngine->registerFunction("getObjectResellValue", getObjectResellValue);
+	luaEngine->registerFunction("broadcastMessageToGalaxy", broadcastMessageToGalaxy);
+	luaEngine->registerFunction("createTemplatedRoleplayNPC", createTemplatedRoleplayNPC);
+	luaEngine->registerFunction("createLootBox", createLootBox);
+	luaEngine->registerFunction("getShipFromControlDevice", getShipFromControlDevice);
+	luaEngine->registerFunction("getStoredObject", getStoredObject);
+	luaEngine->registerFunction("setStoredObject", setStoredObject);
+	luaEngine->registerFunction("broadcastMessageToArea", broadcastMessageToArea);
 
 
 	//Navigation Mesh Management
@@ -3942,7 +3956,7 @@ int DirectorManager::getItemTemplateInformation(lua_State* L) {
 		//Name
 		result << weaponTemplate->getObjectName() << endl;
 		//Type
-		result << weaponTemplate->getWeaponType() << endl;
+		//result << weaponTemplate->getWeaponType() << endl;
 		//Condition
 		result << "Condition: " << weaponTemplate->getMaxCondition() << endl;
 		//Damage
@@ -4133,4 +4147,351 @@ int DirectorManager::spawnTeleporterTerminal(lua_State* L) {
 
 	return 1;
 
+}
+
+int DirectorManager::setRandomCreatureName(lua_State* L) {
+	String nameTemplate = lua_tostring(L, -1);
+	Reference<CreatureObject*> creature = (CreatureObject*)lua_touserdata(L, -2); // Using creature required for placeStructure()
+
+	if(creature == nullptr) {
+		return 0;
+	}
+
+	BorrieRPG::SetRandomName(creature, creature, nameTemplate);
+	return 1;
+}
+
+int DirectorManager::spawnRoleplayMobile(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if (numberOfArguments != 12 && numberOfArguments != 13) {
+		String err = "incorrect number of arguments passed to DirectorManager::spawnRoleplayMobile";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	uint64 parentID;
+	float x, y, z, heading;
+	int respawnTimer;
+	String mobile, zoneid, customApp, equipmentTemp, skillTemp, detailsTemp, convoTemplate;
+
+	if(numberOfArguments == 12) {
+		detailsTemp = lua_tostring(L, -1);
+		skillTemp = lua_tostring(L, -2);
+		equipmentTemp = lua_tostring(L, -3);
+		customApp = lua_tostring(L, -4);
+		parentID = lua_tointeger(L, -5);
+		heading = lua_tonumber(L, -6);
+		y = lua_tonumber(L, -7);
+		z = lua_tonumber(L, -8);
+		x = lua_tonumber(L, -9);
+		respawnTimer = lua_tointeger(L, -10);
+		mobile = lua_tostring(L, -11);
+		zoneid = lua_tostring(L, -12);
+	} else if(numberOfArguments == 13) {
+		convoTemplate = lua_tostring(L, -1);
+		detailsTemp = lua_tostring(L, -2);
+		skillTemp = lua_tostring(L, -3);
+		equipmentTemp = lua_tostring(L, -4);
+		customApp = lua_tostring(L, -5);
+		parentID = lua_tointeger(L, -6);
+		heading = lua_tonumber(L, -7);
+		y = lua_tonumber(L, -8);
+		z = lua_tonumber(L, -9);
+		x = lua_tonumber(L, -10);
+		respawnTimer = lua_tointeger(L, -11);
+		mobile = lua_tostring(L, -12);
+		zoneid = lua_tostring(L, -13);
+	}
+	
+
+	StringBuffer appearance;
+	appearance << "object/mobile/" << customApp << ".iff";
+
+	ZoneServer* zoneServer = ServerCore::getZoneServer();
+
+	Zone* zone = zoneServer->getZone(zoneid);
+
+	if (zone == nullptr) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	//CreatureManager* creatureManager = zone->getCreatureManager();
+
+	//CreatureObject* creature = creatureManager->spawnCreature(mobile.hashCode(), customApp.hashCode(), x, z, y, parentID);
+
+	CreatureObject* creature = BorUtil::CreateRoleplayNPC(mobile, appearance.toString(), x, z, y, parentID, zoneid, skillTemp, equipmentTemp, detailsTemp, convoTemplate);
+
+	if (creature == nullptr) {
+		String err = "could not spawn custom mobile " + mobile;
+		printTraceError(L, err);
+
+		lua_pushnil(L);
+	} else {
+		Locker locker(creature);
+
+		creature->updateDirection(Math::deg2rad(heading));
+
+		if (creature->isAiAgent()) {
+			AiAgent* ai = cast<AiAgent*>(creature);
+			ai->setRespawnTimer(respawnTimer);
+
+			// TODO (dannuic): this is a temporary measure until we add an AI setting method to DirectorManager -- make stationary the default
+			ai->activateLoad("stationary");
+		}
+
+		creature->_setUpdated(true); // mark updated so the GC doesnt delete it while in LUA
+		lua_pushlightuserdata(L, creature);
+	}
+	return 1;
+}
+
+int DirectorManager::getObjectPrice(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if(numberOfArguments != 1) {
+		String err = "incorrect number of arguments passed to DirectorManager::getObjectPrice";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	String objectTemplate = lua_tostring(L, -1);
+
+	SharedObjectTemplate* obj = TemplateManager::instance()->getTemplate(objectTemplate.hashCode());
+
+	if(obj != nullptr) {
+		int price = obj->getPrice();
+		//instance()->info(String::valueOf(price), true);
+		lua_pushinteger(L, obj->getPrice());
+	} else {
+		lua_pushinteger(L, 0);
+	}
+
+	return 1;
+}
+
+int DirectorManager::getObjectResellValue(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if(numberOfArguments != 1) {
+		String err = "incorrect number of arguments passed to DirectorManager::getObjectPrice";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	String objectTemplate = lua_tostring(L, -1);
+
+	SharedObjectTemplate* obj = TemplateManager::instance()->getTemplate(objectTemplate.hashCode());
+
+	if(obj != nullptr) {
+		int price = obj->getPrice();
+		float resellValue = obj->getResellValueModifier();
+		int total = ceil((float)price * resellValue);
+		lua_pushinteger(L, total);
+
+	} else {
+		lua_pushinteger(L, 0);
+	}
+
+	return 1;
+}
+
+int DirectorManager::broadcastMessageToGalaxy(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if(numberOfArguments != 2) {
+		String err = "incorrect number of arguments passed to DirectorManager::broadcastMessageToGalaxy";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	String messageToBroadcast = lua_tostring(L, -1);
+	Reference<CreatureObject*> creature = (CreatureObject*)lua_touserdata(L, -2); 
+
+	BorrieRPG::BroadcastHoloNetMessage(creature, messageToBroadcast);
+
+	return 1;
+}
+
+int DirectorManager::createTemplatedRoleplayNPC(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if (numberOfArguments != 7 && numberOfArguments != 8) {
+		String err = "incorrect number of arguments passed to DirectorManager::createTemplatedRoleplayNPC";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	uint64 parentID;
+	float x, y, z, heading;
+	String mTemplate, zoneid;
+	String convoTemplate = "";
+
+	if(numberOfArguments == 7) {
+		convoTemplate = "";
+		zoneid = lua_tostring(L, -1);
+		parentID = lua_tointeger(L, -2);
+		heading = lua_tonumber(L, -3);
+		y = lua_tonumber(L, -4);
+		z = lua_tonumber(L, -5);
+		x = lua_tonumber(L, -6);
+		mTemplate = lua_tostring(L, -7);
+	} else if(numberOfArguments == 8) {
+		convoTemplate = lua_tostring(L, -1);
+		zoneid = lua_tostring(L, -2);
+		parentID = lua_tointeger(L, -3);
+		heading = lua_tonumber(L, -4);
+		y = lua_tonumber(L, -5);
+		z = lua_tonumber(L, -6);
+		x = lua_tonumber(L, -7);
+		mTemplate = lua_tostring(L, -8);		
+	}
+
+	CreatureObject* creature = BorUtil::CreateTemplatedRoleplayNPC(mTemplate, x, z, y, parentID, zoneid, convoTemplate);
+
+	if (creature == nullptr) {
+		String err = "(bor) could not spawn custom mobile npc template " + mTemplate;
+		printTraceError(L, err);
+
+		lua_pushnil(L);
+		return 0;
+	} else {
+		Locker locker(creature);
+
+		creature->updateDirection(Math::deg2rad(heading));
+
+		if (creature->isAiAgent()) {
+			AiAgent* ai = cast<AiAgent*>(creature);
+			ai->setRespawnTimer(1);
+
+			// TODO (dannuic): this is a temporary measure until we add an AI setting method to DirectorManager -- make stationary the default
+			ai->activateLoad("stationary");
+		}
+
+		creature->_setUpdated(true); // mark updated so the GC doesnt delete it while in LUA
+		lua_pushlightuserdata(L, creature);
+	}
+	return 1;	
+}
+
+int DirectorManager::createLootBox(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if (numberOfArguments != 4) {
+		String err = "incorrect number of arguments passed to DirectorManager::createLootBox";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	bool noResell = lua_toboolean(L, -1);
+	String contentList = lua_tostring(L, -2);
+	String objectTemplate = lua_tostring(L, -3);
+	Reference<CreatureObject*> creature = (CreatureObject*)lua_touserdata(L, -4); 
+
+	Reference<TangibleObject*> box = BorUtil::CreateLootbox(creature, objectTemplate, contentList, noResell);
+	if(box != nullptr)
+		lua_pushlightuserdata(L, box.get());
+	else
+		lua_pushnil(L);
+
+	return 1;
+}
+
+
+int DirectorManager::getShipFromControlDevice(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if(numberOfArguments != 1) {
+		String err = "incorrect number of arguments passed to DirectorManager::getShipFromControlDevice";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	SceneObject* scd = (SceneObject*)lua_touserdata(L, -1);
+
+	if(scd == nullptr) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	uint64 shipID = scd->getStoredLong("structure");
+    ManagedReference<BuildingObject*> shipBuilding = ServerCore::getZoneServer()->getObject(shipID).castTo<BuildingObject*>();
+        
+    if(shipBuilding == nullptr) {
+        lua_pushnil(L);
+    } else {
+		lua_pushlightuserdata(L, shipBuilding.get());
+		shipBuilding->_setUpdated(true); //mark updated so the GC doesnt delete it while in LUA
+	}
+
+	return 1;
+}
+
+int DirectorManager::getStoredObject(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if(numberOfArguments != 2) {
+		String err = "incorrect number of arguments passed to DirectorManager::getStoredObject";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	String varName = lua_tostring(L, -1);
+	SceneObject* objRoot = (SceneObject*)lua_touserdata(L, -2);
+
+	if(objRoot == nullptr) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	uint64 objID = objRoot->getStoredLong(varName);
+    ManagedReference<SceneObject*> storedObj = ServerCore::getZoneServer()->getObject(objID);
+        
+    if(storedObj == nullptr) {
+        lua_pushnil(L);
+    } else {
+		lua_pushlightuserdata(L, storedObj.get());
+		storedObj->_setUpdated(true); //mark updated so the GC doesnt delete it while in LUA
+	}
+
+	return 1;
+}
+
+int DirectorManager::setStoredObject(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if(numberOfArguments != 3) {
+		String err = "incorrect number of arguments passed to DirectorManager::setStoredObject";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	String varName = lua_tostring(L, -1);
+	SceneObject* objToStore = (SceneObject*)lua_touserdata(L, -2);
+	SceneObject* objRoot = (SceneObject*)lua_touserdata(L, -3);
+
+	if(objRoot == nullptr || objToStore == nullptr) {
+		return 1;
+	}
+
+	objRoot->setStoredLong(varName, objToStore->getObjectID());
+	return 1;
+}
+
+int DirectorManager::broadcastMessageToArea(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if(numberOfArguments != 2) {
+		String err = "incorrect number of arguments passed to DirectorManager::broadcastMessageToArea";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	String messageToBroadcast = lua_tostring(L, -1);
+	Reference<CreatureObject*> creature = (CreatureObject*)lua_touserdata(L, -2); 
+
+	BorrieRPG::BroadcastMessageToArea(creature, messageToBroadcast);
+
+	return 1;
 }

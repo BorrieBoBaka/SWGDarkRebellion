@@ -25,6 +25,7 @@
 #include "server/zone/managers/skill/Performance.h"
 #include "server/zone/managers/collision/CollisionManager.h"
 #include "server/zone/objects/intangible/VehicleControlDevice.h"
+#include "server/zone/objects/intangible/RpShipControlDevice.h"
 #include "server/zone/objects/tangible/threat/ThreatMap.h"
 #include "server/zone/objects/creature/VehicleObject.h"
 #include "server/login/packets/ErrorMessage.h"
@@ -109,6 +110,8 @@
 #include <sys/stat.h>
 #include "server/zone/objects/transaction/TransactionLog.h"
 #include "server/zone/objects/creature/commands/TransferItemMiscCommand.h"
+
+#include "server/zone/borrie/BorCharacter.h"
 
 PlayerManagerImplementation::PlayerManagerImplementation(ZoneServer* zoneServer, ZoneProcessServer* impl,
 					bool trackOnlineUsers) : Logger("PlayerManager") {
@@ -243,6 +246,7 @@ void PlayerManagerImplementation::loadLuaConfig() {
 	baseStoredDroids = lua->getGlobalInt("baseStoredDroids");
 	baseStoredVehicles = lua->getGlobalInt("baseStoredVehicles");
 	baseStoredShips = lua->getGlobalInt("baseStoredShips");
+	baseStoredRpShips = lua->getGlobalInt("baseStoredRpShips");
 
 	veteranRewardAdditionalMilestones = lua->getGlobalInt("veteranRewardAdditionalMilestones");
 
@@ -2357,6 +2361,13 @@ bool PlayerManagerImplementation::checkTradeItems(CreatureObject* player, Creatu
 					return false;
 
 				receiverShipsTraded++;
+			} else if(scene->isRpShipControlDevice()) {
+				RpShipControlDevice* rpShipControlDevice = cast<RpShipControlDevice*>(scene.get());
+
+				if (!rpShipControlDevice->canBeTradedTo(player, receiver, receiverShipsTraded))
+					return false;
+
+				receiverShipsTraded++;
 			}
 
 			recieverItnos++;
@@ -2422,6 +2433,13 @@ bool PlayerManagerImplementation::checkTradeItems(CreatureObject* player, Creatu
 				ShipControlDevice* shipControlDevice = cast<ShipControlDevice*>(scene.get());
 
 				if (!shipControlDevice->canBeTradedTo(receiver, player, playerShipsTraded))
+					return false;
+
+				playerShipsTraded++;
+			} else if (scene->isRpShipControlDevice()) {
+				RpShipControlDevice* rpShipControlDevice = cast<RpShipControlDevice*>(scene.get());
+
+				if (!rpShipControlDevice->canBeTradedTo(receiver, player, playerShipsTraded))
 					return false;
 
 				playerShipsTraded++;
@@ -3188,6 +3206,111 @@ SceneObject* PlayerManagerImplementation::getInRangeStructureWithAdminRights(Cre
 	}
 
 	if (distance < 25)
+		return structure;
+
+	return nullptr;
+}
+
+StructureObject* PlayerManagerImplementation::getInRangeRpShip(CreatureObject* creature) {
+	StructureObject* structure = nullptr;
+	float distance = 16000;
+
+	Zone* zone = creature->getZone();
+
+	if (zone == nullptr) {
+		return nullptr;
+	}
+
+	Locker _locker(zone);
+
+	CloseObjectsVector* closeObjs = (CloseObjectsVector*)creature->getCloseObjects();
+	SortedVector<QuadTreeEntry*> closeObjects;
+	closeObjs->safeCopyReceiversTo(closeObjects, CloseObjectsVector::STRUCTURETYPE);
+
+	for (int i = 0; i < closeObjects.size(); ++i) {
+		ManagedReference<SceneObject*> tObj = cast<SceneObject*>( closeObjects.get(i));
+
+		if (tObj != nullptr) {
+			if (tObj->isStructureObject()) {
+				float dist = tObj->getDistanceTo(creature);
+
+				StructureObject* structureObject = cast<StructureObject*>( tObj.get());
+
+				uint64 connectedShip = structureObject->getStoredLong("connected_ship");
+
+				if (dist < distance && connectedShip > 0) {
+					structure = structureObject;
+					distance = dist;
+				}
+			}
+		}
+	}
+
+	if (distance < 10)
+		return structure;
+
+	return nullptr;
+}
+
+StructureObject* PlayerManagerImplementation::getInRangeBoardableRpShip(CreatureObject* creature) {
+	StructureObject* structure = nullptr;
+	float distance = 16000;
+
+	Zone* zone = creature->getZone();
+
+	if (zone == nullptr) {
+		return nullptr;
+	}
+
+	Locker _locker(zone);
+
+	CloseObjectsVector* closeObjs = (CloseObjectsVector*)creature->getCloseObjects();
+	SortedVector<QuadTreeEntry*> closeObjects;
+	closeObjs->safeCopyReceiversTo(closeObjects, CloseObjectsVector::STRUCTURETYPE);
+
+	for (int i = 0; i < closeObjects.size(); ++i) {
+		ManagedReference<SceneObject*> tObj = cast<SceneObject*>( closeObjects.get(i));
+
+		if (tObj != nullptr) {
+			if (tObj->isStructureObject()) {
+				float dist = tObj->getDistanceTo(creature);
+
+				StructureObject* structureObject = cast<StructureObject*>( tObj.get());
+
+				uint64 connectedShip = structureObject->getStoredLong("connected_ship");
+				
+
+				if (dist < distance && connectedShip > 0) {
+					bool validEntry = false;
+					ManagedReference<SceneObject*> shipObject = creature->getZoneServer()->getObject(connectedShip).castTo<SceneObject*>();
+					if(shipObject->isBuildingObject()) {
+						//Check to see if the player is on the admin list, entry list, or if the ship is private
+						BuildingObject* shipStructure = cast<BuildingObject*>( shipObject.get());
+						if(shipStructure->isPublicStructure()) {
+							validEntry = true;
+						} else if(shipStructure->isOnAdminList(creature)) {
+							validEntry = true;
+						} else if(shipStructure->isAllowedEntry(creature)) {
+							validEntry = true;
+						}
+					} else { //Non-Building Ship
+						//Check to see if player owns the shipObject
+						SceneObject* datapad = creature->getSlottedObject("datapad");
+						if(shipObject->getParentID() == datapad->getObjectID()) {
+							validEntry = true;
+						}
+					}	
+
+					if(validEntry) {
+						structure = structureObject;
+						distance = dist;
+					}				
+				}
+			}
+		}
+	}
+
+	if (distance < 10)
 		return structure;
 
 	return nullptr;
@@ -4471,8 +4594,9 @@ SortedVector<String> PlayerManagerImplementation::getTeachableSkills(CreatureObj
 
 		const auto& skillName = skill->getSkillName();
 
-		if (!(skillName.contains("novice") || skillName.contains("force_sensitive") || skillName.contains("force_rank") || skillName.contains("force_title") || skillName.contains("admin_")) && skillManager->canLearnSkill(skillName, student, false))
+		if(BorCharacter::GetSkillIsTrainable(skillName) && skillManager->canLearnSkill(skillName, student, false))
 			skills.put(skillName);
+		
 	}
 
 	return skills;

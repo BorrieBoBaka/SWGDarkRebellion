@@ -137,6 +137,7 @@ Luna<LuaAiAgent>::RegType LuaAiAgent::Register[] = {
 		{ "setCreatureBit", &LuaAiAgent::setCreatureBit },
 		{ "isInRangeOfHome", &LuaAiAgent::isInRangeOfHome },
 		{ "getPatrolPointsSize", &LuaAiAgent::getPatrolPointsSize },
+		{ "emoteChat", &LuaAiAgent::emoteChat},
 		{ 0, 0 }
 };
 
@@ -1085,4 +1086,28 @@ int LuaAiAgent::getPatrolPointsSize(lua_State* L) {
 	lua_pushinteger(L, ret);
 
 	return 1;
+}
+
+int LuaAiAgent::emoteChat(lua_State* L) {
+	ZoneServer* zoneServer = ServerCore::getZoneServer();
+	if (zoneServer == nullptr)
+		return 0;
+
+	ChatManager* chatManager = zoneServer->getChatManager();
+
+	if (lua_islightuserdata(L, -1)) {
+		StringIdChatParameter* message = (StringIdChatParameter*)lua_touserdata(L, -1);
+
+		if (realObject != nullptr && message != nullptr) {
+			chatManager->broadcastChatMessage(realObject, *message, 0, 38, realObject->getMoodID());
+		}
+	} else {
+		String message = lua_tostring(L, -1);
+
+		if (realObject != nullptr) {
+			chatManager->broadcastChatMessage(realObject, message, 0, 38, realObject->getMoodID());
+		}
+	}
+
+	return 0;
 }

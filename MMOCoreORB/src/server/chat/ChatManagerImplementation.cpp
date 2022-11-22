@@ -49,6 +49,9 @@
 #include "server/chat/room/ChatRoomMap.h"
 #include "templates/string/StringFile.h"
 
+#include "server/zone/borrie/BorrieRPG.h"
+#include "server/zone/borrie/BorChat.h"
+
 ChatManagerImplementation::ChatManagerImplementation(ZoneServer* serv, int initsize) : ManagedServiceImplementation() {
 	server = serv;
 	playerManager = nullptr;
@@ -172,6 +175,7 @@ void ChatManagerImplementation::loadSpatialChatTypes() {
 		i++;
 
 		spatialChatTypes.put(key, i);
+		spatialChatTypeNames.put(i, key);
 	}
 
 	iffStream->closeChunk('TYPS');
@@ -1079,6 +1083,10 @@ void ChatManagerImplementation::broadcastChatMessage(CreatureObject* sourceCreat
 	if (specialRange != -1)
 		range = specialRange;
 
+	BorChat::RateOutgoingMessage(sourceCreature, message);
+	BorChat::PrintSpatialChatToDMs(sourceCreature, message);
+	BorChat::PrintSpatialChatToDiscord(sourceCreature, message, spatialChatTypeNames.get(spatialChatType), range);
+
 	try {
 		for (int i = 0; i < closeEntryObjects.size(); ++i) {
 			SceneObject* object = static_cast<SceneObject*>(closeEntryObjects.get(i));
@@ -1146,7 +1154,7 @@ void ChatManagerImplementation::broadcastChatMessage(CreatureObject* sourceCreat
 				cmsg = new SpatialChat(sourceID, targetID, chatTargetID, *param, range, spatialChatType, moodType, chatFlags, languageID);
 			}
 
-			creature->sendMessage(cmsg);
+			creature->sendMessage(cmsg);			
 		}
 
 		if (param != nullptr) {
@@ -1324,6 +1332,7 @@ void ChatManagerImplementation::handleSpatialChatInternalMessage(CreatureObject*
 void ChatManagerImplementation::handleChatInstantMessageToCharacter(ChatInstantMessageToCharacter* message) {
 	ManagedReference<CreatureObject*> sender = message->getClient()->getPlayer();
 
+
 	bool godMode = false;
 
 	if (sender == nullptr)
@@ -1403,6 +1412,13 @@ void ChatManagerImplementation::handleChatInstantMessageToCharacter(ChatInstantM
 	}
 
 	text = formatMessage(text);
+
+	if(name == "Discord") {
+		if(text == "getwho") {
+			BorrieRPG::ReportPlayerCountToDiscord(sender);
+			return;
+		}
+	}
 
 	BaseMessage* msg = new ChatInstantMessageToClient("SWG", sender->getZoneServer()->getGalaxyName(), name, text);
 	receiver->sendMessage(msg);

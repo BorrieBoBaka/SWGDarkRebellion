@@ -36,6 +36,7 @@ namespace creature {
 		int sendSystemMessage(lua_State* L);
 		int sendSystemMessageWithDI(lua_State* L);
 		int sendSystemMessageWithTO(lua_State* L);
+		int sendSystemMessageWithTOAndDI(lua_State* L);
 		int sendSystemMessageWithTT(lua_State* L);
 		int sendGroupMessage(lua_State* L);
 		int playMusicMessage(lua_State *L);
@@ -116,6 +117,7 @@ namespace creature {
 		int setWounds(lua_State* L);
 		int setShockWounds(lua_State* L);
 		int getForceSensitiveSkillCount(lua_State* L);
+		int getTrainingSkillCount(lua_State* L);
 		int villageKnightPrereqsMet(lua_State* L);
 		int getDamageDealerList(lua_State* L);
 		int getHealingThreatList(lua_State* L);

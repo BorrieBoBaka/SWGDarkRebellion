@@ -113,6 +113,24 @@ public:
 			target->setPosture(CreaturePosture::CROUCHED, false, false);
 	}
 
+	static void SetNPCPosture(CreatureObject* target, String posture) {
+		if(posture == "upright" || posture == "standing" || posture == "stand") {
+			target->setPosture(CreaturePosture::UPRIGHT, true, true);
+		} else if(posture == "kneeling" || posture == "kneel" || posture == "crouched") {
+			target->setPosture(CreaturePosture::CROUCHED, true, true);
+		} else if(posture == "prone") {
+			target->setPosture(CreaturePosture::PRONE, true, true);
+		} else if(posture == "sneaking" || posture == "sneak") {
+			target->setPosture(CreaturePosture::SNEAKING, true, true);
+		} else if(posture == "sitting" || posture == "sit" || posture == "sitdown") {
+			target->setPosture(CreaturePosture::SITTING, true, true);
+		} else if(posture == "knockdown" || posture == "knockeddown" || posture == "kd") {
+			target->setPosture(CreaturePosture::KNOCKEDDOWN, true, true);
+		} else if(posture == "dead" || posture == "corpse" || posture == "dying" || posture == "killed" || posture == "kill") {
+			target->setPosture(CreaturePosture::DEAD, true, true);
+		}
+	}
+
 	static void ToggleForceAICombat(CreatureObject* target, CreatureObject* commander) {
 		ManagedReference<AiAgent*> agent = target->asAiAgent();
 		Locker alock(agent);
@@ -159,8 +177,10 @@ public:
 		agent->clearSavedPatrolPoints();
 		agent->stopWaiting();
 		agent->setWait(0);
+		agent->setHomeLocation(x,z,y,cell);
 		agent->setNextPosition(x, z, y, cell);
 		agent->activateMovementEvent();
+		
 	}
 
 	static void SetCreaturePosition(CreatureObject* creature, CreatureObject* master) {
@@ -218,7 +238,7 @@ public:
 		if (object->isCreatureObject()) {
 			targetCreature = object->asCreatureObject();
 			if (targetCreature->getPlayerObject() != nullptr) {
-				if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID())
+				if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID() || isAdmin)
 					isMine = true;
 				else {
 					creature->sendSystemMessage("ERROR: You can only speak through NPCs, characters or pets that you own.");

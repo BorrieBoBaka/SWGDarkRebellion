@@ -55,8 +55,13 @@ public:
 
 				creature->playEffect("clienteffect/pl_force_resist_disease_self.cef");
 				creature->addPendingTask("invisibledelayevent", invisTask, 1600);
+			} else if(subCmd.toLowerCase().beginsWith("check")) {
+				if(player->isInvisible()) {
+					player->sendSystemMessage("You are currently invisible.");
+				} else {
+					player->sendSystemMessage("You can currently be seen by everybody.");
+				}
 			}
-
 		} else {
 			if (player->getPvpStatusBitmask() & CreatureFlag::PLAYER) {
 				player->setPvpStatusBitmask(CreatureFlag::NONE);

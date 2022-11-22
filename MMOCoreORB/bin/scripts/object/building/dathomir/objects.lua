@@ -203,3 +203,13 @@ object_building_dathomir_shared_spiderclan_breeding_cave = SharedBuildingObjectT
 ObjectTemplates:addClientTemplate(object_building_dathomir_shared_spiderclan_breeding_cave, "object/building/dathomir/shared_spiderclan_breeding_cave.iff")
 --**********************************************************************************************************************************
 
+object_building_dathomir_shared_mtn_clan_stronghold_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/dathomir/shared_mtn_clan_stronghold_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_dathomir_shared_mtn_clan_stronghold_dark, "object/building/dathomir/shared_mtn_clan_stronghold_dark.iff")
+--************************************************************************************************************************************************************
+object_building_dathomir_shared_night_sister_stronghold_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/dathomir/shared_night_sister_stronghold_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_dathomir_shared_night_sister_stronghold_dark, "object/building/dathomir/shared_night_sister_stronghold_dark.iff")
+--********************************************************************************************************************************************************************

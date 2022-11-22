@@ -33,6 +33,9 @@ class SharedBuildingObjectTemplate : public SharedStructureObjectTemplate {
 
 	Vector<SignTemplate> shopSigns;
 
+	Vector3 entrancePoint;
+	int entranceCell;
+
 public:
 	SharedBuildingObjectTemplate() : medicalRating(0), publicStructure(false), alwaysPublic(false), factionBaseType(0), ejectDistance(2.5f) {
 	}
@@ -106,6 +109,15 @@ public:
 	inline float getEjectDistance() const {
 		return ejectDistance;
 	}
+
+	inline const Vector3& getEntrancePoint() const {
+		return entrancePoint;
+	}
+
+	inline int getEntranceCell() const {
+		return entranceCell;
+	}
+
 };
 
 #endif /* SHAREDBUILDINGOBJECTTEMPLATE_H_ */

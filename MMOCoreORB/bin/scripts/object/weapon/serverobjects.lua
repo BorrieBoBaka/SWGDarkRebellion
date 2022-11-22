@@ -50,4 +50,6 @@ includeFile("weapon/mine/serverobjects.lua")
 includeFile("weapon/ranged/serverobjects.lua")
 includeFile("weapon/trap/serverobjects.lua")
 
+includeFile("weapon/roleplay/serverobjects.lua")
+
 -- Server Objects

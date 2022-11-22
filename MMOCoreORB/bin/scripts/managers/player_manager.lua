@@ -44,7 +44,7 @@
 --GENERAL PLAYER SETTINGS
 -----------------------------------
 
-onlineCharactersPerAccount = 2 --How many characters are allowed online from a single account.
+onlineCharactersPerAccount = 10 --How many characters are allowed online from a single account.
 allowSameAccountPvpRatingCredit = 0
 
 --Blue frog / GM buff values
@@ -66,6 +66,7 @@ baseStoredFactionPets = 3
 baseStoredDroids = 5
 baseStoredVehicles = 3
 baseStoredShips = 3
+baseStoredRpShips = 2
 
 -----------------------------------
 --VETERAN REWARDS CONFIG

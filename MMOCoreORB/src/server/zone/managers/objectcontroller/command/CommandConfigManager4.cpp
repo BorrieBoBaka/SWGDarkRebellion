@@ -247,6 +247,9 @@
 #include "server/zone/objects/creature/commands/RpsetstanceCommand.h"
 #include "server/zone/objects/creature/commands/RpmoveCommand.h"
 
+//EIF Holstering
+#include "server/zone/objects/creature/commands/HolsterCommand.h"
+#include "server/zone/objects/creature/commands/StowCommand.h"
 
 using namespace server::zone::managers::objectcontroller::command;
 
@@ -456,5 +459,7 @@ void CommandConfigManager::registerCommands4() {
 	commandFactory.registerCommand<RpsetstanceCommand>(String("rpsetstance").toLowerCase());
 	commandFactory.registerCommand<RpmoveCommand>(String("rpmove").toLowerCase());
 
+	commandFactory.registerCommand<HolsterCommand>(String("holster").toLowerCase());
+	commandFactory.registerCommand<StowCommand>(String("stow").toLowerCase());
 
 }

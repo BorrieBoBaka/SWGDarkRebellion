@@ -1,0 +1,4 @@
+object_static_borrie_rock_asteroid_mining_rock_s01_large = object_static_borrie_rock_shared_asteroid_mining_rock_s01_large:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_rock_asteroid_mining_rock_s01_large, "object/static/borrie/rock/asteroid_mining_rock_s01_large.iff")

@@ -1,0 +1,8 @@
+includeFile("building/ship_rp/imperial_gunboat_player.lua")
+includeFile("building/ship_rp/rebel_gunboat_player.lua")
+includeFile("building/ship_rp/sorosuub_space_yacht.lua")
+includeFile("building/ship_rp/vt49.lua")
+includeFile("building/ship_rp/y8.lua")
+includeFile("building/ship_rp/ykl37r.lua")
+includeFile("building/ship_rp/yt1300.lua")
+includeFile("building/ship_rp/yt2400.lua")

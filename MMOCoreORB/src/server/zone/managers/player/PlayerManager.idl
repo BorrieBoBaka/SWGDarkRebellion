@@ -84,6 +84,7 @@ class PlayerManager extends Observer implements Logger {
 	protected int baseStoredDroids;
 	protected int baseStoredVehicles;
 	protected int baseStoredShips;
+	protected int baseStoredRpShips;
 	protected boolean allowSameAccountPvpRatingCredit;
 	protected int onlineCharactersPerAccount;
 
@@ -230,6 +231,10 @@ class PlayerManager extends Observer implements Logger {
 	public native SceneObject getInRangeStructureWithAdminRights(CreatureObject creature, unsigned long targetID = 0);
 
 	public native StructureObject getInRangeOwnedStructure(CreatureObject creature, float range = 128);
+
+	public native StructureObject getInRangeRpShip(CreatureObject creature);
+
+	public native StructureObject getInRangeBoardableRpShip(CreatureObject creature);
 
 	public native void sendBattleFatigueMessage(CreatureObject player, CreatureObject target);
 
@@ -533,6 +538,10 @@ class PlayerManager extends Observer implements Logger {
 
 	public int getBaseStoredCreaturePets() {
 		return baseStoredCreaturePets;
+	}
+
+	public int getBaseStoredRpShips() {
+		return baseStoredRpShips;
 	}
 
 	public int getBaseStoredFactionPets() {

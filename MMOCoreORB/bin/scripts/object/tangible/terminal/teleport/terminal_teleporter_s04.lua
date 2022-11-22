@@ -1,0 +1,4 @@
+object_tangible_terminal_teleport_terminal_teleporter_s04 = object_tangible_terminal_teleport_shared_terminal_teleporter_s04:new {
+	objectMenuComponent = "TeleporterMenuComponent"
+}
+ObjectTemplates:addTemplate(object_tangible_terminal_teleport_terminal_teleporter_s04, "object/tangible/terminal/teleport/terminal_teleporter_s04.iff")

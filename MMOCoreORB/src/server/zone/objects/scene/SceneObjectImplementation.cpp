@@ -1355,6 +1355,7 @@ void SceneObjectImplementation::createChildObjects() {
 
 					if (cellObject != nullptr) {
 						if (!cellObject->transferObject(obj, child->getContainmentType(), true)) {
+							error("Could not transfer cell object to parent?");
 							obj->destroyObjectFromDatabase(true);
 							continue;
 						}
@@ -1455,6 +1456,29 @@ void SceneObjectImplementation::faceObject(SceneObject* obj, bool notifyClient) 
 	Vector3 targetPos = obj->getPosition();
 
 	float directionangle = atan2(targetPos.getX() - thisPos.getX(), targetPos.getY() - thisPos.getY());
+
+	if (directionangle < 0) {
+		float a = M_PI + directionangle;
+		directionangle = M_PI + a;
+	}
+
+	float err = fabs(directionangle - direction.getRadians());
+
+	if (err < 0.05) {
+		debug() << "not updating " << directionangle;
+		return;
+	}
+
+	if (notifyClient) {
+		updateDirection(directionangle);
+	} else {
+		direction.setHeadingDirection(directionangle);
+	}
+}
+
+void SceneObjectImplementation::facePosition(float x, float y, bool notifyClient) {
+	Vector3 thisPos = getPosition();
+	float directionangle = atan2(x - thisPos.getX(), y - thisPos.getY());
 
 	if (directionangle < 0) {
 		float a = M_PI + directionangle;

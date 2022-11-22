@@ -18,8 +18,15 @@
 #include "server/zone/objects/player/sui/callbacks/TicketSelectionSuiCallback.h"
 #include "server/zone/objects/region/CityRegion.h"
 #include "server/zone/managers/planet/PlanetManager.h"
+#include "server/zone/managers/player/PlayerManager.h"
 #include "server/zone/managers/planet/PlanetTravelPoint.h"
 #include "server/zone/objects/group/GroupObject.h"
+
+#include "server/zone/objects/building/BuildingObject.h"
+#include "server/zone/objects/structure/StructureObject.h"
+#include "templates/building/SharedBuildingObjectTemplate.h"
+#include "server/zone/managers/structure/StructureManager.h"
+#include "server/zone/borrie/BorUtil.h"
 
 //#define ENABLE_CITY_TRAVEL_LIMIT
 
@@ -45,6 +52,46 @@ public:
 		if (zone == nullptr)
 			return GENERALERROR;
 
+
+		//Highjacking this command for RP Player Ships.
+		//Get nearest structures, check each one until we have the nearest which is a landing point. 
+
+		ManagedReference<PlayerManager*> playerManager = creature->getZoneServer()->getPlayerManager();
+
+		ManagedReference<StructureObject*> closestPlayerShip = playerManager->getInRangeBoardableRpShip(creature);
+
+		if(closestPlayerShip != nullptr) {
+			if(closestPlayerShip->getStoredInt("acceptingPassengers") == 1) {
+				//Teleport 'em aboard.
+				uint64 shipID = closestPlayerShip->getStoredLong("connected_ship");
+				ManagedReference<BuildingObject*> shipBuilding = creature->getZoneServer()->getObject(shipID).castTo<BuildingObject*>();
+        
+        		if(shipBuilding != nullptr) {
+            		Reference<SharedBuildingObjectTemplate*> shipTemplate = dynamic_cast<SharedBuildingObjectTemplate*>(shipBuilding->getObjectTemplate());
+
+       				Vector3 entrancePoint = shipTemplate->getEntrancePoint();
+       				int entranceCell = shipTemplate->getEntranceCell();
+       				Zone* shipZone = shipBuilding->getZone();
+       				CellObject* cell = shipBuilding->getCell(entranceCell);
+
+       				if(cell == nullptr) {
+           				creature->sendSystemMessage("Could not find a valid entrance point for this ship.");
+           				return GENERALERROR;
+       				}
+
+       				uint64 cellID = shipBuilding->getCell(entranceCell)->getObjectID();
+        			creature->switchZone(shipZone->getZoneName(), entrancePoint.getX(), entrancePoint.getZ(), entrancePoint.getY(), cellID);
+					return SUCCESS;
+        		} else {
+					//Prompt with SUI Menu of planet selection
+					BorUtil::CallScreenplayFunction(creature, "BorRpShip", "promptInstantTravelMenu");
+					return SUCCESS;
+				}
+			} else {
+				creature->sendSystemMessage("You can't board this ship right now.");
+			}
+		}
+
 		ManagedReference<PlanetManager*> planetManager = zone->getPlanetManager();
 
 		Reference<PlanetTravelPoint*> closestPoint = planetManager->getNearestPlanetTravelPoint(creature, 128.f);
@@ -52,7 +99,7 @@ public:
 		// Check to make sure the creature is within range of a PlanetTravelPoint
 		if (closestPoint == nullptr) {
 			// Could do @player_structure:boarding_too_far here but this allows you to know in-game that no point was found
-			creature->sendSystemMessage("There is no shuttle nearby.");
+			creature->sendSystemMessage("There is no shuttle or other boardable ships nearby.");
 			return GENERALERROR;
 		}
 

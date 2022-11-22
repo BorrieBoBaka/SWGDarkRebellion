@@ -8,6 +8,9 @@
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/objects/intangible/ControlDevice.h"
 #include "templates/creature/SharedCreatureObjectTemplate.h"
+//added include for EiF multipassenger
+#include "server/zone/managers/objectcontroller/ObjectController.h"
+
 
 class DismountCommand : public QueueCommand {
 	Vector<uint32> restrictedBuffCRCs;
@@ -74,6 +77,31 @@ public:
 
 		if (terrainManager == nullptr)
 			return GENERALERROR;
+
+		//EiF multipassenger addition
+		//dismounts any passengers on the vehicle if the driver gets out
+		//also, clean up any empty seats when the driver gets out
+		ZoneServer* zoneServer = server->getZoneServer();
+		ManagedReference<ObjectController*> objectController = zoneServer->getObjectController();	
+
+		for (int i = 1; i < 8; ++i) {
+			String text = "rider";
+			text += String::valueOf(i);
+			CreatureObject* seat = vehicle->getSlottedObject(text).castTo<CreatureObject*>();
+			if (seat != nullptr) {
+				Locker slocker(seat);
+				CreatureObject* rider = seat->getSlottedObject("rider").castTo<CreatureObject*>();
+				if (rider != nullptr) {
+					Locker rlocker(rider, seat);
+					seat->setPosition(vehicle->getPositionX(), vehicle->getPositionZ(), vehicle->getPositionY());
+					rider->setPosition(vehicle->getPositionX(), vehicle->getPositionZ(), vehicle->getPositionY());
+					objectController->activateCommand(rider, STRING_HASHCODE("dismount"), 0, 0, "");
+				} else {
+					seat->destroyObjectFromWorld(true);
+				}
+			}
+		}
+		//end addition
 
 		zone->transferObject(creature, -1, false);
 
@@ -148,6 +176,16 @@ public:
 				}, "RemoveGallopModsLambda");
 			}
 		}
+
+		//EiF addition
+		//if a passenger gets out, destroy the seat he was sitting in
+		ManagedReference<SceneObject*> parentObject = vehicle->getParent().get();
+		CreatureObject* parent = cast<CreatureObject*>(parentObject.get());
+		if (parent != nullptr && parent->isCreatureObject()) {
+			Locker lock(vehicle);
+			vehicle->destroyObjectFromWorld(true);
+		}
+		//end addition
 
 		return SUCCESS;
 	}

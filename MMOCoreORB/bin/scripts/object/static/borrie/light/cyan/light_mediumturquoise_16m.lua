@@ -1,0 +1,4 @@
+object_static_borrie_light_cyan_light_mediumturquoise_16m = object_static_borrie_light_cyan_shared_light_mediumturquoise_16m:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_light_cyan_light_mediumturquoise_16m, "object/static/borrie/light/cyan/light_mediumturquoise_16m.iff")

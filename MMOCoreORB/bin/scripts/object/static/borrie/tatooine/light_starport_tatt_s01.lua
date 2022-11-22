@@ -1,0 +1,4 @@
+object_static_borrie_tatooine_light_starport_tatt_s01 = object_static_borrie_tatooine_shared_light_starport_tatt_s01:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_tatooine_light_starport_tatt_s01, "object/static/borrie/tatooine/light_starport_tatt_s01.iff")

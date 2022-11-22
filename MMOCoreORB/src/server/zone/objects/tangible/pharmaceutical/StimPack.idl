@@ -21,6 +21,7 @@ class StimPack extends PharmaceuticalObject {
 	protected int dieType;
 	protected int dieCount;
 	protected int dieCheck;
+	protected boolean isRoleplayStimpack;
 
 	public StimPack() {
 		setLoggingName("StimPack");
@@ -64,6 +65,10 @@ class StimPack extends PharmaceuticalObject {
 		effectiveness = stimPackTemplate.getEffectiveness();
 		super.medicineUseRequired = stimPackTemplate.getMedicineUse();
 		medicineClass = stimPackTemplate.getMedicineClass();
+		dieType = stimPackTemplate.getDieType();
+		dieCount = stimPackTemplate.getDieCount();
+		dieCheck = stimPackTemplate.getDieCheck();
+		isRoleplayStimpack = stimPackTemplate.isRoleplayStimpack();
 	}
 
 	@dirty
@@ -98,6 +103,16 @@ class StimPack extends PharmaceuticalObject {
 
 		if (selectedID != 20)
 			return 1;
+
+		if(isRoleplayStimPack()) {
+			if(isDroidRepairKit()) {
+				player.sendCommand("rprepairkit", String.valueOf(super.getObjectID()), player.getTargetID());
+				return 0;
+			} else {
+				player.sendCommand("rpstimpack", String.valueOf(super.getObjectID()), player.getTargetID());
+				return 0;
+			}
+		}
 
 		if (isPetStimPack()) {
 			player.sendCommand("healpet", String.valueOf(super.getObjectID()), player.getTargetID());
@@ -147,6 +162,11 @@ class StimPack extends PharmaceuticalObject {
 	@dirty 
 	public float getDieCheck() {
 		return dieCheck;
+	}
+
+	@dirty
+	public native boolean isRoleplayStimPack() {
+		return isRoleplayStimpack;
 	}
 
 	/**

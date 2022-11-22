@@ -87,3 +87,5 @@ includeFile("tangible/medicine/medpack_wound_strength.lua")
 includeFile("tangible/medicine/newbie_heal_mission_medicine.lua")
 includeFile("tangible/medicine/stimpack_sm_s1.lua")
 includeFile("tangible/medicine/test_fire_blanket.lua")
+
+includeFile("tangible/medicine/roleplay/serverobjects.lua")

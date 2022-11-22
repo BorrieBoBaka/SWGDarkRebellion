@@ -1251,3 +1251,60 @@ TangibleObject* TangibleObject::asTangibleObject() {
 TangibleObject* TangibleObjectImplementation::asTangibleObject() {
 	return _this.getReferenceUnsafeStaticCast();
 }
+
+//https://www.empireinflames.com/
+void TangibleObjectImplementation::stowObject(CreatureObject* player) {
+	String errorDescription;
+	if (player->canAddObject(_this.castTo<SceneObject*>(), 6, errorDescription) != 0) {
+		return;
+	}	
+	StringBuffer args;
+	if (isInstrument())
+		args << player->getObjectID() << " 7 0 0 0";
+	else
+		args << player->getObjectID() << " 6 0 0 0";
+	String stringArgs = args.toString();	
+	player->executeObjectControllerAction(STRING_HASHCODE("transferitemmisc"), this->getObjectID(), stringArgs);
+}
+
+//https://www.empireinflames.com/
+void TangibleObjectImplementation::unstowObject(CreatureObject* player) {
+
+	ManagedReference<SceneObject*> heldObject = player->getSlottedObject("hold_r");
+
+	if (heldObject != nullptr) {
+		ManagedReference<WeaponObject*> holsteredWeapon = player->getHolsteredWeapon("holster");
+		if (heldObject->isWeaponObject() && holsteredWeapon == nullptr) {
+			player->executeObjectControllerAction(STRING_HASHCODE("holster"), heldObject->getObjectID(), "");
+			return;
+		} else {
+			SceneObject* playerInventory = player->getSlottedObject("inventory");
+			StringBuffer args;
+			args << playerInventory->getObjectID() << " -1 0 0 0";
+			String stringArgs = args.toString();
+			player->executeObjectControllerAction(STRING_HASHCODE("transferitemmisc"), heldObject->getObjectID(), stringArgs);
+		}
+	}
+
+	heldObject = player->getSlottedObject("hold_l");
+
+	if (heldObject != nullptr) {
+		SceneObject* playerInventory = player->getSlottedObject("inventory");
+		StringBuffer args;
+		args << playerInventory->getObjectID() << " -1 0 0 0";
+		String stringArgs = args.toString();
+		player->executeObjectControllerAction(STRING_HASHCODE("transferitemmisc"), heldObject->getObjectID(), stringArgs);
+	}
+	
+	String errorDescription;
+	if (player->canAddObject(_this.castTo<SceneObject*>(), 4, errorDescription) != 0) {
+		return;
+	}
+
+	StringBuffer args;
+	args << player->getObjectID() << " 4 0 0 0";
+	String stringArgs = args.toString();
+
+	player->executeObjectControllerAction(STRING_HASHCODE("transferitemweapon"), this->getObjectID(), stringArgs);
+}
+

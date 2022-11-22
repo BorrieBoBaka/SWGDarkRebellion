@@ -1,0 +1,4 @@
+object_static_borrie_tree_poi_kash_all_treewall_med_s02 = object_static_borrie_tree_shared_poi_kash_all_treewall_med_s02:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_tree_poi_kash_all_treewall_med_s02, "object/static/borrie/tree/poi_kash_all_treewall_med_s02.iff")

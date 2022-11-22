@@ -57,6 +57,7 @@ const String SceneObjectType::typeToString(int gameObjectType) {
 		case DATA2:						return "@got_n:data_fictional";
 		case PETCONTROLDEVICE:			return "@got_n:data_pet_control_device";
 		case VEHICLECONTROLDEVICE:		return "@got_n:data_vehicle_control_device";
+		case RPSHIPCONTROLDEVICE:		return "@got_n:data_ship_control_deice";
 		case SHIPCONTROLDEVICE:			return "@got_n:data_ship_control_deice";
 		case DROIDCONTROLDEVICE:		return "@got_n:data_droid_control_device";
 		case THEATEROBJECT:				return "@got_n:misc";
@@ -234,6 +235,7 @@ const String SceneObjectType::typeToString(int gameObjectType) {
 		case PETDEED:					return "@got_n:deed_pet";
 		case DROIDDEED:					return "@got_n:deed_droid";
 		case VEHICLEDEED:				return "@got_n:deed_vehicle";
+		case RPSHIPDEED:				return "@got_n:deed";
 		case RESOURCEDEED:				return "@got_n:deed";
 		case EVENTPERKDEED:				return "@got_n:deed";
 		case VETHARVESTERDEED:			return "@got_n:deed";
@@ -288,6 +290,7 @@ const String SceneObjectType::typeToString(int gameObjectType) {
 		case SHIPCOUNTERMEASURE:		return "@got_n:ship_component_countermeasurepack";
 		case SHIPWEAPONLAUNCHER:		return "@got_n:ship_component_missilelauncher";
 		case SHIPCOUNTERMEASURELAUNCHER:return "@got_n:ship_component_countermeasurelauncher";
+		case UTILITY:					return "@got_n:misc";
 		default:						return "@got_n:misc";
 }
 }

@@ -65,7 +65,7 @@ public:
 						if (subCommand == "fill" || subCommand == "max") {
 							BorCharacter::FillPool(targetCreature, command);
 						} else {
-							BorCharacter::ModPool(creature, command, Integer::valueOf(subCommand));
+							BorCharacter::ModPool(targetCreature, command, Integer::valueOf(subCommand));
 						}
 					} else {
 						creature->sendSystemMessage("Invalid arguments for HP command. Requires value to edit pool with.");

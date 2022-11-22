@@ -66,6 +66,9 @@
 #include "server/login/account/AccountManager.h"
 #include "templates/creature/SharedCreatureObjectTemplate.h"
 
+#include "server/zone/borrie/BorrieRPG.h"
+#include "server/zone/borrie/BorCharacter.h"
+
 #include "server/zone/objects/tangible/deed/eventperk/EventPerkDeed.h"
 #include "server/zone/managers/player/QuestInfo.h"
 #include "server/zone/objects/player/events/ForceMeditateTask.h"
@@ -1335,6 +1338,8 @@ void PlayerObjectImplementation::notifyOnline() {
 		}
 	}
 
+	BorrieRPG::NotifyAdminsAboutPlayerStatus(firstName, true);
+
 	//Resend all suis.
 	for (int i = 0; i < suiBoxes.size(); ++i) {
 		ManagedReference<SuiBox*> sui = suiBoxes.get(i);
@@ -1347,6 +1352,8 @@ void PlayerObjectImplementation::notifyOnline() {
 
 	//Login to jedi manager
 	JediManager::instance()->onPlayerLoggedIn(playerCreature);
+	//Prompt Force Sensitivity Question:
+	BorCharacter::PromptForceQuestion(playerCreature);
 
 	if (getFrsData()->getRank() >= 0) {
 		FrsManager* frsManager = zoneServer->getFrsManager();
@@ -1363,6 +1370,8 @@ void PlayerObjectImplementation::notifyOnline() {
 	luaOnPlayerLoggedIn->callFunction();
 
 	playerCreature->notifyObservers(ObserverEventType::LOGGEDIN);
+
+	playerCreature->executeObjectControllerAction(STRING_HASHCODE("dismount"));
 
 	// Set speed if player isn't mounted.
 	if (!playerCreature->isRidingMount())
@@ -1435,6 +1444,10 @@ void PlayerObjectImplementation::notifyOffline() {
 			player->sendMessage(notifyStatus);
 		}
 	}
+
+	BorrieRPG::NotifyAdminsAboutPlayerStatus(firstName, false);
+
+	playerCreature->executeObjectControllerAction(STRING_HASHCODE("dismount"));
 
 	//Remove player from visibility list
 	VisibilityManager::instance()->removeFromVisibilityList(playerCreature);
@@ -1873,12 +1886,13 @@ void PlayerObjectImplementation::doRecovery(int latency) {
 		} else {
 			debug("keeping link dead player in game");
 		}
-	}
-
+	} 
 	creature->activateHAMRegeneration(latency);
 	creature->activateStateRecovery();
 
 	CooldownTimerMap* cooldownTimerMap = creature->getCooldownTimerMap();
+
+	/*
 
 	if (cooldownTimerMap->isPast("digestEvent")) {
 		Time currentTime;
@@ -1890,7 +1904,9 @@ void PlayerObjectImplementation::doRecovery(int latency) {
 
 		lastDigestion.updateToCurrentTime();
 		cooldownTimerMap->updateToCurrentAndAddMili("digestEvent", 18000);
-	}
+	} 
+
+	*/
 
 	if (isOnline()) {
 		const CommandQueueActionVector* commandQueue = creature->getCommandQueue();
@@ -1935,6 +1951,41 @@ void PlayerObjectImplementation::doRecovery(int latency) {
 	if (cooldownTimerMap->isPast("spawnCheckTimer")) {
 		checkForNewSpawns();
 		cooldownTimerMap->updateToCurrentAndAddMili("spawnCheckTimer", 3000);
+	}
+
+	if (cooldownTimerMap->isPast("roleplayExpEvent")) {
+		if(getAdminLevel() == 0 && !isAFK()) {
+			int ticks = creature->getStoredInt("online_exp_ticks") + 1;
+
+			//Increase the online tick.
+			creature->setStoredInt("online_exp_ticks", ticks);
+
+			int chatScore = creature->getStoredInt("exp_chat_score");
+
+			int timeScore = ticks * 2;
+			if(timeScore > 50)
+				timeScore = 50;
+
+			int finalScore = chatScore + timeScore;
+
+			getZoneServer()->getPlayerManager()->awardExperience(creature, "rp_general", chatScore + timeScore);
+
+			//Daily Faction Involvement
+			if(creature->getStoredString("faction_current") != "") {
+				int currentFood = getFoodFilling();
+				int maxFood = getFoodFillingMax();
+				if(currentFood < maxFood) {
+					int foodAddScore = currentFood + (finalScore / 2) + 1;
+					//Prevent overflow
+					if(foodAddScore > maxFood) {
+						foodAddScore = maxFood;
+					}
+
+					setFoodFilling(foodAddScore, true);
+				}				
+			}
+		}		
+		cooldownTimerMap->updateToCurrentAndAddMili("roleplayExpEvent", 300000); //5 Minutes
 	}
 
 	activateRecovery();
@@ -2114,9 +2165,16 @@ void PlayerObjectImplementation::setLinkDead(bool isSafeLogout) {
 }
 
 void PlayerObjectImplementation::setOnline() {
+	CreatureObject* creature = dynamic_cast<CreatureObject*>(parent.get().get());
 	onlineStatus = ONLINE;
 
 	clearCharacterBit(PlayerObjectImplementation::LD, true);
+
+	if (creature != nullptr) {
+		//Reset our ticks.
+		creature->setStoredInt("online_exp_ticks", 0);
+	}
+	
 
 	doRecovery(1000);
 

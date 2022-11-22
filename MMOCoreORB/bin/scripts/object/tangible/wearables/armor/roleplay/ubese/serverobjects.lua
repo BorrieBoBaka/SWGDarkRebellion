@@ -1,0 +1,7 @@
+includeFile("tangible/wearables/armor/roleplay/ubese/armor_ubese_boots.lua")
+includeFile("tangible/wearables/armor/roleplay/ubese/armor_ubese_bracer_l.lua")
+includeFile("tangible/wearables/armor/roleplay/ubese/armor_ubese_bracer_r.lua")
+includeFile("tangible/wearables/armor/roleplay/ubese/armor_ubese_gloves.lua")
+includeFile("tangible/wearables/armor/roleplay/ubese/armor_ubese_helmet.lua")
+includeFile("tangible/wearables/armor/roleplay/ubese/armor_ubese_jacket.lua")
+includeFile("tangible/wearables/armor/roleplay/ubese/armor_ubese_pants.lua")

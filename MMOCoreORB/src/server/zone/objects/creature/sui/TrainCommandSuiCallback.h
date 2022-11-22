@@ -2,6 +2,7 @@
 #define TRAINCOMMANDSUICALLBACK_H_
 
 #include "server/zone/objects/player/sui/SuiCallback.h"
+#include "server/zone/objects/player/sui/transferbox/SuiTransferBox.h"
 
 class TrainCommandSuiCallback : public SuiCallback {
 private:
@@ -27,127 +28,86 @@ public:
 
 		int index = Integer::valueOf(args->get(0).toString());
 
+		int freeSkillPoints = player->getStoredInt("starter_skill_points");
+		int freeAttrPoints = player->getStoredInt("starter_attr_points");
 
 		if (state == -1) {//Top Menu
-			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
-			box->setCallback(new TrainCommandSuiCallback(server, 0, 0));
-			box->setPromptTitle("Training Menu");
-			box->setPromptText("What would you like to do?");
-			box->setCancelButton(true, "@cancel");
-			//box->setOkButton(false, "@");
-			box->addMenuItem("Train an Attribute");
-			box->addMenuItem("Train a Skill");
-			box->addMenuItem("Convert General Roleplay XP");
-			player->getPlayerObject()->addSuiBox(box);
-			player->sendMessage(box->generateMessage());
+			OpenTopMenu(player, suiBox, eventIndex, args, state, selection);
 		} else if (state == 0) { //Primary Menu		
-			if (cancelPressed)
+			if (cancelPressed) {
 				return;
-
-			if (index == 0 || index == 1) {		
-				ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
-				box->setCancelButton(true, "Back");
-				//box->setOkButton(false, "@");
-				if (index == 0) { // Train Attribute
-					box->setCallback(new TrainCommandSuiCallback(server, 1, index));
-					box->setPromptTitle("Training Attribute Menu");
-					box->setPromptText("What attribute would you like to rank up?");
-					box->addMenuItem("Awareness " + String::valueOf(player->getSkillMod("rp_awareness")));
-					box->addMenuItem("Charisma " + String::valueOf(player->getSkillMod("rp_charisma")));
-					box->addMenuItem("Constitution " + String::valueOf(player->getSkillMod("rp_constitution")));
-					box->addMenuItem("Dexterity " + String::valueOf(player->getSkillMod("rp_dexterity")));
-					box->addMenuItem("Intelligence " + String::valueOf(player->getSkillMod("rp_intelligence")));
-					box->addMenuItem("Mindfulness " + String::valueOf(player->getSkillMod("rp_mindfulness")));
-					box->addMenuItem("Precision " + String::valueOf(player->getSkillMod("rp_precision")));
-					box->addMenuItem("Strength " + String::valueOf(player->getSkillMod("rp_strength")));
-				} else if (index == 1) { // Train Skill
-					box->setCallback(new TrainCommandSuiCallback(server, 2, index));
-					box->setPromptTitle("Training Skill Menu");
-					box->setPromptText("What skill would you like to rank up? Remember that skills can only go as high as their associated attribute's max rank.");
-					box->addMenuItem("Armor " +				String::valueOf(player->getSkillMod("rp_armor")));
-					box->addMenuItem("Athletics " +			String::valueOf(player->getSkillMod("rp_athletics")));
-					box->addMenuItem("Bluff " +				String::valueOf(player->getSkillMod("rp_bluff")));
-					box->addMenuItem("Composure " +			String::valueOf(player->getSkillMod("rp_composure")));
-					box->addMenuItem("Computers " +			String::valueOf(player->getSkillMod("rp_computers")));
-					box->addMenuItem("Defending " +			String::valueOf(player->getSkillMod("rp_defending")));
-					box->addMenuItem("Demolitions " +		String::valueOf(player->getSkillMod("rp_demolitions")));
-					box->addMenuItem("Engineering " +		String::valueOf(player->getSkillMod("rp_engineering")));
-					box->addMenuItem("Intimidation " +		String::valueOf(player->getSkillMod("rp_intimidation")));
-					box->addMenuItem("Investigation " +		String::valueOf(player->getSkillMod("rp_investigation")));
-					box->addMenuItem("Larceny " +			String::valueOf(player->getSkillMod("rp_larceny")));
-					box->addMenuItem("Maneuverability " +	String::valueOf(player->getSkillMod("rp_maneuverability")));
-					box->addMenuItem("Mechanics " +			String::valueOf(player->getSkillMod("rp_mechanics")));
-					box->addMenuItem("Medicine " +			String::valueOf(player->getSkillMod("rp_medicine")));
-					box->addMenuItem("Melee " +				String::valueOf(player->getSkillMod("rp_melee")));
-					box->addMenuItem("Persuasion " +		String::valueOf(player->getSkillMod("rp_persuasion")));
-					box->addMenuItem("Piloting " +			String::valueOf(player->getSkillMod("rp_piloting")));
-					box->addMenuItem("Ranged " +			String::valueOf(player->getSkillMod("rp_ranged")));
-					box->addMenuItem("Resolve " +			String::valueOf(player->getSkillMod("rp_resolve")));
-					box->addMenuItem("Science " +			String::valueOf(player->getSkillMod("rp_science")));
-					box->addMenuItem("Slicing " +			String::valueOf(player->getSkillMod("rp_slicing")));
-					box->addMenuItem("Stealth " +			String::valueOf(player->getSkillMod("rp_stealth")));
-					box->addMenuItem("Survival " +			String::valueOf(player->getSkillMod("rp_survival")));
-					box->addMenuItem("Throwing " +			String::valueOf(player->getSkillMod("rp_throwing")));
-					box->addMenuItem("Unarmed " +			String::valueOf(player->getSkillMod("rp_unarmed")));
-					//Jedi
-					if (player->getPlayerObject()->getJediState() > 0) {
-						box->addMenuItem("Lightsaber " + String::valueOf(player->getSkillMod("rp_lightsaber")));
-						box->addMenuItem("Sense " + String::valueOf(player->getSkillMod("rp_sense")));
-						box->addMenuItem("Lightning " + String::valueOf(player->getSkillMod("rp_lightning")));
-						box->addMenuItem("Telekinesis " + String::valueOf(player->getSkillMod("rp_telekinesis")));
-						box->addMenuItem("Control " + String::valueOf(player->getSkillMod("rp_control")));
-						box->addMenuItem("Alter " + String::valueOf(player->getSkillMod("rp_alter")));
-						box->addMenuItem("Inward " + String::valueOf(player->getSkillMod("rp_inward")));
-					}
-				}
-				player->getPlayerObject()->addSuiBox(box);
-				player->sendMessage(box->generateMessage());
-			} else if (index == 2) { //Convert Exp
+			} else if(index == 0) {
+				OpenAttributeSelectionMenu(player, suiBox, eventIndex, args, state, selection);
+			} else if(index == 1) {
+				OpenSkillSelectionMenu(player, suiBox, eventIndex, args, state, selection);
+			} else if(index == 2) {
 
 			}
 		} else if (state == 1) { //Select Attribute
-			//Get index as skill
-			String skillName = GetAttributeStringFromID(index);
-			//Check to see what the next level of that skill is
-			//See if they quality for that skill
-			int currentRank = player->getSkillMod("rp_" + skillName);
-			// Give them a new SUI box option either confirming, or informing that they can't train that right now. 
-			ManagedReference<SuiMessageBox*> suibox = new SuiMessageBox(player, SuiWindowType::TEACH_OFFER);
-			if (CanTrainNextSkill(player, currentRank + 1, skillName)) {
-				suibox->setPromptTitle("Confirm training?"); 
-				//Can train!
-				suibox->setPromptText("Are you sure you want to train this attribute?");
-				suibox->setCallback(new TrainCommandSuiCallback(server, 3, index));
-				suibox->setOkButton(true, "Confirm");
-				suibox->setCancelButton(true, "Go Back");
-			} else {
-				suibox->setPromptTitle("Not eligible for training.");
-				//Failure. Can't train.
-				suibox->setPromptText("You are not currently eligible to train this attribute. You do not have enough experience points.");
-				//suibox->setCallback(new PlayerTeachConfirmSuiCallback(server, skill));
-				suibox->setCallback(new TrainCommandSuiCallback(server, -1, state));
-				suibox->setCancelButton(true, "Go Back");
-			}	
-			player->getPlayerObject()->addSuiBox(suibox);
-			player->sendMessage(suibox->generateMessage());
+			if (cancelPressed) {
+				OpenTopMenu(player, suiBox, eventIndex, args, state, selection);
+				return;
+			}				
+
+			OpenConfirmAttributeSelectionWindow(player, suiBox, eventIndex, args, state, selection);
 		} else if (state == 2) { //Select Skill
-		
-		} else if (state == 3) { //Train a Attribute
-			String skill = GetAttributeStringFromID(selection);
-			int currentRank = player->getSkillMod("rp_" + skill);
-			if (CanTrainNextSkill(player, currentRank + 1, skill)) {
-				//Train it
-				SkillManager* skillManager = SkillManager::instance();
-				skillManager->awardSkill("rp_" + skill + "_" + GetSkillSuffixFromValue(currentRank + 1), player, true, false, false);
-			} else {
-				//Something happened
-				player->sendSystemMessage("ERROR: Something happened. You were eligible for the skill you selected when you selected it, but you are no longer eligible.");
-			}
+			if (cancelPressed) {
+				OpenTopMenu(player, suiBox, eventIndex, args, state, selection);
+				return;
+			}				
 			
+			OpenConfirmSkillSelectionWindow(player, suiBox, eventIndex, args, state, selection);			
+		} else if (state == 3) { //Train a Attribute
+			if (cancelPressed) {
+				OpenAttributeSelectionMenu(player, suiBox, eventIndex, args, state, selection);
+				return;
+			}				
+			
+			TrainAttribute(player, suiBox, eventIndex, args, state, selection);
+
+			OpenAttributeSelectionMenu(player, suiBox, eventIndex, args, state, selection);
 		} else if (state == 4) { //Train a Skill
-		
-		} else if (state == 5) { //Convert Exp
-		
+			if (cancelPressed) {
+				OpenSkillSelectionMenu(player, suiBox, eventIndex, args, state, selection);
+				return;
+			}			
+			
+			TrainSkill(player, suiBox, eventIndex, args, state, selection);
+
+			OpenSkillSelectionMenu(player, suiBox, eventIndex, args, state, selection);
+		} else if (state == 5) { //Convert Exp: Show possiblities
+			if (cancelPressed) {
+				OpenTopMenu(player, suiBox, eventIndex, args, state, selection);
+				return;
+			}
+		} else if(state == 6) { //Convert Exp: Select Attribute
+			if (cancelPressed) {
+				OpenConversionTypeDialogue(player, suiBox, eventIndex, args, state, selection);
+				return;
+			}
+
+			OpenConversionAttributeList(player, suiBox, eventIndex, args, state, selection);
+
+		} else if(state == 7) { //Convert Exp: Select SKill
+			if (cancelPressed) {
+				OpenConversionTypeDialogue(player, suiBox, eventIndex, args, state, selection);
+				return;
+			}
+
+			OpenConversionSkillList(player, suiBox, eventIndex, args, state, selection);
+		} else if (state == 8) { //Convert Exp: Select the amount: ATTRIBUTE
+			if (cancelPressed) {
+				OpenConversionAttributeList(player, suiBox, eventIndex, args, state, selection);
+				return;
+			}
+
+
+		} else if (state == 9) { //Convert Exp: Select the amount: SKILL
+			if (cancelPressed) {
+				OpenConversionSkillList(player, suiBox, eventIndex, args, state, selection);
+				return;
+			}
+
 		}
 	}
 
@@ -190,52 +150,50 @@ public:
 		else if (id == 7)
 			return "engineering";
 		else if (id == 8)
-			return "engineering";
-		else if (id == 9)
 			return "intimidation";
-		else if (id == 10)
+		else if (id == 9)
 			return "investigation";
-		else if (id == 11)
+		else if (id == 10)
 			return "larceny";
-		else if (id == 12)
+		else if (id == 11)
 			return "maneuverability";
-		else if (id == 13)
+		else if (id == 12)
 			return "mechanics";
-		else if (id == 14)
+		else if (id == 13)
 			return "medicine";
-		else if (id == 15)
+		else if (id == 14)
 			return "melee";
-		else if (id == 16)
+		else if (id == 15)
 			return "persuasion";
-		else if (id == 17)
+		else if (id == 16)
 			return "piloting";
-		else if (id == 18)
+		else if (id == 17)
 			return "ranged";
-		else if (id == 19)
+		else if (id == 18)
 			return "resolve";
-		else if (id == 20)
+		else if (id == 19)
 			return "science";
-		else if (id == 21)
+		else if (id == 20)
 			return "slicing";
-		else if (id == 22)
+		else if (id == 21)
 			return "stealth";
-		else if (id == 23)
+		else if (id == 22)
 			return "survival";
-		else if (id == 24)
+		else if (id == 23)
 			return "throwing";
-		else if (id == 25)
+		else if (id == 24)
 			return "unarmed";
-		else if (id == 26)
+		else if (id == 25)
 			return "sense";
-		else if (id == 27)
+		else if (id == 26)
 			return "lightning";
-		else if (id == 28)
+		else if (id == 27)
 			return "telekinesis";
-		else if (id == 29)
+		else if (id == 28)
 			return "control";
-		else if (id == 30)
+		else if (id == 29)
 			return "alter";
-		else if (id == 31)
+		else if (id == 30)
 			return "inward";
 		else
 			return "";
@@ -266,16 +224,38 @@ public:
 			return "novice";
 	}
 
+	String GetSkillNumeral(int value) {
+		if(value == 0) return "[None]";
+		else if(value == 1) return "I";
+		else if(value == 2) return "II";
+		else if(value == 3) return "III";
+		else if(value == 4) return "IV";
+		else if(value == 5) return "V";
+		else if(value == 6) return "VI";
+		else if(value == 7) return "VII";
+		else if(value == 8) return "VIII";
+		else if(value == 9) return "IX";
+		else if(value == 10) return "X";
+		else if(value > 10) return "[MAXED OUT]";
+		else return "[Unknown]";
+	}
+
 	bool CanTrainNextSkill(CreatureObject* creature, int rank, String skill, String parentAttribute = "") {
+		if(rank > 10) return false;
+		if(skill == "") return false;
 		String skillName = "rp_" + skill + "_" + GetSkillSuffixFromValue(rank);
 		SkillManager* skillManager = SkillManager::instance();
 		bool hasXP = skillManager->canLearnSkill(skillName, creature, false);
+		int points = creature->getStoredInt("starter_attr_points");
 		if (parentAttribute != "") {
+			points = creature->getStoredInt("starter_skill_points");
 			int parentValue = creature->getSkillMod("rp_" + parentAttribute);
 			if (parentValue < rank)
 				return false;
 		}
 
+		if(points > 0) return true;
+		
 		return hasXP;
 	}
 
@@ -347,6 +327,270 @@ public:
 		else
 			return "";
 	}
+
+
+	void OpenTopMenu(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
+		int freeSkillPoints = player->getStoredInt("starter_skill_points");
+		int freeAttrPoints = player->getStoredInt("starter_attr_points");
+		ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
+		box->setCallback(new TrainCommandSuiCallback(server, 0, 0));
+		box->setPromptTitle("Training Menu");
+		if(freeSkillPoints > 0 || freeAttrPoints > 0) {
+			box->setPromptText("What would you like to do?\n\nFree Attribute Boxes: " + String::valueOf(freeAttrPoints) + "\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
+		} else box->setPromptText("What would you like to do?");	
+		box->setCancelButton(true, "@cancel");
+		//box->setOkButton(false, "@");
+		box->addMenuItem("Train an Attribute");
+		box->addMenuItem("Train a Skill");
+		//box->addMenuItem("Convert General Roleplay XP");
+		player->getPlayerObject()->addSuiBox(box);
+		player->sendMessage(box->generateMessage());
+	}
+
+	void OpenAttributeSelectionMenu(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
+		int freeSkillPoints = player->getStoredInt("starter_skill_points");
+		int freeAttrPoints = player->getStoredInt("starter_attr_points");
+		int index = Integer::valueOf(args->get(0).toString());
+		ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
+		box->setCancelButton(true, "Back");
+		box->setCallback(new TrainCommandSuiCallback(server, 1, index));
+
+		box->setPromptTitle("Training Attribute Menu");
+		if(freeAttrPoints > 0) {
+			box->setPromptText("What attribute would you like to rank up?\n\nFree Attribute Boxes: " + String::valueOf(freeAttrPoints));
+		} else box->setPromptText("What attribute would you like to rank up?");					
+		box->addMenuItem("Awareness " + 		GetSkillNumeral(player->getSkillMod("rp_awareness")+1));
+		box->addMenuItem("Charisma " + 			GetSkillNumeral(player->getSkillMod("rp_charisma")+1));
+		box->addMenuItem("Constitution " + 		GetSkillNumeral(player->getSkillMod("rp_constitution")+1));
+		box->addMenuItem("Dexterity " + 		GetSkillNumeral(player->getSkillMod("rp_dexterity")+1));
+		box->addMenuItem("Intelligence " + 		GetSkillNumeral(player->getSkillMod("rp_intelligence")+1));
+		box->addMenuItem("Mindfulness " + 		GetSkillNumeral(player->getSkillMod("rp_mindfulness")+1));
+		box->addMenuItem("Precision " + 		GetSkillNumeral(player->getSkillMod("rp_precision")+1));
+		box->addMenuItem("Strength " + 			GetSkillNumeral(player->getSkillMod("rp_strength")+1));
+		
+		player->getPlayerObject()->addSuiBox(box);
+		player->sendMessage(box->generateMessage());
+	}
+
+	void OpenSkillSelectionMenu(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
+		int freeSkillPoints = player->getStoredInt("starter_skill_points");
+		int freeAttrPoints = player->getStoredInt("starter_attr_points");
+		int index = Integer::valueOf(args->get(0).toString());
+		ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
+		box->setCancelButton(true, "Back");
+		box->setCallback(new TrainCommandSuiCallback(server, 2, index));
+
+		box->setPromptTitle("Training Skill Menu");
+		if(freeSkillPoints > 0) {
+			box->setPromptText("What skill would you like to rank up? Remember that skills can only go as high as their associated attribute's max rank.\n\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
+		} else {
+			box->setPromptText("What skill would you like to rank up? Remember that skills can only go as high as their associated attribute's max rank.");
+		}
+
+		box->addMenuItem("Armor " +				GetSkillNumeral(player->getSkillMod("rp_armor")+1));
+		box->addMenuItem("Athletics " +			GetSkillNumeral(player->getSkillMod("rp_athletics")+1));
+		box->addMenuItem("Bluff " +				GetSkillNumeral(player->getSkillMod("rp_bluff")+1));
+		box->addMenuItem("Composure " +			GetSkillNumeral(player->getSkillMod("rp_composure")+1));
+		box->addMenuItem("Computers " +			GetSkillNumeral(player->getSkillMod("rp_computers")+1));
+		box->addMenuItem("Defending " +			GetSkillNumeral(player->getSkillMod("rp_defending")+1));
+		box->addMenuItem("Demolitions " +		GetSkillNumeral(player->getSkillMod("rp_demolitions")+1));
+		box->addMenuItem("Engineering " +		GetSkillNumeral(player->getSkillMod("rp_engineering")+1));
+		box->addMenuItem("Intimidation " +		GetSkillNumeral(player->getSkillMod("rp_intimidation")+1));
+		box->addMenuItem("Investigation " +		GetSkillNumeral(player->getSkillMod("rp_investigation")+1));
+		box->addMenuItem("Larceny " +			GetSkillNumeral(player->getSkillMod("rp_larceny")+1));
+		box->addMenuItem("Maneuverability " +	GetSkillNumeral(player->getSkillMod("rp_maneuverability")+1));
+		box->addMenuItem("Mechanics " +			GetSkillNumeral(player->getSkillMod("rp_mechanics")+1));
+		box->addMenuItem("Medicine " +			GetSkillNumeral(player->getSkillMod("rp_medicine")+1));
+		box->addMenuItem("Melee " +				GetSkillNumeral(player->getSkillMod("rp_melee")+1));
+		box->addMenuItem("Persuasion " +		GetSkillNumeral(player->getSkillMod("rp_persuasion")+1));
+		box->addMenuItem("Piloting " +			GetSkillNumeral(player->getSkillMod("rp_piloting")+1));
+		box->addMenuItem("Ranged " +			GetSkillNumeral(player->getSkillMod("rp_ranged")+1));
+		box->addMenuItem("Resolve " +			GetSkillNumeral(player->getSkillMod("rp_resolve")+1));
+		box->addMenuItem("Science " +			GetSkillNumeral(player->getSkillMod("rp_science")+1));
+		box->addMenuItem("Slicing " +			GetSkillNumeral(player->getSkillMod("rp_slicing")+1));
+		box->addMenuItem("Stealth " +			GetSkillNumeral(player->getSkillMod("rp_stealth")+1));
+		box->addMenuItem("Survival " +			GetSkillNumeral(player->getSkillMod("rp_survival")+1));
+		box->addMenuItem("Throwing " +			GetSkillNumeral(player->getSkillMod("rp_throwing")+1));
+		box->addMenuItem("Unarmed " +			GetSkillNumeral(player->getSkillMod("rp_unarmed")+1));
+		//Jedi
+		/*
+		if (player->getPlayerObject()->getJediState() > 0) {
+			box->addMenuItem("Lightsaber " + 		GetSkillNumeral(player->getSkillMod("rp_lightsaber")+1));
+			box->addMenuItem("Sense " + 			GetSkillNumeral(player->getSkillMod("rp_sense")+1));
+			box->addMenuItem("Lightning " + 		GetSkillNumeral(player->getSkillMod("rp_lightning")+1));
+			box->addMenuItem("Telekinesis " + 		GetSkillNumeral(player->getSkillMod("rp_telekinesis")+1));
+			box->addMenuItem("Control " + 			GetSkillNumeral(player->getSkillMod("rp_control")+1));
+			box->addMenuItem("Alter " + 			GetSkillNumeral(player->getSkillMod("rp_alter")+1));
+			box->addMenuItem("Inward " + 			GetSkillNumeral(player->getSkillMod("rp_inward")+1));
+		} */
+
+		player->getPlayerObject()->addSuiBox(box);
+		player->sendMessage(box->generateMessage());
+	}
+
+	void OpenExpConversionTopMenu(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
+
+	}
+
+	void OpenConfirmAttributeSelectionWindow(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
+		int freeSkillPoints = player->getStoredInt("starter_skill_points");
+		int freeAttrPoints = player->getStoredInt("starter_attr_points");
+		int index = Integer::valueOf(args->get(0).toString());
+		//Get index as skill
+		String skillName = GetAttributeStringFromID(index);
+		//Check to see what the next level of that skill is
+		//See if they quality for that skill
+		int currentRank = player->getSkillMod("rp_" + skillName);
+		// Give them a new SUI box option either confirming, or informing that they can't train that right now. 
+		ManagedReference<SuiMessageBox*> suibox = new SuiMessageBox(player, SuiWindowType::TEACH_OFFER);
+		if (CanTrainNextSkill(player, currentRank + 1, skillName)) {
+			suibox->setPromptTitle("Confirm training?"); 
+			//Can train!
+			suibox->setPromptText("Are you sure you want to train this attribute?");
+			suibox->setCallback(new TrainCommandSuiCallback(server, 3, index));
+			suibox->setOkButton(true, "Confirm");
+			suibox->setCancelButton(true, "Go Back");
+		} else {
+			suibox->setPromptTitle("Not eligible for training.");
+			//Failure. Can't train.
+			suibox->setPromptText("You are not currently eligible to train this attribute. You do not have enough experience points.");
+			suibox->setCallback(new TrainCommandSuiCallback(server, -1, state));
+			suibox->setCancelButton(true, "Go Back");
+		}	
+		player->getPlayerObject()->addSuiBox(suibox);
+		player->sendMessage(suibox->generateMessage());
+	}
+
+	void OpenConfirmSkillSelectionWindow(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
+		int freeSkillPoints = player->getStoredInt("starter_skill_points");
+		int freeAttrPoints = player->getStoredInt("starter_attr_points");
+		int index = Integer::valueOf(args->get(0).toString());
+		String skillName = GetSkillStringFromID(index);
+		String skillParent = GetSkillParent(skillName);
+		int currentRank = player->getSkillMod("rp_" + skillName);
+		ManagedReference<SuiMessageBox*> suibox = new SuiMessageBox(player, SuiWindowType::TEACH_OFFER);
+		if (CanTrainNextSkill(player, currentRank + 1, skillName, skillParent)) {
+			suibox->setPromptTitle("Confirm training?"); 
+			//Can train!
+			suibox->setPromptText("Are you sure you want to train this skill?");
+			suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
+			suibox->setOkButton(true, "Confirm");
+			suibox->setCancelButton(true, "Go Back");
+		} else {
+			suibox->setPromptTitle("Not eligible for training.");
+			//Failure. Can't train.
+			suibox->setPromptText("You are not currently eligible to train this skill. You do not have enough experience points and high enough of the associated attribute.");
+			suibox->setCallback(new TrainCommandSuiCallback(server, -1, state));
+			suibox->setCancelButton(true, "Go Back");
+		}	
+		player->getPlayerObject()->addSuiBox(suibox);
+		player->sendMessage(suibox->generateMessage());
+	}
+
+	void TrainAttribute(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
+		String skill = GetAttributeStringFromID(selection);
+		int currentRank = player->getSkillMod("rp_" + skill);
+		if (CanTrainNextSkill(player, currentRank + 1, skill)) {
+			//Train it
+			SkillManager* skillManager = SkillManager::instance();
+			int freePoints = player->getStoredInt("starter_attr_points");
+			if(freePoints > 0) {
+				player->setStoredInt("starter_attr_points", freePoints - 1);
+				skillManager->awardSkill("rp_" + skill + "_" + GetSkillSuffixFromValue(currentRank + 1), player, true, false, true);
+				player->sendSystemMessage("You've gained a point in " + skill + ". You have " + String::valueOf(freePoints - 1) + " remaining free attribute points.");
+			} else {
+				skillManager->awardSkill("rp_" + skill + "_" + GetSkillSuffixFromValue(currentRank + 1), player, true, false, false);
+				player->sendSystemMessage("You've gained a point in " + skill + ".");
+			}
+		} else {
+			//Something happened
+			player->sendSystemMessage("ERROR: Something happened. You were eligible for the skill you selected when you selected it, but you are no longer eligible.");
+		}
+	}
+
+	void TrainSkill(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
+		String skill = GetSkillStringFromID(selection);
+		String skillParent = GetSkillParent(skill);
+		int currentRank = player->getSkillMod("rp_" + skill);
+		if (CanTrainNextSkill(player, currentRank + 1, skill, skillParent)) {
+			//Train it
+			SkillManager* skillManager = SkillManager::instance();
+			
+			int freePoints = player->getStoredInt("starter_skill_points");
+			if(freePoints > 0) {
+				player->setStoredInt("starter_skill_points", freePoints - 1);
+				skillManager->awardSkill("rp_" + skill + "_" + GetSkillSuffixFromValue(currentRank + 1), player, true, false, true);
+				player->sendSystemMessage("You've gained a point in " + skill + "! You have " + String::valueOf(freePoints - 1) + " remaining free skill points.");
+			} else {
+				skillManager->awardSkill("rp_" + skill + "_" + GetSkillSuffixFromValue(currentRank + 1), player, true, false, false);
+				player->sendSystemMessage("You've gained a point in " + skill + "!");
+			}
+		} else {
+			//Something happened
+			player->sendSystemMessage("ERROR: Something happened. You were eligible for the skill you selected when you selected it, but you are no longer eligible.");
+		}
+	}
+
+	void OpenConversionTypeDialogue(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
+		ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
+		box->setCallback(new TrainCommandSuiCallback(server, 0, 0));
+		box->setPromptTitle("Training Menu");
+		
+		box->setPromptText("What type of experience would you like to convert?");	
+		box->setCancelButton(true, "@cancel");
+		//box->setOkButton(false, "@");
+		box->addMenuItem("Convert to Attribute Experience");
+		box->addMenuItem("Convert to Skill Experience");
+		player->getPlayerObject()->addSuiBox(box);
+		player->sendMessage(box->generateMessage());
+	}
+
+	void OpenConversionAttributeList(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
+		int index = Integer::valueOf(args->get(0).toString());
+		ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
+		box->setCancelButton(true, "Back");
+		box->setCallback(new TrainCommandSuiCallback(server, 10, index));
+
+		box->setPromptTitle("Converting to Attribute Experience");
+		box->setPromptText("What attribute would you like to convert experience for? Attribute Rate: 100:1");				
+		box->addMenuItem("Awareness");
+		box->addMenuItem("Charisma");
+		box->addMenuItem("Constitution");
+		box->addMenuItem("Dexterity");
+		box->addMenuItem("Intelligence");
+		box->addMenuItem("Mindfulness");
+		box->addMenuItem("Precision");
+		box->addMenuItem("Strength");
+		
+		player->getPlayerObject()->addSuiBox(box);
+		player->sendMessage(box->generateMessage());
+	}
+
+	void OpenConversionSkillList(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
+
+	}
+
+	void OpenConversionTransferBox(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
+		int delegateRatioFrom = 1;
+		int delegateRatioTo = 1;
+
+		if(state == 6) { //Attribute Conversion
+			delegateRatioFrom = 100;
+		} else if(state == 7) { //Skill Conversion
+			delegateRatioFrom = 10;
+		}
+
+		ManagedReference<SuiTransferBox*> sui = new SuiTransferBox(player, SuiWindowType::DELEGATE_TRANSFER);
+		//sui->setCallback(new TrainCommandSuiCallback(server, -1, index));
+		sui->setPromptTitle("@player_structure:select_amount"); //Select Amount
+		sui->setPromptText("Current general roleplayer experience:" + String::valueOf(0));
+		sui->addFrom("Total amount", String::valueOf(1), String::valueOf(1), String::valueOf(delegateRatioFrom));
+		sui->addTo("Converted amount", "0", "0", String::valueOf(delegateRatioTo));
+
+		player->getPlayerObject()->addSuiBox(sui);
+		player->sendMessage(sui->generateMessage());
+	}
+	
 
 };
 

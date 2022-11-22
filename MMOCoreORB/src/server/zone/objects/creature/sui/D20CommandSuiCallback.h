@@ -157,12 +157,12 @@ public:
 		} else if (state == 3) { //Roll Attribute
 			//Gather which selected attribute via index.
 			String attribute = GetAttributeStringFromID(index);
-			BorrieRPG::BroadcastRoll(player, BorDice::RollSkill(player, attribute));
+			BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, attribute));
 			return;
 		} else if (state == 4) { //Roll Skill
 			// Gather which selected skill via index.
 			String skill = GetSkillStringFromID(index);
-			BorrieRPG::BroadcastRoll(player, BorDice::RollSkill(player, skill));
+			BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, skill));
 			return;
 		} else if (state == 5) { //Roll Die
 			//Use die type and then the args to run the die.
@@ -239,41 +239,41 @@ public:
 		else if (id == 7)
 			return "engineering";
 		else if (id == 8)
-			return "engineering";
-		else if (id == 9)
 			return "intimidation";
-		else if (id == 10)
+		else if (id == 9)
 			return "investigation";
-		else if (id == 11)
+		else if (id == 10)
 			return "larceny";
-		else if (id == 12)
+		else if (id == 11)
 			return "maneuverability";
-		else if (id == 13)
+		else if (id == 12)
 			return "mechanics";
-		else if (id == 14)
+		else if (id == 13)
 			return "medicine";
-		else if (id == 15)
+		else if (id == 14)
 			return "melee";
-		else if (id == 16)
+		else if (id == 15)
 			return "persuasion";
-		else if (id == 17)
+		else if (id == 16)
 			return "piloting";
-		else if (id == 18)
+		else if (id == 17)
 			return "ranged";
-		else if (id == 19)
+		else if (id == 18)
 			return "resolve";
-		else if (id == 20)
+		else if (id == 19)
 			return "science";
-		else if (id == 21)
+		else if (id == 20)
 			return "slicing";
-		else if (id == 22)
+		else if (id == 21)
 			return "stealth";
-		else if (id == 23)
+		else if (id == 22)
 			return "survival";
-		else if (id == 24)
+		else if (id == 23)
 			return "throwing";
-		else if (id == 25)
+		else if (id == 24)
 			return "unarmed";
+		else if (id == 25)
+			return "lightsaber";
 		else if (id == 26)
 			return "sense";
 		else if (id == 27)

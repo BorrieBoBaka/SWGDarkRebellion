@@ -1,0 +1,4 @@
+object_intangible_ship_roleplay_rp_sorosuub_space_yacht_pcd = object_intangible_ship_roleplay_shared_rp_sorosuub_space_yacht_pcd:new {
+	objectMenuComponent = "RpShipControlDeviceMenuComponent"
+}
+ObjectTemplates:addTemplate(object_intangible_ship_roleplay_rp_sorosuub_space_yacht_pcd, "object/intangible/ship/roleplay/rp_sorosuub_space_yacht_pcd.iff")

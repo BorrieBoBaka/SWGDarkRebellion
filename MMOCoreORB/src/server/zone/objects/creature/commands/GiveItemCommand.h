@@ -167,10 +167,15 @@ public:
 				}
 				else if (sceno->isCreatureObject()) {
 
+					if(!creature->getPlayerObject()->hasGodMode()) {
+						creature->sendSystemMessage("You don't have permission to do that.");
+						return GENERALERROR;
+					}
+
 					CreatureObject* vendor = cast<CreatureObject*>(sceno.get());
 					TangibleObject* oldClothing = cast<TangibleObject*>(object.get());
 
-					String objectTemplate = oldClothing->getObjectTemplate()->getClientTemplateFileName();
+					String objectTemplate = oldClothing->getObjectTemplate()->getFullTemplateString();
 					objectTemplate = objectTemplate.replaceAll("shared_", "");
 
 					Reference<SharedObjectTemplate*> shot = TemplateManager::instance()->getTemplate(objectTemplate.hashCode());
@@ -207,11 +212,16 @@ public:
 						
 
 					if (vendor->getZone()->getCreatureManager()->addWearableItem(vendor, clothing)) {
+						if(clothing->isWeaponObject()) {
+							vendor->setWeapon(cast<WeaponObject*>(clothing), true);
+						}
 						return SUCCESS;
 					} else {
 						creature->sendSystemMessage("Could not add wearable item.");
 						return GENERALERROR;
 					}
+
+					//TangibleObjectImplementation::getSlottedObject("default_weapon").castTo<WeaponObject*>();
 						
 
 					/* This is important, and we need to designate if an npc is a RP npc

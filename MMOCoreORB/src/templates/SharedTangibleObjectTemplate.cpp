@@ -43,6 +43,11 @@ SharedTangibleObjectTemplate::SharedTangibleObjectTemplate() {
 
 	junkDealerNeeded = 0;
 	junkValue = 0;
+	price = 0;
+
+	trainingDevice = false;
+	rpTrainingSkill = "";
+	rpTrainingLevel = 0;
 
 	resourceWeights = new Vector<Reference<ResourceWeight* > >();
 
@@ -129,6 +134,14 @@ void SharedTangibleObjectTemplate::parseVariableData(const String& varName, LuaO
 		junkDealerNeeded = Lua::getIntParameter(state);
 	} else if (varName == "junkValue") {
 		junkValue = Lua::getIntParameter(state);
+	} else if (varName == "price") { 
+		price = Lua::getIntParameter(state);
+	} else if(varName == "trainingDevice") { 
+		trainingDevice = Lua::getBooleanParameter(state);
+	} else if(varName == "rpTrainingSkill" || varName ==  "rpRequiredSkill") { 
+		rpTrainingSkill = Lua::getStringParameter(state);
+	} else if(varName == "rpTrainingLevel" || varName == "rpRequiredSkillLevel") { 
+		rpTrainingLevel = Lua::getIntParameter(state);
 	} else if (varName == "invisible") {
 		invisible = (bool) Lua::getByteParameter(state);
 	} else if (varName == "playerRaces") {

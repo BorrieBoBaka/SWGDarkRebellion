@@ -1,0 +1,4 @@
+object_static_borrie_rock_asteroid_moltenrock_radial_s03 = object_static_borrie_rock_shared_asteroid_moltenrock_radial_s03:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_rock_asteroid_moltenrock_radial_s03, "object/static/borrie/rock/asteroid_moltenrock_radial_s03.iff")

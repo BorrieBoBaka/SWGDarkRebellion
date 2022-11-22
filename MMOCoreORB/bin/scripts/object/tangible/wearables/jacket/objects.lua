@@ -161,59 +161,7 @@ ObjectTemplates:addClientTemplate(object_tangible_wearables_jacket_shared_jacket
 
 object_tangible_wearables_jacket_shared_jacket_ace_rebel = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/jacket/shared_jacket_ace_rebel.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "appearance/jacket_ace_rebel_f.sat",
-	arrangementDescriptorFilename = "abstract/slot/arrangement/wearables/jacket_longsleeve.iff",
-
-	certificationsRequired = {},
-	clearFloraRadius = 0,
-	clientDataFile = "",
-	clientGameObjectType = 16777227,
-	collisionActionBlockFlags = 0,
-	collisionActionFlags = 51,
-	collisionActionPassFlags = 1,
-	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 1,
-	collisionMaterialPassFlags = 0,
-	containerType = 0,
-	containerVolumeLimit = 1,
-	customizationVariableMapping = {},
-
-	detailedDescription = "@wearables_detail:jacket_ace_rebel",
-
-	gameObjectType = 16777227,
-
-	locationReservationRadius = 0,
-	lookAtText = "@wearables_lookat:jacket_ace_rebel",
-
-	noBuildRadius = 0,
-
-	objectName = "@wearables_name:jacket_ace_rebel",
-	onlyVisibleInTools = 0,
-
-	paletteColorCustomizationVariables = {},
-	portalLayoutFilename = "",
-
-	rangedIntCustomizationVariables = {},
-
-	scale = 1,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/tangible.iff",
-	snapToTerrain = 1,
-	socketDestinations = {},
-	structureFootprintFileName = "",
-	surfaceType = 0,
-
-	targetable = 1,
-	totalCellNumber = 0,
-
-	useStructureFootprintOutline = 0,
-
-	clientObjectCRC = 3256170327,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/base/shared_tangible_craftable.iff", "object/tangible/wearables/base/shared_wearables_base.iff", "object/tangible/wearables/base/shared_base_jacket_longsleeve.iff"}
-]]
+	
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_jacket_shared_jacket_ace_rebel, "object/tangible/wearables/jacket/shared_jacket_ace_rebel.iff")
@@ -1574,3 +1522,10 @@ object_tangible_wearables_jacket_shared_jacket_s36 = SharedTangibleObjectTemplat
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_jacket_shared_jacket_s36, "object/tangible/wearables/jacket/shared_jacket_s36.iff")
+
+object_tangible_wearables_jacket_shared_jacket_ace_firestar = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/jacket/shared_jacket_ace_firestar.iff"
+	
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_jacket_shared_jacket_ace_firestar, "object/tangible/wearables/jacket/shared_jacket_ace_firestar.iff")

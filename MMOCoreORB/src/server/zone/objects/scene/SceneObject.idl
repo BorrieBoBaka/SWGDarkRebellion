@@ -1284,6 +1284,8 @@ class SceneObject extends QuadTreeEntry implements Logger, Metrics {
 	 */
 	public native void faceObject(SceneObject obj, boolean notifyClient = false);
 
+	public native void facePosition(float x, float y, boolean notifyClient = false);
+
 	@read
 	public native boolean isFacingObject(SceneObject obj);
 
@@ -1488,6 +1490,12 @@ class SceneObject extends QuadTreeEntry implements Logger, Metrics {
 	public boolean isPlayerObject() {
 		return gameObjectType == SceneObjectType.PLAYEROBJECT;
 	}
+
+	@read
+	public boolean isUtilityObject() {
+		return gameObjectType == SceneObjectType.UTILITY;
+	}
+
 
 	@dirty
 	public abstract boolean isActiveArea() {
@@ -1719,6 +1727,11 @@ class SceneObject extends QuadTreeEntry implements Logger, Metrics {
 
 	@dirty
 	public abstract boolean isVehicleDeedObject() {
+		return false;
+	}
+
+	@dirty
+	public abstract boolean isRpShipDeedObject() {
 		return false;
 	}
 
@@ -1999,6 +2012,12 @@ class SceneObject extends QuadTreeEntry implements Logger, Metrics {
 	public abstract boolean isShipControlDevice() {
 		return false;
 	}
+
+	@dirty
+	public abstract boolean isRpShipControlDevice() {
+		return false;
+	}
+	
 
 	@dirty
 	public abstract boolean isMissionTerminal() {

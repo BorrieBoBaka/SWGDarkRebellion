@@ -539,6 +539,18 @@ class WeaponObject extends TangibleObject {
 		return true;
 	}
 
+	@read 
+	public native float getDamageTypePriceMod(); 
+
+	@dirty 
+	public int getPrice() {
+		if(getBasePrice() > 0) {
+			return getBasePrice();
+		} else {
+			return (((maxDamage * 100) * (bonusDamage + 1)) * (getRpTrainingLevel() + 1)) * getDamageTypePriceMod();
+		}
+	}
+
 	@read
 	public boolean hasPowerup() {
 		return powerupObject;
@@ -582,4 +594,11 @@ class WeaponObject extends TangibleObject {
 	public final VectorMap<string, int> getWearableSkillMods() {
 		return wearableSkillMods;
 	}
+
+	public native void holsterWeapon(CreatureObject player);
+
+	public native void unholsterWeapon(CreatureObject player);
+
+	public native void npcHolsterWeapon(CreatureObject npc);
+
 }

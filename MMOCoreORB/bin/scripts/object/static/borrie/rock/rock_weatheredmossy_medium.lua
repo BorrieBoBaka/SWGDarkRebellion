@@ -1,0 +1,4 @@
+object_static_borrie_rock_rock_weatheredmossy_medium = object_static_borrie_rock_shared_rock_weatheredmossy_medium:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_rock_rock_weatheredmossy_medium, "object/static/borrie/rock/rock_weatheredmossy_medium.iff")

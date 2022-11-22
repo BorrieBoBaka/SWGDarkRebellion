@@ -297,3 +297,6 @@ includeFile("conversations/junk_dealer/junk_dealer_sneg_conv.lua")
 
 --Borrie RPG
 includeFile("conversations/borrie/rpg_shopkeeper.lua")
+includeFile("conversations/borrie/rp_xov_meddroid_intro.lua")
+includeFile("conversations/borrie/rp_xov_tailor.lua")
+includeFile("conversations/borrie/rp_convo_recruiter.lua")

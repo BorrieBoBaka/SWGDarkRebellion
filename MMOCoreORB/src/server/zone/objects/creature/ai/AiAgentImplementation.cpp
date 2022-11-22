@@ -829,8 +829,12 @@ void AiAgentImplementation::doAwarenessCheck() {
 }
 
 void AiAgentImplementation::doRecovery(int latency) {
-	if (isDead() || getZoneUnsafe() == nullptr)
+	if (getZoneUnsafe() == nullptr)
 		return;
+
+	if(isDead()) {
+		return;
+	}
 
 	//activateHAMRegeneration(latency);
 	//activateStateRecovery();
@@ -1256,13 +1260,16 @@ void AiAgentImplementation::leash() {
 	clearDots();
 
 	CombatManager::instance()->forcePeace(asAiAgent());
-
+	
+	/*
 	if (!homeLocation.isInRange(asAiAgent(), 1.5)) {
 		homeLocation.setReached(false);
 		addPatrolPoint(homeLocation);
 	} else {
 		homeLocation.setReached(true);
-	}
+	} */
+
+	homeLocation.setReached(true);
 }
 
 void AiAgentImplementation::setDefender(SceneObject* defender) {
@@ -2599,6 +2606,7 @@ void AiAgentImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 	}
 
 	if (player->getPlayerObject() && player->getPlayerObject()->hasGodMode()) {
+		/*
 		if (getArmor() == 0)
 			alm->insertAttribute("armorrating", "None");
 		else if (getArmor() == 1)
@@ -2743,6 +2751,8 @@ void AiAgentImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 		if (getLightSaber() < 0)
 			alm->insertAttribute("cat_armor_vulnerability.armor_eff_restraint", "-");
 
+		*/
+
 		//Show Skills
 		alm->insertAttribute("rpstat.awareness", getSkillMod("rp_awareness"));
 		alm->insertAttribute("rpstat.charisma", getSkillMod("rp_charisma"));
@@ -2786,6 +2796,53 @@ void AiAgentImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 		alm->insertAttribute("rpforce.control", getSkillMod("rp_control"));
 		alm->insertAttribute("rpforce.alter", getSkillMod("rp_alter"));
 		alm->insertAttribute("rpforce.inward", getSkillMod("rp_inward"));
+
+
+		//Weapon Reporting
+		ManagedReference<WeaponObject*> currentWeapon = getWeapon(false);
+
+		if(currentWeapon != nullptr) {
+			StringBuffer nm;
+			nm << currentWeapon->getCustomObjectName();
+			alm->insertAttribute("rpweapon.status", nm);
+			float minDmg = round(currentWeapon->getMinDamage());
+			float maxDmg = round(currentWeapon->getMaxDamage());
+			int bDamage = currentWeapon->getBonusDamage();
+
+			StringBuffer dmg;
+			if (bDamage > 0)
+				dmg << minDmg << "d" << maxDmg << " + " << bDamage;
+			else 
+				dmg << minDmg << "d" << maxDmg;
+
+			alm->insertAttribute("rpweapon.dmg", dmg);
+
+			//Accuracy Modifiers
+			StringBuffer pblank;
+			if (currentWeapon->getPointBlankAccuracy() >= 0)
+				pblank << "+";
+
+			pblank << currentWeapon->getPointBlankAccuracy() << " @ " << currentWeapon->getPointBlankRange() << "m";
+			alm->insertAttribute("rpweapon.wpn_range_zero", pblank);
+
+			StringBuffer ideal;
+			if (currentWeapon->getIdealAccuracy() >= 0)
+				ideal << "+";
+
+			ideal << currentWeapon->getIdealAccuracy() << " @ " << currentWeapon->getIdealRange() << "m";
+			alm->insertAttribute("rpweapon.wpn_range_mid", ideal);
+
+			StringBuffer maxrange;
+			if (currentWeapon->getMaxRangeAccuracy() >= 0)
+				maxrange << "+";
+
+			maxrange << currentWeapon->getMaxRangeAccuracy() << " @ " << currentWeapon->getMaxRange() << "m";
+			alm->insertAttribute("rpweapon.wpn_range_max", maxrange);
+		} else {
+			alm->insertAttribute("rpweapon.status", "No weapon detected");
+		}
+
+		
 	}
 
 	

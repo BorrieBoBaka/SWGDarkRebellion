@@ -94,6 +94,11 @@ protected:
 	bool updatesNavMesh;
 	bool delayedContainerLoad;
 
+	//Borrie RPG
+	bool customCostValue;
+	int baseCost;
+	float resellValueModifier;
+
 public:
 	const static int SHOT = 'SHOT';
 	const static int STOT = 'STOT';
@@ -197,6 +202,7 @@ public:
 	const static int DROIDMODULEPERSONALITY = 0x4000057;
 	const static int VEHICLE = 0x4000058;
 	const static int XPPURCHASE = 0x4000059;
+	const static int RPSHIPDEED = 0x400005A;
 public:
 	SharedObjectTemplate();
 
@@ -755,6 +761,14 @@ public:
 
 	virtual bool isNavUpdatesEnabled() {
 		return updatesNavMesh;
+	}
+
+	virtual int getPrice() {
+		return baseCost;
+	}
+
+	virtual float getResellValueModifier() {
+		return resellValueModifier;
 	}
 };
 

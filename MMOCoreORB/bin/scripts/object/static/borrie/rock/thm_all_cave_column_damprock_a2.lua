@@ -1,0 +1,4 @@
+object_static_borrie_rock_thm_all_cave_column_damprock_a2 = object_static_borrie_rock_shared_thm_all_cave_column_damprock_a2:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_rock_thm_all_cave_column_damprock_a2, "object/static/borrie/rock/thm_all_cave_column_damprock_a2.iff")

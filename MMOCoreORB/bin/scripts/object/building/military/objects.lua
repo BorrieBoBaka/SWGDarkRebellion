@@ -2337,65 +2337,13 @@ ObjectTemplates:addClientTemplate(object_building_military_shared_outpost_shed_s
 
 object_building_military_shared_outpost_starport = SharedBuildingObjectTemplate:new {
 	clientTemplateFileName = "object/building/military/shared_outpost_starport.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "",
-	arrangementDescriptorFilename = "",
-
-	certificationsRequired = {},
-	clearFloraRadius = 20,
-	clientDataFile = "",
-	clientGameObjectType = 512,
-	collisionActionBlockFlags = 255,
-	collisionActionFlags = 255,
-	collisionActionPassFlags = 0,
-	collisionMaterialBlockFlags = 1,
-	collisionMaterialFlags = 1,
-	collisionMaterialPassFlags = 0,
-	containerType = 0,
-	containerVolumeLimit = 0,
-	customizationVariableMapping = {},
-
-	detailedDescription = "@building_detail:starport_corellia",
-
-	gameObjectType = 512,
-
-	interiorLayoutFileName = "",
-
-	locationReservationRadius = 0,
-	lookAtText = "@building_lookat:starport_corellia",
-
-	noBuildRadius = 0,
-
-	objectName = "@building_name:starport_corellia",
-	onlyVisibleInTools = 0,
-
-	paletteColorCustomizationVariables = {},
-	portalLayoutFilename = "appearance/mun_all_landing_pad_s01.pob",
-
-	rangedIntCustomizationVariables = {},
-
-	scale = 0,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "",
-	snapToTerrain = 1,
-	socketDestinations = {},
-	structureFootprintFileName = "",
-	surfaceType = 2,
-
-	targetable = 0,
-	terrainModificationFileName = "",
-	totalCellNumber = 1,
-
-	useStructureFootprintOutline = 0,
-
-	clientObjectCRC = 3035022053,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/building/base/shared_base_building.iff", "object/building/base/shared_base_starport.iff"}
-]]
 }
-
 ObjectTemplates:addClientTemplate(object_building_military_shared_outpost_starport, "object/building/military/shared_outpost_starport.iff")
+
+object_building_military_shared_outpost_starport_nonworking = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/military/shared_outpost_starport_nonworking.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_military_shared_outpost_starport_nonworking, "object/building/military/shared_outpost_starport_nonworking.iff")
 
 object_building_military_shared_pirate_outpost = SharedBuildingObjectTemplate:new {
 	clientTemplateFileName = "object/building/military/shared_pirate_outpost.iff"
@@ -2985,3 +2933,49 @@ object_building_military_shared_military_tactical_center_empty = SharedBuildingO
 }
 ObjectTemplates:addClientTemplate(object_building_military_shared_military_tactical_center_empty, "object/building/military/shared_military_tactical_center_empty.iff")
 --************************************************************************************************************************************************************************
+
+object_building_military_shared_military_base_police_station_imperial_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/military/shared_military_base_police_station_imperial_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_military_shared_military_base_police_station_imperial_style_01_dark, "object/building/military/shared_military_base_police_station_imperial_style_01_dark.iff")
+--******************************************************************************************************************************************************************************************************************
+object_building_military_shared_military_base_police_station_rebel_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/military/shared_military_base_police_station_rebel_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_military_shared_military_base_police_station_rebel_style_01_dark, "object/building/military/shared_military_base_police_station_rebel_style_01_dark.iff")
+--************************************************************************************************************************************************************************************************************
+object_building_military_shared_military_base_shed_imperial_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/military/shared_military_base_shed_imperial_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_military_shared_military_base_shed_imperial_style_01_dark, "object/building/military/shared_military_base_shed_imperial_style_01_dark.iff")
+--**********************************************************************************************************************************************************************************************
+object_building_military_shared_military_base_shed_rebel_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/military/shared_military_base_shed_rebel_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_military_shared_military_base_shed_rebel_style_01_dark, "object/building/military/shared_military_base_shed_rebel_style_01_dark.iff")
+--****************************************************************************************************************************************************************************************
+object_building_military_shared_military_imperial_detachment_hq_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/military/shared_military_imperial_detachment_hq_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_military_shared_military_imperial_detachment_hq_dark, "object/building/military/shared_military_imperial_detachment_hq_dark.iff")
+--************************************************************************************************************************************************************************************
+object_building_military_shared_military_imperial_field_hospital_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/military/shared_military_imperial_field_hospital_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_military_shared_military_imperial_field_hospital_dark, "object/building/military/shared_military_imperial_field_hospital_dark.iff")
+--**************************************************************************************************************************************************************************************
+object_building_military_shared_military_rebel_detachment_hq_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/military/shared_military_rebel_detachment_hq_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_military_shared_military_rebel_detachment_hq_dark, "object/building/military/shared_military_rebel_detachment_hq_dark.iff")
+--******************************************************************************************************************************************************************************
+object_building_military_shared_military_rebel_tactical_center_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/military/shared_military_rebel_tactical_center_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_military_shared_military_rebel_tactical_center_dark, "object/building/military/shared_military_rebel_tactical_center_dark.iff")
+--**********************************************************************************************************************************************************************************
+object_building_military_shared_outpost_shed_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/military/shared_outpost_shed_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_military_shared_outpost_shed_dark, "object/building/military/shared_outpost_shed_dark.iff")
+--**********************************************************************************************************************************************

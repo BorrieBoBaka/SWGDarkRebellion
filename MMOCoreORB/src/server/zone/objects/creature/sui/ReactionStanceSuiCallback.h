@@ -21,50 +21,33 @@ public:
 		if (cancelPressed)
 			return;
 
-		ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
-		box->setCallback(new TurnHelpSuiCallback(player->getZoneServer()));
-		box->setPromptTitle("Reaction Stance Menu");
-		box->setPromptText("Select the reaction stance you'd like to take. A reaction stance determines how you'll respond when attacked. Most actions beyond \"None\" will cost action points to execute.");
-		box->setCancelButton(true, "@cancel");
-		box->addMenuItem("None");
-		box->addMenuItem("Defend");
-		box->addMenuItem("Parry");
-		box->addMenuItem("Dodge");
-		box->addMenuItem("Lightsaber Deflect");
-		box->addMenuItem("Force Deflect");
-		box->addMenuItem("Force Absorb");
-
-	}
-
-	String GetIndexDescription(int index) {
-		if (index == 0) { // Major Action
-			return "Major Action";
-		} else if (index == 1) { // Attack
-			return "Attack";
-		} else if (index == 2) { // Heal
-			return "Heal";
-		} else if (index == 3) { // Skill Interact
-			return "Skill Interact";
-		} else if (index == 4) { // Enter Stealth
-			return "Enter Stealth";
-		} else if (index == 5) { // Minor Action
-			return "Minor Action";
-		} else if (index == 6) { // Move
-			return "Move";
-		} else if (index == 7) { // Equip/Unequip Item
-			return "Equip/Unequip Item";
-		} else if (index == 8) { // Change Posture
-			return "Change Posture";
-		} else if (index == 9) { // Simple Interact
-			return "Simple Interact";
-		} else if (index == 10) { // Use Force Power
-			return "Use Force Power";
-		} else if (index == 11) { // Throw Object
-			return "Throw Object";
+		if(index == 0) { //0 None
+			player->sendExecuteConsoleCommand("/rpsetstance none");
+		} else if(index == 1) { //1 Defend
+			player->sendExecuteConsoleCommand("/rpsetstance defend");
+		} else if(index == 2) { //2 Parry
+			player->sendExecuteConsoleCommand("/rpsetstance parry");			
+		}else if(index == 3) { //3 Dodge
+			player->sendExecuteConsoleCommand("/rpsetstance dodge");			
+		}else if(index == 4) { //4 Lightsaber Deflect
+			player->sendExecuteConsoleCommand("/rpsetstance deflect");			
+		}else if(index == 5) { //5 Force Deflect
+			player->sendExecuteConsoleCommand("/rpsetstance fdeflect");			
+		}else if(index == 6) { //6 Force Absorb
+			player->sendExecuteConsoleCommand("/rpsetstance absorb");			
 		}
+		
+		
+		
+		
+		
+		
+		
 
-		return "You managed to select an option that doesn't exist. Impressive.";
+		
+
 	}
+
 };
 
 #endif /* REACTIONSTANCESUICALLBACK_H_ */

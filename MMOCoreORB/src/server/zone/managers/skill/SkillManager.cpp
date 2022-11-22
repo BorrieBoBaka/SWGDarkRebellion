@@ -350,8 +350,8 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 			creature->setLevel(playerManager->calculatePlayerLevel(creature));
 		}
 
-		if (skill->getSkillName().contains("force_sensitive") && skill->getSkillName().contains("_04"))
-			JediManager::instance()->onFSTreeCompleted(creature, skill->getSkillName());
+		//if (skill->getSkillName().contains("force_sensitive") && skill->getSkillName().contains("_04"))
+			//JediManager::instance()->onFSTreeCompleted(creature, skill->getSkillName());
 
 		MissionManager* missionManager = creature->getZoneServer()->getMissionManager();
 
@@ -406,6 +406,7 @@ void SkillManager::removeSkillRelatedMissions(CreatureObject* creature, Skill* s
 bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creature, bool notifyClient, bool checkFrs) {
 	Skill* skill = skillMap.get(skillName.hashCode());
 
+
 	if (skill == nullptr)
 		return false;
 
@@ -414,6 +415,7 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 	//If they have already surrendered the skill, then return true.
 	if (!creature->hasSkill(skill->getSkillName()))
 		return true;
+
 
 	const SkillList* skillList = creature->getSkillList();
 
@@ -424,7 +426,26 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 			return false;
 	}
 
-	if (skillName.beginsWith("force_") && !(JediManager::instance()->canSurrenderSkill(creature, skillName)))
+	//if (skillName.beginsWith("force_") && !(JediManager::instance()->canSurrenderSkill(creature, skillName)))
+		//return false;
+
+	if (skillName.beginsWith("rp_force_prog"))
+		return false;
+	else if (skillName.beginsWith("rp_awareness_novice"))
+		return false;
+	else if (skillName.beginsWith("rp_charisma_novice"))
+		return false;
+	else if (skillName.beginsWith("rp_constitution_novice"))
+		return false;	
+	else if (skillName.beginsWith("rp_dexterity_novice"))
+		return false;	
+	else if (skillName.beginsWith("rp_intelligence_novice"))
+		return false;
+	else if (skillName.beginsWith("rp_mindfulness_novice"))
+		return false;
+	else if (skillName.beginsWith("rp_precision_novice"))
+		return false;
+	else if (skillName.beginsWith("rp_strength_novice"))
 		return false;
 
 	removeSkillRelatedMissions(creature, skill);
@@ -436,6 +457,7 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 
 	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
+
 	for (int i = 0; i < skillModifiers->size(); ++i) {
 		auto entry = &skillModifiers->elementAt(i);
 		creature->removeSkillMod(SkillModManager::SKILLBOX, entry->getKey(), entry->getValue(), notifyClient);
@@ -445,7 +467,6 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 	if (ghost != nullptr) {
 		//Give the player the used skill points back.
 		ghost->addSkillPoints(skill->getSkillPointsRequired());
-
 		//Remove abilities but only if the creature doesn't still have a skill that grants the
 		//ability.  Some abilities are granted by multiple skills. For example Dazzle for dancers
 		//and musicians.
@@ -471,23 +492,18 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 				removeAbilities(ghost, abilitiesLost, notifyClient);
 			}
 		}
-
 		//Remove draft schematic groups
 		auto schematicsGranted = skill->getSchematicsGranted();
 		SchematicMap::instance()->removeSchematics(ghost, *schematicsGranted, notifyClient);
-
 		//Update maximum experience.
 		updateXpLimits(ghost);
+		//FrsManager* frsManager = creature->getZoneServer()->getFrsManager();
 
-		FrsManager* frsManager = creature->getZoneServer()->getFrsManager();
-
-		if (checkFrs && frsManager->isFrsEnabled()) {
-			frsManager->handleSkillRevoked(creature, skillName);
-		}
-
+		//if (checkFrs && frsManager->isFrsEnabled()) {
+			//frsManager->handleSkillRevoked(creature, skillName);
+		//}
 		/// Update Force Power Max
 		ghost->recalculateForcePower();
-
 		const SkillList* list = creature->getSkillList();
 
 		int totalSkillPointsWasted = 250;
@@ -498,10 +514,12 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 			totalSkillPointsWasted -= skill->getSkillPointsRequired();
 		}
 
+
 		if (ghost->getSkillPoints() != totalSkillPointsWasted) {
 			creature->error("skill points mismatch calculated: " + String::valueOf(totalSkillPointsWasted) + " found: " + String::valueOf(ghost->getSkillPoints()));
 			ghost->setSkillPoints(totalSkillPointsWasted);
 		}
+
 
 		ManagedReference<PlayerManager*> playerManager = creature->getZoneServer()->getPlayerManager();
 		if (playerManager != nullptr) {
@@ -544,7 +562,7 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 	creature->sendMessage(msg4);
 
 	SkillModManager::instance()->verifySkillBoxSkillMods(creature);
-	JediManager::instance()->onSkillRevoked(creature, skill);
+	//JediManager::instance()->onSkillRevoked(creature, skill);
 
 	return true;
 }
@@ -590,7 +608,7 @@ void SkillManager::surrenderAllSkills(CreatureObject* creature, bool notifyClien
 				//Remove draft schematic groups
 				auto schematicsGranted = skill->getSchematicsGranted();
 				SchematicMap::instance()->removeSchematics(ghost, *schematicsGranted, notifyClient);
-				JediManager::instance()->onSkillRevoked(creature, skill);
+				//JediManager::instance()->onSkillRevoked(creature, skill);
 			}
 		}
 	}
@@ -794,9 +812,9 @@ bool SkillManager::fulfillsSkillPrerequisites(const String& skillName, CreatureO
 	if (ghost->isPrivileged())
 		return true;
 
-	if (skillName.beginsWith("force_")) {
-		return JediManager::instance()->canLearnSkill(creature, skillName);
-	}
+	//if (skillName.beginsWith("force_")) {
+	//	return JediManager::instance()->canLearnSkill(creature, skillName);
+	//}
 
 	return true;
 }
@@ -813,6 +831,20 @@ int SkillManager::getForceSensitiveSkillCount(CreatureObject* creature, bool inc
 	}
 
 	return forceSensitiveSkillCount;
+}
+
+int SkillManager::getTrainingSkillCount(CreatureObject* creature) {
+	const SkillList* skills =  creature->getSkillList();
+	int trainingSkillCount = 0;
+
+	for (int i = 0; i < skills->size(); ++i)  {
+		const String& skillName = skills->get(i)->getSkillName();
+		if(skillName.contains("training") && skillName.contains("novice")) {
+			trainingSkillCount++;
+		}
+	}
+
+	return trainingSkillCount;
 }
 
 bool SkillManager::villageKnightPrereqsMet(CreatureObject* creature, const String& skillToDrop) {

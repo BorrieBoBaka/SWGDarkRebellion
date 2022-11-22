@@ -119,5 +119,9 @@ includeFile("tangible/vendor/serverobjects.lua")
 includeFile("tangible/veteran_reward/serverobjects.lua")
 includeFile("tangible/wearables/serverobjects.lua")
 includeFile("tangible/weather_object/serverobjects.lua")
+includeFile("tangible/borrie/tatooine/serverobjects.lua")
+
 
 -- Server Objects
+
+includeFile("tangible/borrp/serverobjects.lua")

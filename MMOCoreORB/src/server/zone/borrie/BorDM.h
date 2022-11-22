@@ -4,6 +4,7 @@
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/managers/creature/CreatureManager.h"
 #include "server/zone/packets/chat/ChatSystemMessage.h"
+#include "server/zone/borrie/BorChat.h"
 
 //#include "templates/roleplay/RoleplayManager.h"
 
@@ -32,7 +33,47 @@ public:
 		creature->sendSystemMessage("[" + object->asCreatureObject()->getFirstName() + "] recieved: " + arguments.subString(4, arguments.length()));
 	}
 
+	static void SendDungeonMasterOOC(CreatureObject* creature, String command, String arguments) {
+		String message;
+		if(command == "ooc") {
+			message = arguments.subString(4, arguments.length());
+		} else if(command == "//") {
+			message = arguments.subString(3, arguments.length());
+		} else if(command == "(") {
+			message = arguments.subString(2, arguments.length());
+		}
 
+		if(message == "") {
+			creature->sendSystemMessage("Something went wrong with your message. What command did you use?");
+			return;
+		}
+
+		UnicodeString message1("[\\#00FFFFDM " + creature->getFirstName() + "\\#FFFFFF]: " + message);
+		ChatSystemMessage* msg = new ChatSystemMessage(message1, ChatSystemMessage::DISPLAY_CHATONLY);
+		creature->broadcastMessage(msg, true);
+	}
+
+	static void SendDungeonMasterIC(CreatureObject* creature, String command, String arguments) {
+		String message;
+		if(command == "ic") {
+			message = arguments.subString(3, arguments.length());
+		} else if(command == "--") {
+			message = arguments.subString(3, arguments.length());
+		} else if(command == "[") {
+			message = arguments.subString(2, arguments.length());
+		}
+
+		if(message == "") {
+			creature->sendSystemMessage("Something went wrong with your message. What command did you use?");
+			return;
+		}
+
+		UnicodeString message1(message);
+		ChatSystemMessage* msg = new ChatSystemMessage(message1, ChatSystemMessage::DISPLAY_CHATANDSCREEN);
+		creature->broadcastMessage(msg, true);
+
+		BorChat::PrintDMMessageToDiscord(creature, message1);
+	}
 	
 	static void SetSecretDM(CreatureObject* creature, CreatureObject* target) {
 		int secretDMState = creature->getStoredInt("secretdm");

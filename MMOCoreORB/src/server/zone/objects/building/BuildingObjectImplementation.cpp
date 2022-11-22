@@ -909,6 +909,8 @@ void BuildingObjectImplementation::onExit(CreatureObject* player, uint64 parenti
 }
 
 uint32 BuildingObjectImplementation::getMaximumNumberOfPlayerItems() {
+
+	/*
 	if (isCivicStructure() )
 		return 250;
 
@@ -927,6 +929,9 @@ uint32 BuildingObjectImplementation::getMaximumNumberOfPlayerItems() {
 	auto maxItems = MAXPLAYERITEMS;
 
 	return Math::min(maxItems, lots * 100);
+	*/
+
+	return MAXPLAYERITEMS;
 }
 
 int BuildingObjectImplementation::notifyObjectInsertedToChild(SceneObject* object, SceneObject* child, SceneObject* oldParent) {

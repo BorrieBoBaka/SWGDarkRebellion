@@ -99,6 +99,15 @@ public:
 			   ". Result: " + String::valueOf(value + Roll);
 	}
 
+	static int Roll(int dieCount, int dieType) {
+		int total = 0;
+		for(int i = 0;i<dieCount;i++) {
+			int roll = System::random(dieType - 1) + 1;
+			total += roll;
+		}
+		return total;
+	}
+
 
 
 	/*

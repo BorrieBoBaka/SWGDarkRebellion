@@ -49,10 +49,10 @@ class CampSiteActiveArea extends ActiveArea {
 	protected TemplateReference<CampStructureTemplate> campStructureData;
 
 	// 1 Hour
-	public final static int DESPAWNTIME = 6000000;
+	public final static int DESPAWNTIME = 60000000;
 
 	// 1 minute
-	public final static int ABANDONTIME = 60000;
+	public final static int ABANDONTIME = 600000;
 
 	public CampSiteActiveArea() {
 		Logger.setLoggingName("CampsiteActiveArea");

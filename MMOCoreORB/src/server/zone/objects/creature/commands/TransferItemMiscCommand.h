@@ -97,6 +97,16 @@ public:
 			}
 		}
 
+		if ((objectToTransfer->isWeaponObject() || objectToTransfer->isInstrument()) && transferType == 6) {
+			creature->executeObjectControllerAction(STRING_HASHCODE("transferitemweapon"), target, arguments);
+			return SUCCESS;
+		}
+
+		if ((objectToTransfer->isWeaponObject() || objectToTransfer->isInstrument()) && transferType == 7) {
+			transferType = 6;
+		}
+
+
 		return doTransferItemMisc(creature, objectToTransfer, destinationObject, transferType, trx);
 	}
 
@@ -195,7 +205,7 @@ public:
 
 		// Check for any parent that is containerType == NONE
 		for (auto parent = objectToTransfer->getParent().get(); parent != nullptr; parent = parent->getParent().get()) {
-			Locker lock(parent);
+			Locker lock(parent, creature);
 
 			if (parent->getContainerType() == ContainerType::NONE) {
 				creature->error() << "Trying to remove object from containerType==NONE: oid " << parent->getObjectID();
@@ -330,6 +340,8 @@ public:
 		if (notifyContainerContentsChanged)
 			objectsParent->notifyObservers(ObserverEventType::CONTAINERCONTENTSCHANGED, creature, 0);
 
+		objectToTransfer->setDirection(1, 0, 0, 0);
+		
 		trx.commit();
 		return SUCCESS;
 	}

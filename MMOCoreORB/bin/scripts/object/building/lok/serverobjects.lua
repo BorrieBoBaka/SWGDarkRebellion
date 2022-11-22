@@ -50,3 +50,5 @@ includeFile("building/lok/mining_cave_01.lua")
 includeFile("building/lok/nym_stronghold.lua")
 
 includeFile("building/lok/nym_stronghold_empty.lua")
+
+includeFile("building/lok/nym_stronghold_dark.lua")

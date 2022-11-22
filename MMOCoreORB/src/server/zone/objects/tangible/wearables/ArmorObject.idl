@@ -263,4 +263,38 @@ class ArmorObject extends WearableObject {
 	public void setHitLocation(unsigned byte h) {
 		hitLocation = h;
 	}
+
+	public int getNonZeroSkillLevel() {
+		int sl = getSkillLevel();
+		if(sl == 0) 
+			return 1;
+		else return sl;
+	}
+
+	public int getProtectionsValue() {
+		int value = kinetic + energy + electricity + stun + blast + heat + cold + acid;
+		if(value < 1) return 1;
+		else return value;
+	}
+
+	public int getArmorProtectionValue() {
+		if(rating == 0) {
+			return 100;
+		} else if(rating == LIGHT) {
+			return 1000;
+		} else if(rating == MEDIUM) {
+			return 10000;
+		} else if(rating == HEAVY) {
+			return 100000;
+		} else return 100;
+	}
+
+	@dirty 
+	public int getPrice() {
+		if(getBasePrice() > 0) {
+			return getBasePrice();
+		} else {
+			return (getMaxCondition() + (getArmorProtectionValue() * 2)) * getNonZeroSkillLevel() * getProtectionsValue();
+		}
+	}
 }

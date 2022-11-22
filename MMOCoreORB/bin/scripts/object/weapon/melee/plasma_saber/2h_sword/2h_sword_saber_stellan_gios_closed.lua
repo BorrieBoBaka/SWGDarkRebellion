@@ -1,0 +1,4 @@
+object_weapon_melee_plasma_saber_2h_sword_2h_sword_saber_stellan_gios_closed = object_weapon_melee_plasma_saber_2h_sword_shared_2h_sword_saber_stellan_gios_closed:new {
+
+}
+ObjectTemplates:addTemplate(object_weapon_melee_plasma_saber_2h_sword_2h_sword_saber_stellan_gios_closed, "object/weapon/melee/plasma_saber/2h_sword/2h_sword_saber_stellan_gios_closed.iff")

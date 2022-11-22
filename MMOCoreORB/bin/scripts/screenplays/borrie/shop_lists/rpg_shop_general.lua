@@ -1,3 +1,5 @@
+local shopListTag = "shop_general"
+
 rpg_shop_general = {
 	manifest = {
 		{
@@ -18,3 +20,5 @@ rpg_shop_general = {
 		},
 	}	
 }
+
+RPGVendorShopLists:addShopList(shopListTag, rpg_shop_general)

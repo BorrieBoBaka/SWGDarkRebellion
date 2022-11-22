@@ -73,6 +73,8 @@ public:
 
 		String instr = performanceManager->getInstrument(instrument->getInstrumentType());
 
+		/*
+
 		if (!ghost->hasAbility(instr)) {
 			creature->sendSystemMessage("@performance:music_lack_skill_instrument"); // You do not have the skill to use the currently equipped instrument.
 
@@ -84,12 +86,18 @@ public:
 			return GENERALERROR;
 		}
 
+		*/
+
 		String fullString = String("startMusic") + "+" + args;
+
+		/*
 
 		if (!ghost->hasAbility(fullString)) {
 			creature->sendSystemMessage("@performance:music_lack_skill_song_self"); // You do not have the skill to perform that song.
 			return GENERALERROR;
 		}
+
+		*/
 
 		String instrumentAnimation;
 

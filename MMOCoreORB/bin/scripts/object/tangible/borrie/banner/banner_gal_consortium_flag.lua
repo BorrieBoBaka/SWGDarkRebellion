@@ -1,0 +1,4 @@
+object_tangible_borrie_banner_banner_gal_consortium_flag = object_tangible_borrie_banner_shared_banner_gal_consortium_flag:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrie_banner_banner_gal_consortium_flag, "object/tangible/borrie/banner/banner_gal_consortium_flag.iff")

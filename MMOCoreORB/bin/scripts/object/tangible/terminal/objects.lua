@@ -3170,59 +3170,7 @@ ObjectTemplates:addClientTemplate(object_tangible_terminal_shared_terminal_space
 
 object_tangible_terminal_shared_terminal_travel = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/terminal/shared_terminal_travel.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "appearance/ksk_all_travel.apt",
-	arrangementDescriptorFilename = "",
-
-	certificationsRequired = {},
-	clearFloraRadius = 0,
-	clientDataFile = "",
-	clientGameObjectType = 16396,
-	collisionActionBlockFlags = 0,
-	collisionActionFlags = 51,
-	collisionActionPassFlags = 1,
-	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 1,
-	collisionMaterialPassFlags = 0,
-	containerType = 0,
-	containerVolumeLimit = 1,
-	customizationVariableMapping = {},
-
-	detailedDescription = "@terminal_detail:terminal_travel",
-
-	gameObjectType = 16396,
-
-	locationReservationRadius = 0,
-	lookAtText = "@terminal_lookat:terminal_travel",
-
-	noBuildRadius = 0,
-
-	objectName = "@terminal_name:terminal_travel",
-	onlyVisibleInTools = 0,
-
-	paletteColorCustomizationVariables = {},
-	portalLayoutFilename = "",
-
-	rangedIntCustomizationVariables = {},
-
-	scale = 1,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "",
-	snapToTerrain = 0,
-	socketDestinations = {},
-	structureFootprintFileName = "",
-	surfaceType = 0,
-
-	targetable = 1,
-	totalCellNumber = 0,
-
-	useStructureFootprintOutline = 0,
-
-	clientObjectCRC = 1946349820,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/terminal/base/shared_base_terminal.iff"}
-]]
+	
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_terminal_shared_terminal_travel, "object/tangible/terminal/shared_terminal_travel.iff")
@@ -3344,3 +3292,17 @@ object_tangible_terminal_shared_test = SharedTangibleObjectTemplate:new {
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_terminal_shared_test, "object/tangible/terminal/shared_test.iff")
+
+
+object_tangible_terminal_shared_terminal_travel_rp = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/terminal/shared_terminal_travel_rp.iff"
+	
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_terminal_shared_terminal_travel_rp, "object/tangible/terminal/shared_terminal_travel_rp.iff")
+
+object_tangible_terminal_shared_terminal_galaxy = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/terminal/shared_terminal_galaxy.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_terminal_shared_terminal_galaxy, "object/tangible/terminal/shared_terminal_galaxy.iff")
+--******************************************************************************************************************************************

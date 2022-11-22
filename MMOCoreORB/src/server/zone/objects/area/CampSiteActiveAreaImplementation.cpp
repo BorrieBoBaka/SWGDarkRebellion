@@ -243,7 +243,7 @@ bool CampSiteActiveAreaImplementation::despawnCamp() {
 		amount += (int)((visitors.size() -1) * (campXp / 30) * durationUsed);
 		amount += (int)(currentXp * durationUsed);
 
-		playerManager->awardExperience(campOwner, "camp", amount, true);
+		//playerManager->awardExperience(campOwner, "camp", amount, true);
 	}
 
 	Locker tlocker(&taskMutex);

@@ -65,12 +65,12 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 	if (ghost->hasActivePet(pet))
 		return;
 
-	FrsManager* frsManager = server->getZoneServer()->getFrsManager();
+	//FrsManager* frsManager = server->getZoneServer()->getFrsManager();
 
-	if (frsManager->isFrsEnabled() && frsManager->isPlayerInEnclave(player)) {
-		player->sendSystemMessage("@pet/pet_menu:cant_call"); //  You cannot call this pet right now.
-		return;
-	}
+	//if (frsManager->isFrsEnabled() && frsManager->isPlayerInEnclave(player)) {
+		//player->sendSystemMessage("@pet/pet_menu:cant_call"); //  You cannot call this pet right now.
+		//return;
+	//}
 
 	if (vitality <= 0) {
 		player->sendSystemMessage("@pet/pet_menu:dead_pet"); // This pet is dead. Select DESTROY from the radial menu to delete this pet control device.
@@ -136,7 +136,7 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 
 	int currentlySpawned = 0;
 	int spawnedLevel = 0;
-	int maxPets = 2;
+	int maxPets = 3;
 	int maxLevelofPets = 9999;
 	int level = pet->getLevel();
 
@@ -162,10 +162,11 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 			return;
 		}
 
+		/*
 		if (creaturePet->isVicious() && (player->getSkillMod("tame_aggro") <= 0 || !ch)) {
 			player->sendSystemMessage("@pet/pet_menu:lack_skill"); // You lack the skill to call a pet of this type.
 			return;
-		}
+		} */
 
 	} else if (petType == PetManager::FACTIONPET){
 		maxPets = 3;
@@ -229,10 +230,10 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 		Reference<CallPetTask*> callPet = new CallPetTask(_this.getReferenceUnsafeStaticCast(), player, "call_pet");
 
 		StringIdChatParameter message("pet/pet_menu", "call_pet_delay"); // Calling pet in %DI seconds. Combat will terminate pet call.
-		message.setDI(15);
+		message.setDI(2);
 		player->sendSystemMessage(message);
 
-		player->addPendingTask("call_pet", callPet, 15 * 1000);
+		player->addPendingTask("call_pet", callPet, 2 * 1000);
 
 		if (petControlObserver == nullptr) {
 			petControlObserver = new PetControlObserver(_this.getReferenceUnsafeStaticCast());
@@ -761,8 +762,9 @@ bool PetControlDeviceImplementation::canBeTradedTo(CreatureObject* player, Creat
 
 		int numberStored = numberInTrade;
 		int maxStoredPets = playerManager->getBaseStoredCreaturePets();
-		int maxLevelofPets = 10;
+		int maxLevelofPets = 99;
 		int level = pet->getAdultLevel();
+		/*
 		bool ch = receiver->hasSkill("outdoors_creaturehandler_novice");
 
 		if (ch) {
@@ -781,7 +783,7 @@ bool PetControlDeviceImplementation::canBeTradedTo(CreatureObject* player, Creat
 			receiver->sendSystemMessage("@pet/pet_menu:cannot_control"); // You have no chance of controlling that creature.
 			return false;
 		}
-
+		*/
 		if (numberStored >= maxStoredPets) {
 			player->sendSystemMessage("@pet/pet_menu:targ_too_many_stored"); // That person has too many stored pets. Transfer failed.
 			receiver->sendSystemMessage("@pet/pet_menu:sys_too_many_stored"); // There are too many pets stored in this container. Release some of them to make room for more.
@@ -1118,22 +1120,24 @@ void PetControlDeviceImplementation::setTrainingCommand(unsigned int commandID) 
 		}
 	}
 	else if (petType == PetManager::CREATUREPET) {
-		if (((commandID == PetManager::ATTACK || commandID == PetManager::FOLLOW || commandID == PetManager::STORE) && !owner->hasSkill("outdoors_creaturehandler_novice") ) ||
-			(commandID == PetManager::STAY && !owner->hasSkill("outdoors_creaturehandler_training_01")) ||
-			(commandID == PetManager::GUARD && !owner->hasSkill("outdoors_creaturehandler_training_02")) ||
-			(commandID == PetManager::FRIEND && !owner->hasSkill("outdoors_creaturehandler_support_03")) ||
-			((commandID == PetManager::PATROL || commandID == PetManager::GETPATROLPOINT || commandID == PetManager::CLEARPATROLPOINTS) && !owner->hasSkill("outdoors_creaturehandler_training_03")) ||
-			((commandID == PetManager::FORMATION1 || commandID == PetManager::FORMATION2) && !owner->hasSkill("outdoors_creaturehandler_training_04")) ||
-			(commandID == PetManager::TRANSFER && !owner->hasSkill("outdoors_creaturehandler_master")) ||
-			(commandID == PetManager::TRICK1 && !owner->hasSkill("outdoors_creaturehandler_healing_01")) ||
-			(commandID == PetManager::TRICK2 && !owner->hasSkill("outdoors_creaturehandler_healing_03")) ||
-			(commandID == PetManager::GROUP && !owner->hasSkill("outdoors_creaturehandler_support_01")) ||
-			(commandID == PetManager::SPECIAL_ATTACK1 && (!owner->hasSkill("outdoors_creaturehandler_taming_03") || !pet->hasSpecialAttack(1))) ||
-			(commandID == PetManager::SPECIAL_ATTACK2 && (!owner->hasSkill("outdoors_creaturehandler_taming_04") || !pet->hasSpecialAttack(2))) ||
-			(commandID == PetManager::RANGED_ATTACK && (!owner->hasSkill("outdoors_creaturehandler_master") || !pet->hasRangedWeapon())) ||
-			(commandID == PetManager::FOLLOWOTHER && !owner->hasSkill("outdoors_creaturehandler_support_02")) ||
+		/**
+		if (((commandID == PetManager::ATTACK || commandID == PetManager::FOLLOW || commandID == PetManager::STORE)) ||
+			(commandID == PetManager::STAY) ||
+			(commandID == PetManager::GUARD) ||
+			(commandID == PetManager::FRIEND ) ||
+			((commandID == PetManager::PATROL || commandID == PetManager::GETPATROLPOINT || commandID == PetManager::CLEARPATROLPOINTS)) ||
+			((commandID == PetManager::FORMATION1 || commandID == PetManager::FORMATION2)) ||
+			(commandID == PetManager::TRANSFER ) ||
+			(commandID == PetManager::TRICK1 ) ||
+			(commandID == PetManager::TRICK2 ) ||
+			(commandID == PetManager::GROUP ) ||
+			(commandID == PetManager::SPECIAL_ATTACK1 || !pet->hasSpecialAttack(1)) ||
+			(commandID == PetManager::SPECIAL_ATTACK2 || !pet->hasSpecialAttack(2)) ||
+			(commandID == PetManager::RANGED_ATTACK || !pet->hasRangedWeapon()) ||
+			(commandID == PetManager::FOLLOWOTHER ) ||
 			(commandID == PetManager::RECHARGEOTHER))
 				return;
+		**/
 	}
 	else if (petType == PetManager::FACTIONPET) {
 		if (commandID == PetManager::RECHARGEOTHER ||
@@ -1161,7 +1165,7 @@ void PetControlDeviceImplementation::setTrainingCommand(unsigned int commandID) 
 }
 
 void PetControlDeviceImplementation::trainAsMount(CreatureObject* player) {
-	if (isTrainedAsMount() || !player->hasSkill("outdoors_creaturehandler_support_04"))
+	if (isTrainedAsMount())
 		return;
 
 	PetManager* petManager = player->getZoneServer()->getPetManager();

@@ -1,0 +1,4 @@
+object_static_borrie_shrub_poi_kash_rryatt_lvl2_bush_md = object_static_borrie_shrub_shared_poi_kash_rryatt_lvl2_bush_md:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_shrub_poi_kash_rryatt_lvl2_bush_md, "object/static/borrie/shrub/poi_kash_rryatt_lvl2_bush_md.iff")

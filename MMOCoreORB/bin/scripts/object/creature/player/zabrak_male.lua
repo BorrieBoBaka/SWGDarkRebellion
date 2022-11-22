@@ -42,7 +42,7 @@
 
 
 object_creature_player_zabrak_male = object_creature_player_shared_zabrak_male:new {
-	baseHAM = { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+	baseHAM = { 200, 0, 0, 300, 0, 0, 0, 0, 400 },
 	gameObjectType = 1033,
 	zoneComponent = "PlayerZoneComponent",
 	objectMenuComponent = "PlayerObjectMenuComponent",
@@ -59,7 +59,7 @@ object_creature_player_zabrak_male = object_creature_player_shared_zabrak_male:n
 	},
 	defaultLanguage = 1,
 	startingItems = { },
-	startingSkills = {"social_language_basic_comprehend", "social_language_basic_speak" , "social_language_zabrak_comprehend", "social_language_zabrak_speak" }
+	startingSkills = { "species_zabrak", "social_language_basic_comprehend", "social_language_basic_speak" , "social_language_zabrak_comprehend", "social_language_zabrak_speak" }
 }
 
 ObjectTemplates:addTemplate(object_creature_player_zabrak_male, "object/creature/player/zabrak_male.iff")

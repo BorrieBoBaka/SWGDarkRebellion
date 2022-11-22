@@ -42,7 +42,7 @@
 
 
 object_creature_player_human_male = object_creature_player_shared_human_male:new {
-	baseHAM = { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+	baseHAM = { 100, 100, 100, 100, 100, 100, 100, 100, 100 },
 	gameObjectType = 1033,
 	zoneComponent = "PlayerZoneComponent",
 	objectMenuComponent = "PlayerObjectMenuComponent",
@@ -60,7 +60,7 @@ object_creature_player_human_male = object_creature_player_shared_human_male:new
 	},
 	defaultLanguage = 1,
 	startingItems = { },
-	startingSkills = {"social_language_basic_comprehend", "social_language_basic_speak" }
+	startingSkills = { "species_human", "social_language_basic_comprehend", "social_language_basic_speak" }
 }
 
 ObjectTemplates:addTemplate(object_creature_player_human_male, "object/creature/player/human_male.iff")

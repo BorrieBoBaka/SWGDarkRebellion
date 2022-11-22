@@ -71,6 +71,18 @@ public:
 
 			creature->sendSystemMessage(player->getFirstName() + "'s inventory has been wiped.");
 
+			SceneObject* datapad = player->getSlottedObject("datapad");
+
+			if(datapad != nullptr) {
+				while (datapad->getContainerObjectsSize() > 0) {
+					ManagedReference<SceneObject*> dataObject = datapad->getContainerObject(0);
+					Locker sceneObjectLocker(dataObject);
+					dataObject->destroyObjectFromWorld(true);
+					dataObject->destroyObjectFromDatabase(true);
+				}
+				creature->sendSystemMessage(player->getFirstName() + "'s datapad has been wiped.");
+			}
+
 		}
 		catch (Exception& e)
 		{

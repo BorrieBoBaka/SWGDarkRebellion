@@ -1,0 +1,4 @@
+object_building_player_player_house_naboo_small_style_01_c = object_building_player_shared_player_house_naboo_small_style_01_c:new {
+
+}
+ObjectTemplates:addTemplate(object_building_player_player_house_naboo_small_style_01_c, "object/building/player/player_house_naboo_small_style_01_c.iff")

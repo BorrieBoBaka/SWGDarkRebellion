@@ -1,0 +1,4 @@
+object_tangible_borrie_light_green_light_sea_turtle_green_2m = object_tangible_borrie_light_green_shared_light_sea_turtle_green_2m:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrie_light_green_light_sea_turtle_green_2m, "object/tangible/borrie/light/green/light_sea_turtle_green_2m.iff")

@@ -1,0 +1,4 @@
+object_static_borrie_shrub_shrb_beach_root_cup_small = object_static_borrie_shrub_shared_shrb_beach_root_cup_small:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_shrub_shrb_beach_root_cup_small, "object/static/borrie/shrub/shrb_beach_root_cup_small.iff")

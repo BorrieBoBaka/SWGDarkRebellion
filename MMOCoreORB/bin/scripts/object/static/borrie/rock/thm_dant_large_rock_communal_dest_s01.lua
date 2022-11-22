@@ -1,0 +1,4 @@
+object_static_borrie_rock_thm_dant_large_rock_communal_dest_s01 = object_static_borrie_rock_shared_thm_dant_large_rock_communal_dest_s01:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_rock_thm_dant_large_rock_communal_dest_s01, "object/static/borrie/rock/thm_dant_large_rock_communal_dest_s01.iff")

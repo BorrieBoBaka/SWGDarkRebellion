@@ -44,6 +44,8 @@ void ArmorObjectImplementation::loadTemplateData(SharedObjectTemplate* templateD
 	acid = armorTemplate->getAcid();
 	lightSaber = armorTemplate->getLightSaber();
 
+	skillLevel = armorTemplate->getRpSkill();
+
 	hitLocation = armorTemplate->getHitLocation();
 	if (hitLocation == ArmorObjectTemplate::NOLOCATION) {
 		if (hasArrangementDescriptor("chest2"))
@@ -143,53 +145,53 @@ void ArmorObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cre
 	//Vulnerabilities
 	if (getKinetic() < 0) {
 		StringBuffer txt;
-		txt << "+" << Math::getPrecision(getKinetic(), 1);
+		txt << "+" << Math::getPrecision(getKinetic()*-1, 1);
 		alm->insertAttribute("cat_armor_vulnerability.armor_eff_kinetic", txt.toString());
 	}
 
 	if (getEnergy() < 0) {
 		StringBuffer txt;
-		txt << "+" << Math::getPrecision(getEnergy(), 1);
+		txt << "+" << Math::getPrecision(getEnergy()*-1, 1);
 		alm->insertAttribute("cat_armor_vulnerability.armor_eff_energy", txt.toString());
 	}
 
 	if (getElectricity() < 0) {
 		StringBuffer txt;
-		txt << "+" << Math::getPrecision(getElectricity(), 1);
+		txt << "+" << Math::getPrecision(getElectricity()*-1, 1);
 		alm->insertAttribute("cat_armor_vulnerability.armor_eff_elemental_electrical", txt.toString());
 	}
 
 	if (getStun() < 0) {
 		StringBuffer txt;
-		txt << "+" << Math::getPrecision(getStun(), 1);
+		txt << "+" << Math::getPrecision(getStun()*-1, 1);
 		alm->insertAttribute("cat_armor_vulnerability.armor_eff_stun", txt.toString());
 	}
 
 
 	if (getBlast() < 0) {
 		StringBuffer txt;
-		txt << "+" << Math::getPrecision(getBlast(), 1);
+		txt << "+" << Math::getPrecision(getBlast()*-1, 1);
 		alm->insertAttribute("cat_armor_vulnerability.armor_eff_blast", txt.toString());
 	}
 
 
 	if (getHeat() < 0) {
 		StringBuffer txt;
-		txt << "+" << Math::getPrecision(getHeat(), 1);
+		txt << "+" << Math::getPrecision(getHeat()*-1, 1);
 		alm->insertAttribute("cat_armor_vulnerability.armor_eff_elemental_heat", txt.toString());
 	}
 
 
 	if (getCold() < 0) {
 		StringBuffer txt;
-		txt << "+" << Math::getPrecision(getCold(), 1);
+		txt << "+" << Math::getPrecision(getCold()*-1, 1);
 		alm->insertAttribute("cat_armor_vulnerability.armor_eff_elemental_cold", txt.toString());
 	}
 
 
 	if (getAcid() < 0) {
 		StringBuffer txt;
-		txt << "+" << Math::getPrecision(getAcid(), 1);
+		txt << "+" << Math::getPrecision(getAcid()*-1, 1);
 		alm->insertAttribute("cat_armor_vulnerability.armor_eff_elemental_acid", txt.toString());
 	}
 

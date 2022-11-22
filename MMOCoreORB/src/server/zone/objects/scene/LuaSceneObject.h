@@ -62,6 +62,7 @@ namespace scene {
 		//int removeObject(lua_State* L);
 		int getGameObjectType(lua_State* L);
 		int faceObject(lua_State* L);
+		int facePosition(lua_State* L);
 		int isFacingObject(lua_State* L);
 		int destroyObjectFromWorld(lua_State* L);
 		int destroyObjectFromDatabase(lua_State* L);
@@ -113,6 +114,12 @@ namespace scene {
 		int setStoredFloat(lua_State* L);
 		int getStoredFloat(lua_State* L);
 		int deleteStoredFloat(lua_State* L);
+		int setStoredLong(lua_State* L);
+		int getStoredLong(lua_State* L);
+		int deleteStoredLong(lua_State* L);
+		int setPublicContainer(lua_State* L);
+		int setDispenserContainer(lua_State* L);
+		int populateInventoryFromContentList(lua_State* L);
 
 	protected:
 		SceneObject* _getRealSceneObject() {

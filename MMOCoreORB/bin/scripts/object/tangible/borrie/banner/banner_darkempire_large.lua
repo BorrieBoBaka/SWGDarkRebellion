@@ -1,0 +1,4 @@
+object_tangible_borrie_banner_banner_darkempire_large = object_tangible_borrie_banner_shared_banner_darkempire_large:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrie_banner_banner_darkempire_large, "object/tangible/borrie/banner/banner_darkempire_large.iff")

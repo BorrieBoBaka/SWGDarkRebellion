@@ -1,0 +1,7 @@
+includeFile("tangible/item/roleplay/force/book_lightsaber.lua")
+includeFile("tangible/item/roleplay/force/force_scroll_dark_s01.lua")
+includeFile("tangible/item/roleplay/force/force_scroll_light_s01.lua")
+includeFile("tangible/item/roleplay/force/force_scroll_neutral_s01.lua")
+includeFile("tangible/item/roleplay/force/holocron_dark_s01.lua")
+includeFile("tangible/item/roleplay/force/holocron_light_s01.lua")
+includeFile("tangible/item/roleplay/force/holocron_neutral_s01.lua")

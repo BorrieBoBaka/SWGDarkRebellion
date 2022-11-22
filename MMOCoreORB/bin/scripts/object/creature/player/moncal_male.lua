@@ -42,7 +42,7 @@
 
 
 object_creature_player_moncal_male = object_creature_player_shared_moncal_male:new {
-	baseHAM = { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+	baseHAM = { 0, 0, 0, 0, 0, 150, 300, 300, 150 },
 	gameObjectType = 1033,
 	zoneComponent = "PlayerZoneComponent",
 	objectMenuComponent = "PlayerObjectMenuComponent",
@@ -59,7 +59,7 @@ object_creature_player_moncal_male = object_creature_player_shared_moncal_male:n
 	},
 	defaultLanguage = 1,
 	startingItems = { },
-	startingSkills = { "social_language_basic_comprehend", "social_language_basic_speak" , "social_language_moncalamari_comprehend", "social_language_moncalamari_speak" }
+	startingSkills = { "species_moncal", "social_language_basic_comprehend", "social_language_basic_speak" , "social_language_moncalamari_comprehend", "social_language_moncalamari_speak" }
 }
 
 ObjectTemplates:addTemplate(object_creature_player_moncal_male, "object/creature/player/moncal_male.iff")

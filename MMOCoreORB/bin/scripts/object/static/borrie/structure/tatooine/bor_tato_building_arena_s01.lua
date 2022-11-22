@@ -1,0 +1,4 @@
+object_static_borrie_structure_tatooine_bor_tato_building_arena_s01 = object_static_borrie_structure_tatooine_shared_bor_tato_building_arena_s01:new {
+
+}
+ObjectTemplates:addTemplate(object_static_borrie_structure_tatooine_bor_tato_building_arena_s01, "object/static/borrie/structure/tatooine/bor_tato_building_arena_s01.iff")

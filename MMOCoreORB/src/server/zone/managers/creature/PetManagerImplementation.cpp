@@ -348,6 +348,8 @@ bool PetManagerImplementation::handleCommandTraining(CreatureObject* speaker, Ai
 	if (petType == CREATUREPET) {
 		bool alreadyTrained = pcd->hasTrainedCommand(trainingCommand);
 
+
+		/*
 		if (!alreadyTrained) {
 			bool success = false;
 			Creature* petCreature = cast<Creature*>(pet);
@@ -362,12 +364,13 @@ bool PetManagerImplementation::handleCommandTraining(CreatureObject* speaker, Ai
 			if (skill > roll)
 				success = true;
 
+			
 			if (!success) {
 				pet->showFlyText("npc_reaction/flytext","confused", 204, 0, 0);  // "?"
 				speaker->sendSystemMessage("@pet/pet_menu:pet_nolearn"); // Your pet doesn't seem to understand you.
 				return true;
-			}
-		}
+			}			
+		} */
 
 		// Success
 		pcd->addTrainedCommand( trainingCommand, message );
@@ -382,11 +385,15 @@ bool PetManagerImplementation::handleCommandTraining(CreatureObject* speaker, Ai
 
 			PlayerManager* playerManager = zoneServer->getPlayerManager();
 
+			/*
+			
 			if (pet->hasPetDeed()) {
 				playerManager->awardExperience(speaker, "creaturehandler", 100);
 			} else {
 				playerManager->awardExperience(speaker, "creaturehandler", 10 * creatureTemplate->getLevel());
 			}
+
+			*/
 		}
 	}
 	else{
@@ -408,8 +415,8 @@ bool PetManagerImplementation::handleCommandTraining(CreatureObject* speaker, Ai
 	if (petType == FACTIONPET)
 		return true;
 	// no renaming of converse style droids with personalities installed.
-	if ( (pet->getOptionsBitmask() & OptionBitmask::CONVERSE) && petType == DROIDPET )
-		return true;
+	//if ( (pet->getOptionsBitmask() & OptionBitmask::CONVERSE) && petType == DROIDPET )
+		//return true;
 	// Check for naming string
 	StringTokenizer tokenizer(message);
 	tokenizer.setDelimeter(" ");
@@ -433,9 +440,9 @@ bool PetManagerImplementation::handleCommandTraining(CreatureObject* speaker, Ai
 		ZoneProcessServer* zps = pet->getZoneProcessServer();
 		NameManager* nameManager = zps->getNameManager();
 
-		if (nameManager->validateName(parsedName) != NameManagerResult::ACCEPTED) {
-			return true;
-		}
+		//if (nameManager->validateName(parsedName) != NameManagerResult::ACCEPTED) {
+			//return true;
+		//}
 		if (futureName == parsedName  && !pcd->hasUsedNamingCommand(trainingCommand)) {
 			pcd->incrementNamingProgress(trainingCommand);
 		}

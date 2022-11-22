@@ -84,6 +84,7 @@ public:
 	const static int VEHICLECONTROLDEVICE = 0x808;
 	const static int SHIPCONTROLDEVICE = 0x80A;
 	const static int DROIDCONTROLDEVICE = 0x80B;
+	const static int RPSHIPCONTROLDEVICE = 0x80D;
 
 	/// Not in client **********
 	const static int THEATEROBJECT = 0x80C;
@@ -163,6 +164,7 @@ public:
 	const static int FSCSOBJECT = 0x2039;
 	const static int FSBUFFITEM = 0x203A;
 	const static int CONTRACTCRATE = 0x203B;
+	const static int UTILITY = 0x203D;
 	/// End Not in client **************
 
 	const static int TERMINAL = 0x4000;
@@ -296,6 +298,7 @@ public:
 	const static int DROIDDEED = 0x800004;
 	const static int VEHICLEDEED = 0x800005;
 	const static int RESOURCEDEED = 0x800006;
+	const static int RPSHIPDEED = 0x800090;
 
 	// Not in client **********
 	const static int EVENTPERKDEED = 0x800007;

@@ -46,6 +46,10 @@ SharedObjectTemplate::SharedObjectTemplate() : Logger("SharedObjectTemplate") {
 
 	noTrade = false;
 	delayedContainerLoad = false;
+
+	baseCost = 100;
+	customCostValue = false;
+	resellValueModifier = 1;
 }
 
 void SharedObjectTemplate::parseVariableData(const String& varName, LuaObject* templateData) {
@@ -199,6 +203,11 @@ void SharedObjectTemplate::parseVariableData(const String& varName, LuaObject* t
 		updatesNavMesh = Lua::getBooleanParameter(state);
 	} else if (varName == "delayedContainerLoad") {
 		delayedContainerLoad = Lua::getBooleanParameter(state);
+	} else if(varName == "baseCost") { 
+		customCostValue = true;
+		baseCost = Lua::getIntParameter(state);
+	} else if(varName == "resellValueModifier") { 
+		resellValueModifier = Lua::getFloatParameter(state);
 	} else {
 		//Logger::console.error("unknown variable " + varName);
 		templateData->pop();

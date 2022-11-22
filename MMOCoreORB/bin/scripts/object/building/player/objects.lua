@@ -2631,3 +2631,490 @@ object_building_player_shared_player_guildhall_corellia_style_02 = SharedBuildin
 
 ObjectTemplates:addClientTemplate(object_building_player_shared_player_guildhall_corellia_style_02, "object/building/player/shared_player_guildhall_corellia_style_02.iff")
 ------------------------------------------------------------------------------------------------------------------------------------
+
+object_building_player_shared_atat_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_atat_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_atat_house_dark, "object/building/player/shared_atat_house_dark.iff")
+--**************************************************************************************************************************************
+object_building_player_shared_bespin_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_bespin_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_bespin_house_dark, "object/building/player/shared_bespin_house_dark.iff")
+--******************************************************************************************************************************************
+object_building_player_shared_commando_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_commando_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_commando_house_dark, "object/building/player/shared_commando_house_dark.iff")
+--**********************************************************************************************************************************************
+object_building_player_shared_emperors_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_emperors_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_emperors_house_dark, "object/building/player/shared_emperors_house_dark.iff")
+--**********************************************************************************************************************************************
+object_building_player_shared_generic_large_window_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_generic_large_window_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_generic_large_window_s01_dark, "object/building/player/shared_generic_large_window_s01_dark.iff")
+--******************************************************************************************************************************************************************
+object_building_player_shared_generic_large_window_s02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_generic_large_window_s02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_generic_large_window_s02_dark, "object/building/player/shared_generic_large_window_s02_dark.iff")
+--******************************************************************************************************************************************************************
+object_building_player_shared_generic_medium_window_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_generic_medium_window_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_generic_medium_window_s01_dark, "object/building/player/shared_generic_medium_window_s01_dark.iff")
+--********************************************************************************************************************************************************************
+object_building_player_shared_generic_medium_window_s02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_generic_medium_window_s02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_generic_medium_window_s02_dark, "object/building/player/shared_generic_medium_window_s02_dark.iff")
+--********************************************************************************************************************************************************************
+object_building_player_shared_generic_small_window_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_generic_small_window_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_generic_small_window_s01_dark, "object/building/player/shared_generic_small_window_s01_dark.iff")
+--******************************************************************************************************************************************************************
+object_building_player_shared_generic_small_window_s02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_generic_small_window_s02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_generic_small_window_s02_dark, "object/building/player/shared_generic_small_window_s02_dark.iff")
+--******************************************************************************************************************************************************************
+object_building_player_shared_hangar_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_hangar_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_hangar_house_dark, "object/building/player/shared_hangar_house_dark.iff")
+--******************************************************************************************************************************************
+object_building_player_shared_jabbas_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_jabbas_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_jabbas_house_dark, "object/building/player/shared_jabbas_house_dark.iff")
+--******************************************************************************************************************************************
+object_building_player_shared_jedi_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_jedi_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_jedi_house_dark, "object/building/player/shared_jedi_house_dark.iff")
+--**************************************************************************************************************************************
+object_building_player_shared_musty_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_musty_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_musty_house_dark, "object/building/player/shared_musty_house_dark.iff")
+--****************************************************************************************************************************************
+object_building_player_shared_naboo_small_window_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_naboo_small_window_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_naboo_small_window_s01_dark, "object/building/player/shared_naboo_small_window_s01_dark.iff")
+--**************************************************************************************************************************************************************
+object_building_player_shared_ns_hut_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_ns_hut_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_ns_hut_dark, "object/building/player/shared_ns_hut_dark.iff")
+--******************************************************************************************************************************
+object_building_player_shared_player_guildhall_corellia_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_guildhall_corellia_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_guildhall_corellia_style_01_dark, "object/building/player/shared_player_guildhall_corellia_style_01_dark.iff")
+--**************************************************************************************************************************************************************************************
+object_building_player_shared_player_guildhall_generic_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_guildhall_generic_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_guildhall_generic_style_01_dark, "object/building/player/shared_player_guildhall_generic_style_01_dark.iff")
+--************************************************************************************************************************************************************************************
+object_building_player_shared_player_guildhall_naboo_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_guildhall_naboo_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_guildhall_naboo_style_01_dark, "object/building/player/shared_player_guildhall_naboo_style_01_dark.iff")
+--********************************************************************************************************************************************************************************
+object_building_player_shared_player_guildhall_tatooine_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_guildhall_tatooine_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_guildhall_tatooine_style_01_dark, "object/building/player/shared_player_guildhall_tatooine_style_01_dark.iff")
+--**************************************************************************************************************************************************************************************
+object_building_player_shared_player_guildhall_tatooine_style_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_guildhall_tatooine_style_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_guildhall_tatooine_style_02_dark, "object/building/player/shared_player_guildhall_tatooine_style_02_dark.iff")
+--**************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_atat_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_atat_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_atat_dark, "object/building/player/shared_player_house_atat_dark.iff")
+--****************************************************************************************************************************************************
+object_building_player_shared_player_house_corellia_large_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_corellia_large_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_corellia_large_style_01_dark, "object/building/player/shared_player_house_corellia_large_style_01_dark.iff")
+--******************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_corellia_large_style_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_corellia_large_style_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_corellia_large_style_02_dark, "object/building/player/shared_player_house_corellia_large_style_02_dark.iff")
+--******************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_corellia_medium_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_corellia_medium_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_corellia_medium_style_01_dark, "object/building/player/shared_player_house_corellia_medium_style_01_dark.iff")
+--********************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_corellia_medium_style_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_corellia_medium_style_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_corellia_medium_style_02_dark, "object/building/player/shared_player_house_corellia_medium_style_02_dark.iff")
+--********************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_corellia_small_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_corellia_small_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_corellia_small_style_01_dark, "object/building/player/shared_player_house_corellia_small_style_01_dark.iff")
+--******************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_corellia_small_style_01_floorplan_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_corellia_small_style_01_floorplan_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_corellia_small_style_01_floorplan_02_dark, "object/building/player/shared_player_house_corellia_small_style_01_floorplan_02_dark.iff")
+--********************************************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_corellia_small_style_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_corellia_small_style_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_corellia_small_style_02_dark, "object/building/player/shared_player_house_corellia_small_style_02_dark.iff")
+--******************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_corellia_small_style_02_floorplan_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_corellia_small_style_02_floorplan_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_corellia_small_style_02_floorplan_02_dark, "object/building/player/shared_player_house_corellia_small_style_02_floorplan_02_dark.iff")
+--********************************************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_large_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_large_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_large_style_01_dark, "object/building/player/shared_player_house_generic_large_style_01_dark.iff")
+--****************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_large_style_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_large_style_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_large_style_02_dark, "object/building/player/shared_player_house_generic_large_style_02_dark.iff")
+--****************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_large_window_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_large_window_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_large_window_s01_dark, "object/building/player/shared_player_house_generic_large_window_s01_dark.iff")
+--********************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_large_window_s02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_large_window_s02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_large_window_s02_dark, "object/building/player/shared_player_house_generic_large_window_s02_dark.iff")
+--********************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_medium_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_medium_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_medium_style_01_dark, "object/building/player/shared_player_house_generic_medium_style_01_dark.iff")
+--******************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_medium_style_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_medium_style_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_medium_style_02_dark, "object/building/player/shared_player_house_generic_medium_style_02_dark.iff")
+--******************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_medium_windowed_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_medium_windowed_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_medium_windowed_dark, "object/building/player/shared_player_house_generic_medium_windowed_dark.iff")
+--******************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_medium_windowed_s02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_medium_windowed_s02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_medium_windowed_s02_dark, "object/building/player/shared_player_house_generic_medium_windowed_s02_dark.iff")
+--**************************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_small_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_small_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_small_style_01_dark, "object/building/player/shared_player_house_generic_small_style_01_dark.iff")
+--****************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_small_style_01_floorplan_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_small_style_01_floorplan_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_small_style_01_floorplan_02_dark, "object/building/player/shared_player_house_generic_small_style_01_floorplan_02_dark.iff")
+--******************************************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_small_style_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_small_style_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_small_style_02_dark, "object/building/player/shared_player_house_generic_small_style_02_dark.iff")
+--****************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_small_style_02_floorplan_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_small_style_02_floorplan_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_small_style_02_floorplan_02_dark, "object/building/player/shared_player_house_generic_small_style_02_floorplan_02_dark.iff")
+--******************************************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_small_windowed_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_small_windowed_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_small_windowed_dark, "object/building/player/shared_player_house_generic_small_windowed_dark.iff")
+--****************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_generic_small_window_style_03_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_generic_small_window_style_03_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_generic_small_window_style_03_dark, "object/building/player/shared_player_house_generic_small_window_style_03_dark.iff")
+--******************************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_hangar_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_hangar_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_hangar_dark, "object/building/player/shared_player_house_hangar_dark.iff")
+--********************************************************************************************************************************************************
+object_building_player_shared_player_house_jabbas_sail_barge_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_jabbas_sail_barge_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_jabbas_sail_barge_dark, "object/building/player/shared_player_house_jabbas_sail_barge_dark.iff")
+--******************************************************************************************************************************************************************************
+object_building_player_shared_player_house_jedi_meditation_room_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_jedi_meditation_room_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_jedi_meditation_room_dark, "object/building/player/shared_player_house_jedi_meditation_room_dark.iff")
+--************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_mustafar_lg_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_mustafar_lg_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_mustafar_lg_dark, "object/building/player/shared_player_house_mustafar_lg_dark.iff")
+--******************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_large_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_large_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_large_style_01_dark, "object/building/player/shared_player_house_naboo_large_style_01_dark.iff")
+--************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_medium_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_medium_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_medium_style_01_dark, "object/building/player/shared_player_house_naboo_medium_style_01_dark.iff")
+--**************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_small_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_small_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_small_style_01_dark, "object/building/player/shared_player_house_naboo_small_style_01_dark.iff")
+--************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_small_style_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_small_style_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_small_style_02_dark, "object/building/player/shared_player_house_naboo_small_style_02_dark.iff")
+--************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_small_window_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_small_window_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_small_window_style_01_dark, "object/building/player/shared_player_house_naboo_small_window_style_01_dark.iff")
+--**************************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_sandcrawler_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_sandcrawler_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_sandcrawler_dark, "object/building/player/shared_player_house_sandcrawler_dark.iff")
+--******************************************************************************************************************************************************************
+object_building_player_shared_player_house_sith_meditation_room_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_sith_meditation_room_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_sith_meditation_room_dark, "object/building/player/shared_player_house_sith_meditation_room_dark.iff")
+--************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tatooine_large_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tatooine_large_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tatooine_large_style_01_dark, "object/building/player/shared_player_house_tatooine_large_style_01_dark.iff")
+--******************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tatooine_medium_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tatooine_medium_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tatooine_medium_style_01_dark, "object/building/player/shared_player_house_tatooine_medium_style_01_dark.iff")
+--********************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tatooine_small_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tatooine_small_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tatooine_small_style_01_dark, "object/building/player/shared_player_house_tatooine_small_style_01_dark.iff")
+--******************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tatooine_small_style_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tatooine_small_style_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tatooine_small_style_02_dark, "object/building/player/shared_player_house_tatooine_small_style_02_dark.iff")
+--******************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tatooine_small_window_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tatooine_small_window_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tatooine_small_window_style_01_dark, "object/building/player/shared_player_house_tatooine_small_window_style_01_dark.iff")
+--********************************************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tcg_8_bespin_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tcg_8_bespin_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tcg_8_bespin_house_dark, "object/building/player/shared_player_house_tcg_8_bespin_house_dark.iff")
+--********************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tcg_8_yoda_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tcg_8_yoda_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tcg_8_yoda_house_dark, "object/building/player/shared_player_house_tcg_8_yoda_house_dark.iff")
+--****************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tcg_commando_bunker_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tcg_commando_bunker_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tcg_commando_bunker_dark, "object/building/player/shared_player_house_tcg_commando_bunker_dark.iff")
+--**********************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tcg_emperors_spire_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tcg_emperors_spire_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tcg_emperors_spire_dark, "object/building/player/shared_player_house_tcg_emperors_spire_dark.iff")
+--********************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tcg_rebel_spire_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tcg_rebel_spire_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tcg_rebel_spire_dark, "object/building/player/shared_player_house_tcg_rebel_spire_dark.iff")
+--**************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tcg_relaxation_pool_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tcg_relaxation_pool_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tcg_relaxation_pool_dark, "object/building/player/shared_player_house_tcg_relaxation_pool_dark.iff")
+--**********************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tcg_vehicle_garage_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tcg_vehicle_garage_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tcg_vehicle_garage_dark, "object/building/player/shared_player_house_tcg_vehicle_garage_dark.iff")
+--********************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tcg_vip_bunker_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tcg_vip_bunker_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tcg_vip_bunker_dark, "object/building/player/shared_player_house_tcg_vip_bunker_dark.iff")
+--************************************************************************************************************************************************************************
+object_building_player_shared_player_house_tree_house_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tree_house_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tree_house_01_dark, "object/building/player/shared_player_house_tree_house_01_dark.iff")
+--**********************************************************************************************************************************************************************
+object_building_player_shared_player_house_wod_ns_hut_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_wod_ns_hut_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_wod_ns_hut_dark, "object/building/player/shared_player_house_wod_ns_hut_dark.iff")
+--****************************************************************************************************************************************************************
+object_building_player_shared_player_house_wod_sm_hut_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_wod_sm_hut_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_wod_sm_hut_dark, "object/building/player/shared_player_house_wod_sm_hut_dark.iff")
+--****************************************************************************************************************************************************************
+object_building_player_shared_player_house_yt1300_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_yt1300_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_yt1300_dark, "object/building/player/shared_player_house_yt1300_dark.iff")
+--********************************************************************************************************************************************************
+object_building_player_shared_player_merchant_tent_style_01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_merchant_tent_style_01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_merchant_tent_style_01_dark, "object/building/player/shared_player_merchant_tent_style_01_dark.iff")
+--****************************************************************************************************************************************************************************
+object_building_player_shared_player_merchant_tent_style_02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_merchant_tent_style_02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_merchant_tent_style_02_dark, "object/building/player/shared_player_merchant_tent_style_02_dark.iff")
+--****************************************************************************************************************************************************************************
+object_building_player_shared_player_merchant_tent_style_03_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_merchant_tent_style_03_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_merchant_tent_style_03_dark, "object/building/player/shared_player_merchant_tent_style_03_dark.iff")
+--****************************************************************************************************************************************************************************
+object_building_player_shared_player_mustafar_house_lg_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_mustafar_house_lg_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_mustafar_house_lg_dark, "object/building/player/shared_player_mustafar_house_lg_dark.iff")
+--******************************************************************************************************************************************************************
+object_building_player_shared_player_pgc_merchant_tent_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_pgc_merchant_tent_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_pgc_merchant_tent_s01_dark, "object/building/player/shared_player_pgc_merchant_tent_s01_dark.iff")
+--**************************************************************************************************************************************************************************
+object_building_player_shared_rebel_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_rebel_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_rebel_house_dark, "object/building/player/shared_rebel_house_dark.iff")
+--****************************************************************************************************************************************
+object_building_player_shared_relaxation_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_relaxation_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_relaxation_house_dark, "object/building/player/shared_relaxation_house_dark.iff")
+--**************************************************************************************************************************************************
+object_building_player_shared_sandcrawler_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_sandcrawler_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_sandcrawler_house_dark, "object/building/player/shared_sandcrawler_house_dark.iff")
+--****************************************************************************************************************************************************
+object_building_player_shared_sith_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_sith_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_sith_house_dark, "object/building/player/shared_sith_house_dark.iff")
+--**************************************************************************************************************************************
+object_building_player_shared_sm_hut_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_sm_hut_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_sm_hut_dark, "object/building/player/shared_sm_hut_dark.iff")
+--******************************************************************************************************************************
+object_building_player_shared_tatooine_small_window_s01_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_tatooine_small_window_s01_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_tatooine_small_window_s01_dark, "object/building/player/shared_tatooine_small_window_s01_dark.iff")
+--********************************************************************************************************************************************************************
+object_building_player_shared_tree_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_tree_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_tree_house_dark, "object/building/player/shared_tree_house_dark.iff")
+--**************************************************************************************************************************************
+object_building_player_shared_vehicle_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_vehicle_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_vehicle_house_dark, "object/building/player/shared_vehicle_house_dark.iff")
+--********************************************************************************************************************************************
+object_building_player_shared_vipbunker_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_vipbunker_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_vipbunker_house_dark, "object/building/player/shared_vipbunker_house_dark.iff")
+--************************************************************************************************************************************************
+object_building_player_shared_yoda_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_yoda_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_yoda_house_dark, "object/building/player/shared_yoda_house_dark.iff")
+--**************************************************************************************************************************************
+object_building_player_shared_yt1300_house_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_yt1300_house_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_yt1300_house_dark, "object/building/player/shared_yt1300_house_dark.iff")
+--******************************************************************************************************************************************
+
+object_building_player_shared_player_guildhall_naboo_style_01_b = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_guildhall_naboo_style_01_b.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_guildhall_naboo_style_01_b, "object/building/player/shared_player_guildhall_naboo_style_01_b.iff")
+--**************************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_large_style_01_b = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_large_style_01_b.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_large_style_01_b, "object/building/player/shared_player_house_naboo_large_style_01_b.iff")
+--******************************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_large_style_01_c = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_large_style_01_c.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_large_style_01_c, "object/building/player/shared_player_house_naboo_large_style_01_c.iff")
+--******************************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_medium_style_01_b = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_medium_style_01_b.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_medium_style_01_b, "object/building/player/shared_player_house_naboo_medium_style_01_b.iff")
+--********************************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_medium_style_01_c = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_medium_style_01_c.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_medium_style_01_c, "object/building/player/shared_player_house_naboo_medium_style_01_c.iff")
+--********************************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_small_style_01_b = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_small_style_01_b.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_small_style_01_b, "object/building/player/shared_player_house_naboo_small_style_01_b.iff")
+--******************************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_small_style_01_c = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_small_style_01_c.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_small_style_01_c, "object/building/player/shared_player_house_naboo_small_style_01_c.iff")
+--******************************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_small_style_02_b = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_small_style_02_b.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_small_style_02_b, "object/building/player/shared_player_house_naboo_small_style_02_b.iff")
+--******************************************************************************************************************************************************************************
+object_building_player_shared_player_house_naboo_small_style_02_c = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_naboo_small_style_02_c.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_naboo_small_style_02_c, "object/building/player/shared_player_house_naboo_small_style_02_c.iff")
+--******************************************************************************************************************************************************************************

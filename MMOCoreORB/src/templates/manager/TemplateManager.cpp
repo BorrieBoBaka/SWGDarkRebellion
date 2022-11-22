@@ -116,6 +116,9 @@
 #include "templates/tangible/WoundPackTemplate.h"
 #include "templates/tangible/XpPurchaseTemplate.h"
 
+//Dark Rebellion - Borrie
+#include "templates/tangible/RpShipDeedTemplate.h"
+
 #include "templates/universe/SharedGroupObjectTemplate.h"
 #include "templates/universe/SharedGuildObjectTemplate.h"
 #include "templates/universe/SharedJediManagerTemplate.h"
@@ -512,6 +515,7 @@ void TemplateManager::registerTemplateObjects() {
 	templateFactory.registerObject<StructureDeedTemplate>(SharedObjectTemplate::STRUCTUREDEED);
 	templateFactory.registerObject<PetDeedTemplate>(SharedObjectTemplate::PETDEED);
 	templateFactory.registerObject<VehicleDeedTemplate>(SharedObjectTemplate::VEHICLEDEED);
+	templateFactory.registerObject<RpShipDeedTemplate>(SharedObjectTemplate::RPSHIPDEED);
 	templateFactory.registerObject<DroidDeedTemplate>(SharedObjectTemplate::DROIDDEED);
 	templateFactory.registerObject<EventPerkDeedTemplate>(SharedObjectTemplate::EVENTPERKDEED);
 	templateFactory.registerObject<MissionTerminalTemplate>(SharedObjectTemplate::MISSIONTERMINAL);
@@ -696,6 +700,7 @@ void TemplateManager::registerGlobals() {
 	luaTemplatesInstance->setGlobalInt("DEED", SharedObjectTemplate::DEED);
 	luaTemplatesInstance->setGlobalInt("STRUCTUREDEED", SharedObjectTemplate::STRUCTUREDEED);
 	luaTemplatesInstance->setGlobalInt("VEHICLEDEED", SharedObjectTemplate::VEHICLEDEED);
+	luaTemplatesInstance->setGlobalInt("RPSHIPDEED", SharedObjectTemplate::RPSHIPDEED);
 	luaTemplatesInstance->setGlobalInt("PETDEED", SharedObjectTemplate::PETDEED);
 	luaTemplatesInstance->setGlobalInt("DROIDDEED", SharedObjectTemplate::DROIDDEED);
 	luaTemplatesInstance->setGlobalInt("EVENTPERKDEED", SharedObjectTemplate::EVENTPERKDEED);
@@ -777,9 +782,9 @@ const String& TemplateManager::getTemplateFile(uint32 key) const {
 	if (templateData == nullptr) {
 		const String& ascii = clientTemplateCRCMap->get(key);
 
-		if (ascii.isEmpty())
+		if (ascii.isEmpty()) {
 			throw Exception("TemplateManager::getTemplateFile exception unknown template key 0x" + String::hexvalueOf((int)key));
-		else
+		} else
 			return ascii;
 	}
 

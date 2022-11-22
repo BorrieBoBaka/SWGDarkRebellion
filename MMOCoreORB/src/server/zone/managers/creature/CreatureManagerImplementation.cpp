@@ -1127,11 +1127,12 @@ void CreatureManagerImplementation::sample(Creature* creature, CreatureObject* p
 }
 
 bool CreatureManagerImplementation::addWearableItem(CreatureObject* creature, TangibleObject* clothing) {
-	if (!clothing->isWearableObject() && !clothing->isWeaponObject())
-		return false;
+	//if(!clothing->isWearableObject() && !clothing->getDisplayName().contains("hair") && !clothing->isWeaponObject()) {
+	//	return false;
+	//}
 
 	ChatManager* chatMan = zoneServer->getChatManager();
-
+	
 	SharedTangibleObjectTemplate* tanoData = dynamic_cast<SharedTangibleObjectTemplate*>(clothing->getObjectTemplate());
 
 	if (tanoData == nullptr || chatMan == nullptr)

@@ -131,3 +131,22 @@ includeFile("custom_content/building/player/city/diner_no_planet_restriction.lua
 includeFile("custom_content/building/player/city/garden_imperial_01.lua")
 includeFile("custom_content/building/player/city/garden_rebel_01.lua")
 
+includeFile("building/player/city/cantina_corellia_dark.lua")
+includeFile("building/player/city/cantina_naboo_dark.lua")
+includeFile("building/player/city/cantina_tatooine_dark.lua")
+includeFile("building/player/city/cityhall_corellia_dark.lua")
+includeFile("building/player/city/cityhall_naboo_dark.lua")
+includeFile("building/player/city/cityhall_tatooine_dark.lua")
+includeFile("building/player/city/cloning_corellia_dark.lua")
+includeFile("building/player/city/cloning_naboo_dark.lua")
+includeFile("building/player/city/cloning_tatooine_dark.lua")
+includeFile("building/player/city/hospital_corellia_dark.lua")
+includeFile("building/player/city/hospital_naboo_dark.lua")
+includeFile("building/player/city/hospital_tatooine_dark.lua")
+
+includeFile("building/player/city/cantina_naboo_b.lua")
+includeFile("building/player/city/cantina_naboo_c.lua")
+includeFile("building/player/city/cityhall_naboo_b.lua")
+includeFile("building/player/city/cloning_naboo_b.lua")
+includeFile("building/player/city/hospital_naboo_b.lua")
+

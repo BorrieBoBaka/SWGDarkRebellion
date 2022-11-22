@@ -2867,3 +2867,43 @@ object_building_corellia_shared_skyscraper_corellia_style_05r = SharedBuildingOb
 ObjectTemplates:addClientTemplate(object_building_corellia_shared_skyscraper_corellia_style_05r, "object/building/corellia/shared_skyscraper_corellia_style_05r.iff")
 --**********************************************************************************************************************************************************************
 
+object_building_corellia_shared_cantina_corellia_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/corellia/shared_cantina_corellia_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_corellia_shared_cantina_corellia_dark, "object/building/corellia/shared_cantina_corellia_dark.iff")
+--******************************************************************************************************************************************************
+object_building_corellia_shared_capitol_corellia_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/corellia/shared_capitol_corellia_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_corellia_shared_capitol_corellia_dark, "object/building/corellia/shared_capitol_corellia_dark.iff")
+--******************************************************************************************************************************************************
+object_building_corellia_shared_cloning_corellia_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/corellia/shared_cloning_corellia_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_corellia_shared_cloning_corellia_dark, "object/building/corellia/shared_cloning_corellia_dark.iff")
+--******************************************************************************************************************************************************
+object_building_corellia_shared_hospital_corellia_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/corellia/shared_hospital_corellia_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_corellia_shared_hospital_corellia_dark, "object/building/corellia/shared_hospital_corellia_dark.iff")
+--********************************************************************************************************************************************************
+object_building_corellia_shared_hospital_corellia_s02_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/corellia/shared_hospital_corellia_s02_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_corellia_shared_hospital_corellia_s02_dark, "object/building/corellia/shared_hospital_corellia_s02_dark.iff")
+--****************************************************************************************************************************************************************
+object_building_corellia_shared_hotel_corellia_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/corellia/shared_hotel_corellia_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_corellia_shared_hotel_corellia_dark, "object/building/corellia/shared_hotel_corellia_dark.iff")
+--**************************************************************************************************************************************************
+object_building_corellia_shared_salon_corellia_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/corellia/shared_salon_corellia_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_corellia_shared_salon_corellia_dark, "object/building/corellia/shared_salon_corellia_dark.iff")
+--**************************************************************************************************************************************************
+object_building_corellia_shared_starport_corellia_dark = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/corellia/shared_starport_corellia_dark.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_corellia_shared_starport_corellia_dark, "object/building/corellia/shared_starport_corellia_dark.iff")
+--********************************************************************************************************************************************************

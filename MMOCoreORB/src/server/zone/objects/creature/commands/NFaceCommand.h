@@ -58,6 +58,8 @@ public:
 					if (creature->getObjectID() == owner->getObjectID()) {
 						hasOwnership = true;
 					}
+				} else {
+					hasOwnership = true; //If its just a normal unowned NPC, might as well let them move it. 
 				}
 			}
 

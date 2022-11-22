@@ -12,6 +12,8 @@
 #include "server/zone/managers/director/DirectorManager.h"
 #include "server/zone/Zone.h"
 #include "server/zone/managers/director/ScreenPlayTask.h"
+#include "server/zone/borrie/BorUtil.h"
+
 
 const char LuaSceneObject::className[] = "LuaSceneObject";
 
@@ -49,6 +51,7 @@ Luna<LuaSceneObject>::RegType LuaSceneObject::Register[] = {
 //		{ "removeObject", &LuaSceneObject::removeObject },
 		{ "getGameObjectType", &LuaSceneObject::getGameObjectType },
 		{ "faceObject", &LuaSceneObject::faceObject },
+		{ "facePosition", &LuaSceneObject::facePosition },
 		{ "isFacingObject", &LuaSceneObject::isFacingObject },
 		{ "destroyObjectFromWorld", &LuaSceneObject::destroyObjectFromWorld },
 		{ "destroyObjectFromDatabase", &LuaSceneObject::destroyObjectFromDatabase },
@@ -97,6 +100,12 @@ Luna<LuaSceneObject>::RegType LuaSceneObject::Register[] = {
 		{ "getStoredFloat", &LuaSceneObject::getStoredFloat},
 		{ "setStoredFloat", &LuaSceneObject::setStoredFloat},
 		{ "deleteStoredFloat", &LuaSceneObject::deleteStoredFloat},
+		{ "getStoredLong", &LuaSceneObject::getStoredLong},
+		{ "setStoredLong", &LuaSceneObject::setStoredLong},
+		{ "deleteStoredLong", &LuaSceneObject::deleteStoredLong},
+		{ "setDispenserContainer", &LuaSceneObject::setDispenserContainer},
+		{ "setPublicContainer", &LuaSceneObject::setPublicContainer},
+		{ "populateInventoryFromContentList", &LuaSceneObject::populateInventoryFromContentList},
 		{ 0, 0 }
 
 };
@@ -325,6 +334,16 @@ int LuaSceneObject::faceObject(lua_State* L) {
 	SceneObject* obj = (SceneObject*)lua_touserdata(L, -2);
 
 	realObject->faceObject(obj, notifyClient);
+
+	return 0;
+}
+
+int LuaSceneObject::facePosition(lua_State* L) {
+	bool notifyClient = lua_toboolean(L, -1);
+	float y = lua_tonumber(L, -2);
+	float x = lua_tonumber(L, -3);
+
+	realObject->facePosition(x,y, notifyClient);
 
 	return 0;
 }
@@ -917,5 +936,46 @@ int LuaSceneObject::getStoredFloat(lua_State* L) {
 int LuaSceneObject::deleteStoredFloat(lua_State* L) {
 	String variable = lua_tostring(L, -1);
 	realObject->deleteStoredFloat(variable);
+	return 1;
+}
+
+//Long
+int LuaSceneObject::setStoredLong(lua_State* L) {
+	uint64 value = lua_tointeger(L, -1);
+	String variable = lua_tostring(L, -2);
+	realObject->setStoredLong(variable, value);
+	return 1;
+}
+
+int LuaSceneObject::getStoredLong(lua_State* L) {
+	String variable = lua_tostring(L, -1);
+	uint64 result = realObject->getStoredLong(variable);
+
+	lua_pushinteger(L, result);
+
+	return 1;
+}
+
+int LuaSceneObject::deleteStoredLong(lua_State* L) {
+	String variable = lua_tostring(L, -1);
+	realObject->deleteStoredLong(variable);
+	return 1;
+}
+
+int LuaSceneObject::setPublicContainer(lua_State* L) {
+	bool state = lua_toboolean(L, -1);
+	BorUtil::SetPublicContainer(realObject, state);
+	return 1;
+}
+
+int LuaSceneObject::setDispenserContainer(lua_State* L) {
+	bool state = lua_toboolean(L, -1);
+	BorUtil::SetDispenserContainer(realObject, state);
+	return 1;
+}
+
+int LuaSceneObject::populateInventoryFromContentList(lua_State* L) {
+	String listName = lua_tostring(L, -1);
+	BorUtil::PopulateObjectContents(nullptr, realObject, listName);
 	return 1;
 }

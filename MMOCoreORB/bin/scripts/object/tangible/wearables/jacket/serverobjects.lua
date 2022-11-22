@@ -48,6 +48,7 @@
 includeFile("tangible/wearables/jacket/jacket_ace_imperial.lua")
 includeFile("tangible/wearables/jacket/jacket_ace_privateer.lua")
 includeFile("tangible/wearables/jacket/jacket_ace_rebel.lua")
+includeFile("tangible/wearables/jacket/jacket_ace_firestar.lua")
 includeFile("tangible/wearables/jacket/jacket_s02.lua")
 includeFile("tangible/wearables/jacket/jacket_s03.lua")
 includeFile("tangible/wearables/jacket/jacket_s05.lua")

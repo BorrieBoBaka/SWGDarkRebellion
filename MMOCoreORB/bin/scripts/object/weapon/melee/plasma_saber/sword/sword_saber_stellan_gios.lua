@@ -1,0 +1,4 @@
+object_weapon_melee_plasma_saber_sword_sword_saber_stellan_gios = object_weapon_melee_plasma_saber_sword_shared_sword_saber_stellan_gios:new {
+
+}
+ObjectTemplates:addTemplate(object_weapon_melee_plasma_saber_sword_sword_saber_stellan_gios, "object/weapon/melee/plasma_saber/sword/sword_saber_stellan_gios.iff")

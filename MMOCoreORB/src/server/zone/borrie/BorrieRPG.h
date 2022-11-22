@@ -9,8 +9,25 @@
 #include "server/zone/managers/creature/CreatureManager.h"
 #include "server/zone/packets/chat/ChatSystemMessage.h"
 #include "templates/customization/AssetCustomizationManagerTemplate.h"
+#include "templates/customization/CustomizationIdManager.h"
+#include "server/zone/managers/name/NameManager.h"
+
+#include "server/zone/managers/crafting/CraftingManager.h"
 
 #include "server/zone/objects/player/sui/listbox/SuiListBox.h"
+#include "server/zone/objects/player/sui/inputbox/SuiInputBox.h"
+
+#include "server/ServerCore.h"
+
+#include "server/zone/managers/player/PlayerManager.h"
+#include "server/zone/managers/player/PlayerMap.h"
+#include "server/chat/ChatManager.h"
+
+#include "server/login/account/Account.h"
+
+#include "server/zone/objects/creature/sui/SetDMStatusSuiCallback.h"
+
+#include "engine/engine.h"
 
 class BorrieRPG : public Logger {
 public:
@@ -19,21 +36,53 @@ public:
 	}
 
 	static void BroadcastMessage(CreatureObject* creature, String Message) {
-		UnicodeString message1("[" + creature->getFirstName() + "]: " + Message);
+		String nameToUse = creature->getFirstName();
+		if(nameToUse == "a" || nameToUse == "an" || nameToUse == "The") nameToUse = creature->getDisplayedName(); 
+		UnicodeString message1("[" + nameToUse + "]: " + Message);
+		ChatSystemMessage* msg = new ChatSystemMessage(message1, ChatSystemMessage::DISPLAY_CHATANDSCREEN);
+		creature->broadcastMessage(msg, true);
+	}
+
+	static void BroadcastHoloNetMessage(CreatureObject* creature, String Message) {
+		String nameToUse = creature->getFirstName();
+		if(nameToUse == "a" || nameToUse == "an" || nameToUse == "The") nameToUse = creature->getDisplayedName(); 
+		UnicodeString message1("Alert: \\#00FFFFRecieving HoloNet Broadcast From [\\#FFFF00" + nameToUse + "\\#00FFFF]: \\#FFFFFF" + Message + "\\#.");
+		ChatSystemMessage* msg = new ChatSystemMessage(message1, ChatSystemMessage::DISPLAY_CHATANDSCREEN);
+		creature->broadcastMessage(msg, true);
+	}
+
+	static void BroadcastMessageToArea(CreatureObject* creature, String message) {
+		UnicodeString message1(message);
 		ChatSystemMessage* msg = new ChatSystemMessage(message1, ChatSystemMessage::DISPLAY_CHATANDSCREEN);
 		creature->broadcastMessage(msg, true);
 	}
 
 	static void BroadcastRoll(CreatureObject* creature, String rollMessage) {
-		UnicodeString message1("[" + creature->getFirstName() + "]: " + rollMessage);
+		String nameToUse = creature->getFirstName();
+		if(nameToUse == "a" || nameToUse == "an" || nameToUse == "The") nameToUse = creature->getDisplayedName(); 
+		UnicodeString message1("[" + nameToUse + "]: " + rollMessage);
 		ChatSystemMessage* msg = new ChatSystemMessage(message1, ChatSystemMessage::DISPLAY_CHATANDSCREEN);
 		creature->broadcastMessage(msg, true);
+	}
+
+	static void BroadcastRoll(CreatureObject* commander, CreatureObject* creature, String rollMessage) {
+		String nameToUse = creature->getFirstName();
+		if(nameToUse == "a" || nameToUse == "an" || nameToUse == "The") nameToUse = creature->getDisplayedName(); 
+		if(commander != creature) {
+			UnicodeString message1("["+commander->getFirstName()+"] for [" + nameToUse + "]: " + rollMessage);
+			ChatSystemMessage* msg = new ChatSystemMessage(message1, ChatSystemMessage::DISPLAY_CHATANDSCREEN);
+			creature->broadcastMessage(msg, true);
+		} else {
+			UnicodeString message1("[" + nameToUse + "]: " + rollMessage);
+			ChatSystemMessage* msg = new ChatSystemMessage(message1, ChatSystemMessage::DISPLAY_CHATANDSCREEN);
+			creature->broadcastMessage(msg, true);
+		}		
 	}
 
 	static void BroadcastToAdmins(CreatureObject* creature, String msg) {
 		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 		if (msg == "") {
-			creature->sendSystemMessage("Syntax: /msgdm <msg>");
+			creature->sendSystemMessage("Syntax: /dm call <msg>");
 			return;
 		}
 		ChatManager* chatManager = creature->getZoneServer()->getChatManager();
@@ -57,6 +106,110 @@ public:
 		}
 	}
 
+	static void ListOnlineCharacters(CreatureObject* creature, bool showAll) {
+		ChatManager* chatManager = creature->getZoneServer()->getChatManager();
+		PlayerMap* playerMap = chatManager->getPlayerMap();
+		int playerCount = chatManager->getPlayerCount();
+
+		String result;
+
+		playerMap->resetIterator(false);
+
+		while (playerMap->hasNext(false)) {
+			ManagedReference<CreatureObject*> playerObject = playerMap->getNextValue(false);
+
+			Account* account = playerObject->getPlayerObject()->getAccount();
+
+			String name = playerObject->getFirstName();
+			name += playerObject->getLastName() == "" ? "" : " " + playerObject->getLastName();
+
+			if(showAll) {
+				result += "\\#FFFF00" + name + "\\#FFFFFF (" + account->getUsername() +") ";
+				if(account->getAdminLevel() > 0) {
+					result += " Admin: " + String::valueOf(account->getAdminLevel());
+				} 
+			} else {
+				if(playerObject->getFirstName() == "Discord") {
+					playerCount--;
+					continue;
+				}
+				if(account->getAdminLevel() > 1) {
+					if(playerObject->getStoredString("rp_dm_status") != "")
+						result += "\\#FFFF00DM " + name + "\\#FFFFFF Status: " + playerObject->getStoredString("rp_dm_status");
+					else 
+						playerCount--;
+				} else {
+					if(!playerObject->getPlayerObject()->isAnonymous() || account->getAdminLevel() < 1 ) {
+						result += "\\#FFFF00" + name + "\\#FFFFFF";
+					}
+				}
+			}
+			
+
+			result += "\n";
+		}
+
+		result = "There are " + String::valueOf(playerCount) + " characters online.\n" + result;
+
+		creature->sendSystemMessage(result);		
+	}
+
+	static void ReportPlayerCountToDiscord(CreatureObject* discordBot) {
+		Account* account = discordBot->getPlayerObject()->getAccount();
+		if(account->getUsername() != "discord" && account->getUsername() != "discord2") return;
+		ChatManager* chatManager = discordBot->getZoneServer()->getChatManager();
+		PlayerMap* playerMap = chatManager->getPlayerMap();
+		int playerCount = chatManager->getPlayerCount() - 1;
+		
+		int dmCount = 0;
+
+		playerMap->resetIterator(false);
+
+		while (playerMap->hasNext(false)) {
+			ManagedReference<CreatureObject*> playerObject = playerMap->getNextValue(false);
+			ManagedReference<PlayerObject*> ghost = playerObject->getPlayerObject();
+			if(ghost->getAdminLevel() > 1) {
+				playerCount--;
+				if(playerObject->getStoredString("rp_dm_status") != "") {
+					dmCount++;
+				}
+			}
+			
+		}
+
+		if(playerCount < 0) playerCount = 0;
+
+		discordBot->sendSystemMessage("who:" + String::valueOf(playerCount) + ":" + String::valueOf(dmCount));
+	}
+
+	static void NotifyAdminsAboutPlayerStatus(String name, bool isOnline) {
+		ChatManager* chatManager = ServerCore::getZoneServer()->getChatManager();
+		PlayerMap* playerMap = chatManager->getPlayerMap();
+
+		playerMap->resetIterator(false);
+		while (playerMap->hasNext(false)) {
+			ManagedReference<CreatureObject*> playerObject = playerMap->getNextValue(false);
+			
+			if(playerObject->getStoredInt("dm_alert_incoming") == 1) {
+				playerObject->sendSystemMessage("!\\#FFFF00***" + name + (isOnline ? " is now online." : " has gone offline."));
+			}
+		}
+	}
+
+	static void SetDMStatus(CreatureObject* creature) {
+		ManagedReference<SuiInputBox*> sui = new SuiInputBox(creature);
+		sui->setCallback(new SetDMStatusSuiCallback(creature->getZoneServer()));
+		sui->setUsingObject(creature);
+		sui->setPromptTitle("Set DM Status"); //Confirm Structure Deletion
+		sui->setPromptText("Set your DM Status!");
+		sui->setCancelButton(true, "@cancel");
+		sui->setMaxInputSize(9999);
+
+		creature->getPlayerObject()->addSuiBox(sui);
+		creature->sendMessage(sui->generateMessage());
+	}
+
+	/*
 	static void ReportOnlineCount(CreatureObject* creature) {
 		StringBuffer fetchStatement;
 		fetchStatement << "SELECT COUNT(*) FROM rp_characters WHERE isonline = '1'";
@@ -72,7 +225,8 @@ public:
 				creature->sendSystemMessage("An error occured. Could not get online count. (ERROR:2)");
 			}
 		}
-	}
+	} 
+	*/
 
 	static int GetChatTypeID(String chatType) {
 		if (chatType == "say")
@@ -288,12 +442,14 @@ public:
 	}
 
 	static void copyTarget(CreatureObject* creature, SceneObject* target, bool overrideFlag = false) {
-		String objectTemplate = target->getObjectTemplate()->getClientTemplateFileName();
+		if(target == nullptr) return;
+		ManagedReference<TangibleObject*> tanoTarget = target->asTangibleObject();
+		String objectTemplate = target->getObjectTemplate()->getFullTemplateString();
 		objectTemplate = objectTemplate.replaceAll("shared_", "");
 		creature->sendSystemMessage("Cloning Object: " + objectTemplate);
 		ManagedReference<CraftingManager*> craftingManager = creature->getZoneServer()->getCraftingManager();
-		if (!objectTemplate.contains("object/tangible")) {
-			creature->sendSystemMessage("Templates must be a tangible object.");
+		if (!objectTemplate.contains("object/tangible") && !objectTemplate.contains("object/weapon")) {
+			creature->sendSystemMessage("Templates must be a tangible or weapon object.");
 			return;
 		}
 		if (craftingManager == nullptr) {
@@ -329,11 +485,36 @@ public:
 		object->setCraftersName(name);
 		String serial = craftingManager->generateSerial();
 		object->setSerialNumber(serial);
+
+		//Copy Customization Values
+		if(tanoTarget != nullptr) {
+			CustomizationVariables* itemCustomVars = tanoTarget->getCustomizationVariables();
+        	int itemVarSize = itemCustomVars->getSize();
+
+        	for(int j = 0;j<itemVarSize; j++) {
+            	uint8 key = itemCustomVars->elementAt(j).getKey();
+		    	int16 value = itemCustomVars->elementAt(j).getValue();
+		    	String valueType = CustomizationIdManager::instance()->getCustomizationVariable(key);
+				object->setCustomizationVariable(valueType, value, true);
+        	} 
+		}
+		
+
 		if (inventory->transferObject(object, -1, true)) {
 			inventory->broadcastObject(object, true);
 		} else {
 			object->destroyObjectFromDatabase(true);
 			creature->sendSystemMessage("Error transferring object to inventory.");
+		}
+	}
+
+	static void DeleteCreature(CreatureObject* creature) {
+		if(creature != nullptr) {
+			if(creature->isAiAgent()) {
+				ManagedReference<AiAgent*> agent = creature->asAiAgent();
+				Locker locker(agent);
+				agent->scheduleDespawn(1);
+			}
 		}
 	}
 
@@ -356,16 +537,23 @@ public:
 		ghost->setMaximumLots(num + 10);
 	}
 
-	static void teleportObject(CreatureObject* creature, SceneObject* object, float x, float z, float y) {
+	static void teleportObject(CreatureObject* creature, SceneObject* object, float x, float z, float y, long parent = -1) {
 		if (object == nullptr) {
 			creature->sendSystemMessage("You need an object targeted in order to teleport it.");
 			throw Exception();
 		}
 		ManagedReference<SceneObject*> objParent = object->getParent().get();
-		if (objParent != nullptr)
-			object->teleport(x, z, y, objParent->getObjectID());
-		else
+		if(parent == -1) {
+			if (objParent != nullptr)
+				object->teleport(x, z, y, objParent->getObjectID());
+			else
+				object->teleport(x, z, y);
+		} else if(parent == -2) {
 			object->teleport(x, z, y);
+		} else {
+			object->teleport(x, z, y, parent);
+		}
+		
 	}
 
 	static void colorTarget(CreatureObject* creature, SceneObject* object, int paletteType, int index) {
@@ -394,7 +582,7 @@ public:
 
 	static void SaveTarget(CreatureObject* creature, SceneObject* target) {
 		creature->setLocalData("storedtarget", String::valueOf(target->getObjectID()));
-		creature->sendSystemMessage("Stored Target: " + target->getDisplayedName());
+		creature->sendSystemMessage("Stored Target: " + target->getDisplayedName() + ". This target will attack whoever you have targeted.");
 	}
 
 	static void SetName(CreatureObject* creature, SceneObject* object, String newName) {
@@ -403,6 +591,84 @@ public:
 			throw Exception();
 		}
 		object->setCustomObjectName(newName, true);
+	}
+
+	static void ToggleJediState(CreatureObject* dm, CreatureObject* target) {
+
+	}
+
+	static void SetRandomName(CreatureObject* creature, SceneObject* object, String nameType) {
+		if (object->isPlayerObject()) {
+			if(creature != nullptr)
+				creature->sendSystemMessage("ERROR: Cannot name players.");
+			throw Exception();
+		}
+
+		NameManager* nm = creature->getZoneProcessServer()->getNameManager();
+
+		String result = "a Stranger";
+
+		if(nameType == "stormtrooper") {
+			result = nm->makeCreatureName(NameManagerType::STORMTROOPER, CreatureObject::HUMAN);
+		} else if (nameType == "scouttrooper") {
+			result = nm->makeCreatureName(NameManagerType::SCOUTTROOPER, CreatureObject::HUMAN);
+		} else if (nameType == "darktrooper") {
+			result = nm->makeCreatureName(NameManagerType::DARKTROOPER, CreatureObject::HUMAN);
+		} else if (nameType == "swamptrooper") {
+			result = nm->makeCreatureName(NameManagerType::SWAMPTROOPER, CreatureObject::HUMAN);
+		} else if(nameType == "r2") {
+			result = nm->makeCreatureName(NameManagerType::R2, CreatureObject::HUMAN);
+		} else if(nameType == "r3") {
+			result = nm->makeCreatureName(NameManagerType::R3, CreatureObject::HUMAN);
+		} else if(nameType == "r4") {
+			result = nm->makeCreatureName(NameManagerType::R4, CreatureObject::HUMAN);
+		} else if(nameType == "r5") {
+			result = nm->makeCreatureName(NameManagerType::R5, CreatureObject::HUMAN);
+		} else if(nameType == "r6") {
+			result = "R6-A1";
+		} else if(nameType == "r7") {
+			result = "R7-A1";
+		} else if(nameType == "r8") {
+			result = "R8-A1";
+		} else if(nameType == "r9") {
+			result = "R9-A1";
+		} else if(nameType == "3po" || nameType == "3p0") {
+			result = nm->makeCreatureName(NameManagerType::DROID_3P0, CreatureObject::HUMAN);
+		} else if(nameType == "eg6") {
+			result = nm->makeCreatureName(NameManagerType::DROID_EG6, CreatureObject::HUMAN);
+		} else if(nameType == "wed") {
+			result = nm->makeCreatureName(NameManagerType::DROID_WED, CreatureObject::HUMAN);
+		} else if(nameType == "le") {
+			result = nm->makeCreatureName(NameManagerType::DROID_LE, CreatureObject::HUMAN);
+		} else if(nameType == "ra7") {
+			result = nm->makeCreatureName(NameManagerType::DROID_RA7, CreatureObject::HUMAN);
+		} else if(nameType == "human") {
+			result = nm->makeCreatureName(NameManagerType::GENERIC, CreatureObject::HUMAN);
+		} else if(nameType == "rodian") {
+			result = nm->makeCreatureName(NameManagerType::GENERIC, CreatureObject::RODIAN);
+		} else if(nameType == "trandoshan" || nameType == "doshan") {
+			result = nm->makeCreatureName(NameManagerType::GENERIC, CreatureObject::TRANDOSHAN);
+		} else if(nameType == "moncal") {
+			result = nm->makeCreatureName(NameManagerType::GENERIC, CreatureObject::MONCAL);
+		} else if(nameType == "wookiee") {
+			result = nm->makeCreatureName(NameManagerType::GENERIC, CreatureObject::WOOKIE);
+		} else if(nameType == "bothan") {
+			result = nm->makeCreatureName(NameManagerType::GENERIC, CreatureObject::BOTHAN);
+		} else if(nameType == "twilek" || nameType == "twi'lek") {
+			result = nm->makeCreatureName(NameManagerType::GENERIC, CreatureObject::TWILEK);
+		} else if(nameType == "zabrak") {
+			result = nm->makeCreatureName(NameManagerType::GENERIC, CreatureObject::ZABRAK);
+		} else if(nameType == "ithorian") {
+			result = nm->makeCreatureName(NameManagerType::GENERIC, CreatureObject::ITHORIAN);
+		} else if(nameType == "sullustan") {
+			result = nm->makeCreatureName(NameManagerType::GENERIC, CreatureObject::SULLUSTAN);
+		} else {
+			if(creature != nullptr)
+				creature->sendSystemMessage("No valid name group type for: " + nameType);
+			throw Exception();
+		}
+
+		object->setCustomObjectName(result, true);
 	}
 
 	static void ShowAllStructures(CreatureObject* creature) {
@@ -492,6 +758,7 @@ public:
 	static String Capitalize(String input) {
 		return input.subString(0, 1).toUpperCase() + input.subString(1, input.length());
 	}
+
 };
 
 #endif /*SOVEREIGNTY_H_*/

@@ -1,0 +1,8 @@
+includeFile("building/borrp/terrainmod/trnmod_blood.lua")
+includeFile("building/borrp/terrainmod/trnmod_flatten_large.lua")
+includeFile("building/borrp/terrainmod/trnmod_flatten_medium.lua")
+includeFile("building/borrp/terrainmod/trnmod_flatten_small.lua")
+includeFile("building/borrp/terrainmod/trnmod_scorch_huge.lua")
+includeFile("building/borrp/terrainmod/trnmod_scorch_large.lua")
+includeFile("building/borrp/terrainmod/trnmod_scorch_medium.lua")
+includeFile("building/borrp/terrainmod/trnmod_scorch_small.lua")

@@ -44,7 +44,7 @@ public:
 				creature->setStoredInt("rp_moving", 1);
 			}
 		} catch (Exception& e) {
-			creature->sendSystemMessage("Invalid arguments for DM command. Help: /dm help");
+			creature->sendSystemMessage("Something went wrong.");
 		}
 
 		return SUCCESS;

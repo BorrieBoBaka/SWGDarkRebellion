@@ -55,4 +55,5 @@ includeFile("../custom_scripts/mobile/serverobjects.lua")
 
 -- Borrie RPG - Loads last to allow for overrides
 includeFile("borrie/serverobjects.lua")
+includeFile("multipass_vehicles/serverobjects.lua")
 

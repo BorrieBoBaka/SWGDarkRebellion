@@ -42,7 +42,7 @@
 
 
 object_creature_player_wookiee_female = object_creature_player_shared_wookiee_female:new {
-	baseHAM = { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+	baseHAM = { 350, 350, 150, 200, 100, 100, 100, 150, 100 },
 	gameObjectType = 1033,
 	zoneComponent = "PlayerZoneComponent",
 	objectMenuComponent = "PlayerObjectMenuComponent",
@@ -58,8 +58,8 @@ object_creature_player_wookiee_female = object_creature_player_shared_wookiee_fe
 		{templateFile = "object/tangible/bank/character_bank.iff", x = 0, z = 0, y = 0, ox = 0, oy = 0, oz = 0, ow = 0, cellid = -1, containmentType = 4}
 	},
 	defaultLanguage = 5,
-	startingItems = {  },
-	startingSkills = {  "social_language_basic_comprehend", "social_language_wookiee_comprehend", "social_language_wookiee_speak" }
+	startingItems = { "object/weapon/ranged/rifle/rifle_bowcaster.iff" },
+	startingSkills = { "species_wookiee", "social_language_basic_comprehend", "social_language_wookiee_comprehend", "social_language_wookiee_speak" }
 }
 
 ObjectTemplates:addTemplate(object_creature_player_wookiee_female, "object/creature/player/wookiee_female.iff")
